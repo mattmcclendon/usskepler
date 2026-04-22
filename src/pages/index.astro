@@ -1,17 +1,46 @@
 ---
-
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>USS Kepler</title>
+  </head>
+  <body>
+    <main>
+      <img src="/kepler-cover-photo.png" alt="USS Kepler | A Star Trek™ Fan Group" />
+    </main>
+  </body>
 </html>
+
+<style>
+  :global(html),
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #000;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #000;
+  }
+
+  img {
+    display: block;
+    margin-top: 30vh;
+    max-width: min(1100px, 92vw);
+    width: 100%;
+    height: auto;
+  }
+</style>
