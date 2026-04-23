@@ -2,6 +2,9 @@
 const title = "U.S.S. KEPLER";
 const subtitle = "A STAR TREK™ FAN GROUP";
 const contact = "info@usskepler.org";
+const titleSize = "4rem";
+const subtitleSize = "2rem";
+const contactSize = "1.5rem";
 ---
 
 <html lang="en">
@@ -18,29 +21,29 @@ const contact = "info@usskepler.org";
 
   <body>
     <main class="hero">
-      <!-- Background planet -->
-      <img
-        src="/kepler-bg-planet.png"
-        alt="Planet horizon in space"
-        class="hero-bg"
-      />
-
-      <!-- Overlay content -->
-      <div class="hero-overlay">
+      <div class="hero-stage">
         <img
-          src="/kepler-combadge.png"
-          alt="USS Kepler insignia"
-          class="hero-badge"
+          src="/kepler-bg-planet.png"
+          alt="Planet horizon in space"
+          class="hero-bg"
         />
 
-        <h1>{title}</h1>
-        <p class="subtitle">{subtitle}</p>
+        <div class="hero-overlay">
+          <img
+            src="/kepler-combadge.png"
+            alt="USS Kepler insignia"
+            class="hero-badge"
+          />
 
-        <div class="contact-gap"></div>
+          <h1 style={`--title-size: ${titleSize};`}>{title}</h1>
+          <p class="subtitle" style={`--subtitle-size: ${subtitleSize};`}>
+            {subtitle}
+          </p>
 
-        <p class="contact">
-          <a href={`mailto:${contact}`}>{contact}</a>
-        </p>
+          <p class="contact" style={`--contact-size: ${contactSize};`}>
+            <a href={`mailto:${contact}`}>{contact}</a>
+          </p>
+        </div>
       </div>
     </main>
   </body>
@@ -61,10 +64,19 @@ const contact = "info@usskepler.org";
   }
 
   .hero {
-    position: relative;
     min-height: 100vh;
-    overflow: hidden;
+    display: grid;
+    place-items: center;
     background: #000;
+    overflow: hidden;
+  }
+
+  .hero-stage {
+    position: relative;
+    width: min(100vw, calc(100vh * 1.7777778));
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
   }
 
   .hero-bg {
@@ -74,59 +86,65 @@ const contact = "info@usskepler.org";
     height: 100%;
     object-fit: cover;
     object-position: center center;
+    transform: scale(1.005);
   }
 
   .hero-overlay {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -8%);
+    inset: 0;
     z-index: 2;
-
-    width: min(92vw, 1200px);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
     color: #ffffff;
+    text-align: center;
   }
 
   .hero-badge {
-    width: clamp(72px, 9vw, 150px);
+    position: absolute;
+    left: 50%;
+    top: 41.8%;
+    transform: translate(-50%, -50%);
+    width: clamp(88px, 7.25vw, 128px);
     height: auto;
-    margin-bottom: 1.25rem;
   }
 
   h1 {
+    position: absolute;
+    left: 50%;
+    top: 59.8%;
+    transform: translate(-50%, -50%);
     margin: 0;
+    width: 100%;
     font-family: "Orbitron", sans-serif;
-    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-size: clamp(2.3rem, 3.6vw, var(--title-size));
     line-height: 0.95;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
   .subtitle {
-    margin: 1rem 0 0 0;
+    position: absolute;
+    left: 50%;
+    top: 71.1%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 100%;
     font-family: "Orbitron", sans-serif;
-    font-size: clamp(1rem, 2.25vw, 2rem);
-    line-height: 1.1;
+    font-size: clamp(1rem, 1.8vw, var(--subtitle-size));
+    line-height: 1;
     font-weight: 500;
     letter-spacing: 0.11em;
     text-transform: uppercase;
   }
 
-  .contact-gap {
-    height: clamp(1.5rem, 4vw, 3rem);
-  }
-
   .contact {
+    position: absolute;
+    left: 50%;
+    top: 86.5%;
+    transform: translate(-50%, -50%);
     margin: 0;
+    width: 100%;
     font-family: "Inter", sans-serif;
-    font-size: clamp(0.95rem, 1.8vw, 1.5rem);
+    font-size: clamp(0.95rem, 1.3vw, var(--contact-size));
     line-height: 1;
     font-weight: 400;
     letter-spacing: 0.08em;
@@ -141,9 +159,45 @@ const contact = "info@usskepler.org";
     opacity: 0.85;
   }
 
-  @media (max-width: 640px) {
-    .hero-overlay {
-      transform: translate(-50%, -4%);
+  @media (max-width: 900px) {
+    .hero-stage {
+      width: 100vw;
+      height: 100vh;
+      aspect-ratio: auto;
+    }
+
+    .hero-bg {
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.08);
+    }
+
+    .hero-badge {
+      top: 41%;
+      width: clamp(84px, 18vw, 132px);
+    }
+
+    h1 {
+      top: 57.5%;
+      font-size: clamp(2rem, 8vw, 3.1rem);
+      letter-spacing: 0.12em;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .subtitle {
+      top: 66.5%;
+      font-size: clamp(0.95rem, 3.6vw, 1.5rem);
+      letter-spacing: 0.09em;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .contact {
+      top: 79.5%;
+      font-size: clamp(0.9rem, 3.2vw, 1.15rem);
+      padding: 0 1rem;
+      box-sizing: border-box;
     }
   }
 </style>
