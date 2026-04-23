@@ -1,4 +1,7 @@
 ---
+const title = "U.S.S. KEPLER";
+const subtitle = "A STAR TREK™ FAN GROUP";
+const contact = "info@usskepler.org";
 ---
 
 <html lang="en">
@@ -6,10 +9,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>USS Kepler</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
   </head>
+
   <body>
-    <main>
-      <img src="/kepler-cover-photo.png" alt="USS Kepler | A Star Trek™ Fan Group" />
+    <main class="hero">
+      <!-- Background planet -->
+      <img
+        src="/kepler-bg-planet.jpeg"
+        alt="Planet horizon in space"
+        class="hero-bg"
+      />
+
+      <!-- Overlay content -->
+      <div class="hero-overlay">
+        <img
+          src="/kepler-combadge.png"
+          alt="USS Kepler insignia"
+          class="hero-badge"
+        />
+
+        <h1>{title}</h1>
+        <p class="subtitle">{subtitle}</p>
+
+        <div class="contact-gap"></div>
+
+        <p class="contact">
+          <a href={`mailto:${contact}`}>{contact}</a>
+        </p>
+      </div>
     </main>
   </body>
 </html>
@@ -19,28 +51,99 @@
   :global(body) {
     margin: 0;
     padding: 0;
+    background: #000;
     width: 100%;
     min-height: 100%;
-    background: #000;
   }
 
   body {
     min-height: 100vh;
   }
 
-  main {
+  .hero {
+    position: relative;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    overflow: hidden;
     background: #000;
   }
 
-  img {
-    display: block;
-    margin-top: 20vh;
-    max-width: min(1100px, 92vw);
+  .hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -8%);
+    z-index: 2;
+
+    width: min(92vw, 1200px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+  }
+
+  .hero-badge {
+    width: clamp(72px, 9vw, 150px);
     height: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 0.95;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    margin: 1rem 0 0 0;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(1rem, 2.25vw, 2rem);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .contact-gap {
+    height: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .contact {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.5rem);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+  }
+
+  .contact a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .contact a:hover {
+    opacity: 0.85;
+  }
+
+  @media (max-width: 640px) {
+    .hero-overlay {
+      transform: translate(-50%, -4%);
+    }
   }
 </style>
