@@ -34,6 +34,11 @@ const contactSize = "1.25rem";
             alt="USS Kepler insignia"
             class="hero-badge"
           />
+          <img
+            src="/kepler-ship.png"
+            alt="U.S.S. Kepler starship"
+            class="hero-ship"
+          />
 
           <h1 style={`--title-size: ${titleSize};`}>{title}</h1>
           <p class="subtitle" style={`--subtitle-size: ${subtitleSize};`}>
@@ -118,6 +123,19 @@ const contactSize = "1.25rem";
     height: auto;
   }
 
+  .hero-ship {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    width: clamp(520px, 58vw, 980px);
+    height: auto;
+    opacity: 0.78;
+    mix-blend-mode: screen;
+    filter: brightness(0.9) contrast(0.95) drop-shadow(0 0 28px rgba(120, 190, 255, 0.22));
+    pointer-events: none;
+  }
+
   h1 {
     position: absolute;
     left: 50%;
@@ -187,6 +205,11 @@ const contactSize = "1.25rem";
     .hero-badge {
       top: 41%;
       width: clamp(70px, 16vw, 110px);
+    }
+    .hero-ship {
+      top: 52%;
+      width: clamp(420px, 110vw, 760px);
+      opacity: 0.66;
     }
 
     h1 {
