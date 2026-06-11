@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/publicationLayout.astro
-title: settlement-continuum
+title: Settlement Continuum
 pubTitle: The Settlement Continuum
 subtitle: A framework for understanding community development, resilience, and institutional partnership across Federation space
 recordType: Development Framework

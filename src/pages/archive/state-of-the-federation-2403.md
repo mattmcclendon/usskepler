@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/publicationLayout.astro
-title: state-of-the-federation-2403
+title: 2402 Cohesion Review
 pubTitle: 2402 Cohesion Review
 subtitle: An historical assessment of the Federation Renaissance and the post-Frontier Day era
 recordType: Strategic Assessment

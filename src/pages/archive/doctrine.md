@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/publicationLayout.astro
-title: doctrine
+title: Kepler Doctrine
 pubTitle: The Kepler Doctrine
 subtitle: The operating philosophy of USS Kepler and the Frontier Initiative
 recordType: Foundational Doctrine

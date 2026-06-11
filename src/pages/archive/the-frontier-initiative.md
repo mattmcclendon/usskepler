@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/publicationLayout.astro
-title: the-frontier-initiative
+title: The Frontier Initiative
 pubTitle: The Frontier Initiative
 subtitle: A strategic framework for distributed capability, settlement resilience, and Federation renewal
 recordType: Strategic Directive
