@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const crewCards = [
+  {
+    label: "COMMAND\nSTAFF",
+    title: "Senior Officers",
+    body: "Command, operations, sciences, medical, and engineering leadership assigned to USS Kepler.",
+    href: "/archive/command-staff",
+  },
+  {
+    label: "DEPARTMENT\nSTRUCTURE",
+    title: "Ship Departments",
+    body: "How Kepler organizes command, sciences, operations, engineering, medical, civic affairs, and cultural affairs.",
+    href: "/archive/departments",
+  },
+  {
+    label: "PERSONNEL\nRECORDS",
+    title: "Crew Directory",
+    body: "An indexed roster of officers, specialists, civilian advisors, and field personnel serving aboard Kepler.",
+    href: "/archive/crew-directory",
+  },
+];
+
+const railItems = [
+  ["Section", "Crew"],
+  ["Vessel", "USS Kepler NCC-83639"],
+  ["Primary Departments", "Command / Sciences / Operations"],
+  ["Civilian Liaison", "Frontier Initiative"],
+  ["Archive Status", "Pending Roster"],
+];
+---
+
+<Layout title="Crew" current="crew">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Section Overview</p>
+      <h1>Crew</h1>
+      <p class="dek">
+        The officers, specialists, and civilian partners assigned to USS Kepler.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block">
+          <h2>Overview</h2>
+          <p>
+            Kepler’s crew reflects the ship’s unusual assignment. Alongside the
+            standard command, sciences, operations, engineering, and medical
+            departments, the vessel carries specialists in civic systems,
+            cultural affairs, infrastructure coordination, and Federation
+            institutional access.
+          </p>
+        </section>
+
+        <section class="crew-grid">
+          {crewCards.map((card) => (
+            <a class="crew-card" href={card.href}>
+              <p class="card-label">{card.label}</p>
+              <h2>{card.title}</h2>
+              <p>{card.body}</p>
+              <span class="card-action">Open Record</span>
+            </a>
+          ))}
+        </section>
+
+        <section class="prose-block section-note">
+          <h2>Personnel Premise</h2>
+          <p>
+            Kepler is not only crewed for exploration or defense. It is crewed
+            for continuity: the patient work of helping worlds understand,
+            access, and shape the Federation they belong to.
+          </p>
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card">
+          <p class="rail-kicker">Crew Record</p>
+          <h2>USS Kepler</h2>
+          <p>
+            The Crew section documents the people and departments responsible for
+            carrying out Kepler’s Frontier Initiative mandate.
+          </p>
+        </section>
+
+        <section class="rail-card metadata-card">
+          <h2>Archive Details</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section class="rail-card related-card">
+          <h2>Related Records</h2>
+          <ul>
+            <li><a href="/mission">Mission Framework</a></li>
+            <li><a href="/ship">Ship Profile</a></li>
+            <li><a href="/logs">Operational Logs</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>

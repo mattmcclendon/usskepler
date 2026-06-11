@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const railItems = [
+  ["Page Type", "Legal / Disclaimer"],
+  ["Project Type", "Independent Fan Project"],
+  ["Commercial Status", "Non-commercial"],
+  ["Continuity", "Unofficial"],
+  ["Last Updated", "2026"],
+];
+---
+
+<Layout title="Disclaimer">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Project Information</p>
+      <h1>Disclaimer</h1>
+      <p class="dek">
+        USS Kepler is an independent, non-commercial Star Trek fan project and is not affiliated with, endorsed by, or sponsored by Paramount or any official Star Trek rights holder.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block">
+          <h2>Fan Project Notice</h2>
+          <p>
+            USS Kepler is an unofficial Star Trek fan project created for creative,
+            educational, and non-commercial purposes. It is presented as a fictional
+            in-universe archive documenting the operations, doctrine, and civic
+            mission of the USS Kepler.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Star Trek Intellectual Property</h2>
+          <p>
+            Star Trek and all related names, characters, species, organizations,
+            vessels, designs, logos, marks, and associated intellectual property
+            are the property of their respective owners. This site makes no claim
+            of ownership over Star Trek or any official Star Trek intellectual
+            property.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Original Content</h2>
+          <p>
+            Original writing, fictional documentation, site structure, and USS
+            Kepler-specific materials are created as transformative fan work. Any
+            original material on this site should not be understood as official
+            Star Trek canon.
+          </p>
+        </section>
+
+        <section class="prose-block section-note">
+          <h2>Archive Principle</h2>
+          <p>
+            This site exists as a creative exploration of Star Trek’s civic,
+            institutional, and speculative possibilities. It is a fan archive,
+            not an official reference source.
+          </p>
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card">
+          <p class="rail-kicker">Legal Record</p>
+          <h2>Disclaimer</h2>
+          <p>
+            This page clarifies the unofficial and non-commercial nature of the
+            USS Kepler project.
+          </p>
+        </section>
+
+        <section class="rail-card metadata-card">
+          <h2>Page Details</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>

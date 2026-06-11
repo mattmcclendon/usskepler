@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const railItems = [
+  ["Registry", "NCC-83639"],
+  ["Class", "Sagan-class"],
+  ["Commissioned", "2403"],
+  ["Assignment", "Frontier Initiative"],
+  ["Archive Status", "Active"],
+];
+---
+
+<Layout title="About the Project">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Project Information</p>
+      <h1>About the Project</h1>
+      <p class="dek">
+        USS Kepler is an independent Star Trek fan archive exploring service,
+        citizenship, belonging, and the institutions that connect worlds.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block">
+          <h2>What Is USS Kepler?</h2>
+          <p>
+            USS Kepler is a fictional Memory Alpha style archive documenting
+            the operations of a Sagan-class starship during the early 25th
+            century. Presented as a living historical repository, the project
+            combines doctrine papers, mission records, personnel files,
+            captain's logs, and archival analysis into a single narrative
+            record.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Why This Project Exists</h2>
+          <p>
+            USS Kepler began with a problem. For years, Amid the Noise served as
+            a home for essays about systems, institutions, technology, recovery,
+            public life, and the ways people experience the structures around
+            them. Over time, however, some of the questions that interested me
+            most became difficult to explore through essays alone.
+          </p>
+          <p>
+            What does belonging look like at an interstellar scale? How does a
+            society remain connected across hundreds of worlds? What happens
+            after a civilization solves many of the problems that dominate
+            contemporary life?
+          </p>
+          <p>
+            Those questions were not asking for another essay. They were asking
+            for a setting.
+          </p>
+          <p>
+            USS Kepler became that setting. Rather than building a traditional
+            fan fiction project, I wanted to create something that felt like an
+            archive: a place where mission reports, doctrine papers, personnel
+            files, captain's logs, and historical records could accumulate into
+            a larger picture of how a future Federation might actually function.
+          </p>
+          <p>
+            If Amid the Noise asks what our institutions are, USS Kepler asks
+            what they might become.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Relationship to Amid the Noise</h2>
+          <p>
+            USS Kepler is a companion project to Amid the Noise. While Amid the
+            Noise focuses on essays, research, memoir, and civic observation,
+            USS Kepler explores many of the same themes through speculative
+            worldbuilding set within the Star Trek universe.
+          </p>
+          <p>
+            The two projects share many of the same questions. Amid the Noise
+            examines the present. USS Kepler explores what those same ideas
+            might look like in a future that has survived long enough to become
+            something more.
+          </p>
+        </section>
+
+        <section class="prose-block section-note">
+          <h2>Core Premise</h2>
+          <p>
+            The frontier is not only a place beyond the map. It is wherever
+            distance begins to erode participation, trust, or belonging.
+          </p>
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card">
+          <p class="rail-kicker">Project Premise</p>
+          <h2>USS Kepler</h2>
+          <p>
+            The frontier is wherever distance begins to erode participation,
+            trust, or belonging.
+          </p>
+        </section>
+
+        <section class="rail-card metadata-card">
+          <h2>Archive Reference</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>

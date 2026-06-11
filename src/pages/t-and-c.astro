@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const railItems = [
+  ["Page Type", "Terms & Conditions"],
+  ["Project Type", "Independent Fan Project"],
+  ["Commercial Status", "Non-commercial"],
+  ["Use", "Personal / Informational"],
+  ["Last Updated", "2026"],
+];
+---
+
+<Layout title="Terms & Conditions">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Project Information</p>
+      <h1>Terms & Conditions</h1>
+      <p class="dek">
+        Basic terms for accessing and using USS Kepler as an independent, non-commercial Star Trek fan archive.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block">
+          <h2>Use of This Site</h2>
+          <p>
+            USS Kepler is provided for personal, creative, informational, and
+            non-commercial use. By accessing the site, visitors agree to use it
+            respectfully and not to represent its contents as official Star Trek
+            material, official canon, or an authorized publication.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Fan Work</h2>
+          <p>
+            The site contains fictional documents, speculative worldbuilding,
+            mission records, logs, and other creative materials produced as an
+            unofficial fan project. These materials are intended as transformative
+            creative work within a fan context.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>External Rights</h2>
+          <p>
+            Star Trek and all related names, characters, designs, marks, and
+            associated intellectual property remain the property of their
+            respective owners. Nothing on this site grants permission to use any
+            official Star Trek intellectual property outside the bounds of
+            applicable law and fan-use norms.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Original Materials</h2>
+          <p>
+            Original writing, fictional documentation, site organization, and
+            USS Kepler-specific material may not be copied, republished, sold,
+            or presented as someone else’s work without permission, except where
+            fair use or ordinary linking applies.
+          </p>
+        </section>
+
+        <section class="prose-block section-note">
+          <h2>Plain Language Summary</h2>
+          <p>
+            Read, enjoy, link, and share responsibly. Do not treat USS Kepler as
+            official Star Trek canon, do not commercialize the work, and do not
+            claim original project materials as your own.
+          </p>
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card">
+          <p class="rail-kicker">Legal Record</p>
+          <h2>Terms</h2>
+          <p>
+            This page describes basic site-use expectations for visitors to USS Kepler.
+          </p>
+        </section>
+
+        <section class="rail-card metadata-card">
+          <h2>Page Details</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>

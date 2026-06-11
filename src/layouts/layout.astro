@@ -1,0 +1,819 @@
+---
+interface Props {
+  title?: string;
+  current?: "mission" | "ship" | "crew" | "logs" | "archive" | "search";
+  description?: string;
+}
+
+const {
+  title = "USS Kepler",
+  current,
+  description = "USS Kepler is an independent Star Trek fan project documenting the fictional operations, doctrine, and civic mission of USS Kepler.",
+} = Astro.props;
+
+const pageTitle = title === "USS Kepler" ? title : `${title} | USS Kepler`;
+
+const navItems = [
+  { label: "Mission", href: "/mission", key: "mission" },
+  { label: "Ship", href: "/ship", key: "ship" },
+  { label: "Crew", href: "/crew", key: "crew" },
+  { label: "Logs", href: "/logs", key: "logs" },
+  { label: "Archive", href: "/archive", key: "archive" },
+] as const;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <aside class="side-rail" aria-label="Stardate marker">
+        <span class="rail-text" id="stardate">STARDATE 80438.356 ・ 2403-JUN-10</span>
+      </aside>
+
+      <header class="site-header">
+        <div class="brand-block">
+          <a class="brand" href="/" aria-label="USS Kepler home">
+            <span class="brand-line">
+              <span class="brand-name">USS KEPLER</span>
+              <span class="registry">NCC-83639</span>
+            </span>
+            <span class="affiliation">Memory Alpha Cultural & Scientific Archive</span>
+          </a>
+        </div>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+          {navItems.map((item) => (
+            <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="/search"
+            class="search-link"
+            aria-label="Search"
+            aria-current={current === "search" ? "page" : undefined}
+          >
+            <span class="search-icon" aria-hidden="true"></span>
+          </a>
+        </nav>
+      </header>
+
+      <slot />
+
+      <footer class="site-footer">
+        <img
+          src="/ufp-footer.png"
+          alt="United Federation of Planets emblem"
+          class="footer-emblem"
+        />
+        <p>
+          USS Kepler is maintained as an independent, non-commercial Star Trek fan project.
+        </p>
+        <nav aria-label="Footer navigation">
+          <a href="/about-the-project">About the Project</a>
+          <a href="/disclaimer">Disclaimer</a>
+          <a href="/t-and-c">Terms & Conditions</a>
+          <a href="/legal">Legal Usage</a>
+        </nav>
+        <p class="legal">
+          Star Trek and all related names, characters, designs, marks, and
+          associated intellectual property are the property of their respective
+          owners. Original content published on this site is © 2026 Matthew
+          McClendon unless otherwise noted.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      const stardateEpochYear = 2323;
+      const displayYear = 2403;
+      const monthNames = [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC",
+      ];
+
+      function pad(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function getDisplayDate(now) {
+        const month = monthNames[now.getMonth()];
+        const day = now.getDate();
+        return `${displayYear}-${month}-${pad(day)}`;
+      }
+
+      function getStardate(now) {
+        const stardateYear = displayYear;
+        const startOfTerraYear = new Date(now);
+        startOfTerraYear.setFullYear(now.getFullYear(), 0, 1);
+        startOfTerraYear.setHours(0, 0, 0, 0);
+
+        const startOfNextTerraYear = new Date(startOfTerraYear);
+        startOfNextTerraYear.setFullYear(startOfTerraYear.getFullYear() + 1);
+
+        const elapsed = now.getTime() - startOfTerraYear.getTime();
+        const terraYearLength = startOfNextTerraYear.getTime() - startOfTerraYear.getTime();
+        const yearProgress = elapsed / terraYearLength;
+
+        return (stardateYear - stardateEpochYear) * 1000 + yearProgress * 1000;
+      }
+
+      function updateStardate() {
+        const now = new Date();
+        const stardate = getStardate(now);
+        const displayDate = getDisplayDate(now);
+        const element = document.getElementById("stardate");
+
+        if (element) {
+          element.textContent = `STARDATE ${stardate.toFixed(3)} ・ ${displayDate}`;
+        }
+      }
+
+      updateStardate();
+      setInterval(updateStardate, 1000);
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: #0b1116;
+    color: #111111;
+  }
+
+  :root {
+    --paper: #f4efe4;
+    --paper-deep: #e5ddce;
+    --ink: #111111;
+    --muted: #6d665c;
+    --space: #080d12;
+    --command: #a71313;
+    --operations: #d6a444;
+    --sciences: #2b53a7;
+    --line: rgba(17, 17, 17, 0.16);
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .page-shell {
+    position: relative;
+    min-height: 100vh;
+    padding-left: 48px;
+    background: var(--paper);
+  }
+
+  .side-rail {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 20;
+    width: 48px;
+    background: #101820;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .rail-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    white-space: nowrap;
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(2rem, 5vw, 5.5rem);
+    align-items: center;
+    min-height: 92px;
+    padding: 1.35rem 3.2vw 0.95rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    font-family: "Orbitron", sans-serif;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .brand-line {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .brand-name {
+    display: block;
+    font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
+  }
+
+  .registry {
+    display: block;
+    font-size: clamp(0.8rem, 1.10vw, 1.10rem);
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
+  }
+
+  .affiliation {
+    display: block;
+    margin-top: 5px;
+    font-family: "Crimson Text", serif;
+    font-size: clamp(0.88rem, 1.05vw, 1.05rem);
+    font-style: italic;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: clamp(1.2rem, 3vw, 3.2rem);
+    justify-content: end;
+    align-items: center;
+    padding-bottom: 0.15rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.86rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .main-nav a {
+    position: relative;
+    padding-bottom: 1.1rem;
+  }
+
+  .main-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    pointer-events: none;
+    content: "";
+    background: var(--operations);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:nth-child(1)::after,
+  .main-nav a:nth-child(4)::after {
+    background: var(--command);
+  }
+
+  .main-nav a:nth-child(2)::after,
+  .main-nav a:nth-child(5)::after {
+    background: var(--sciences);
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .search-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    padding-bottom: 1.1rem;
+  }
+
+  .search-link::after {
+    bottom: -1.1rem;
+  }
+
+  .search-icon {
+    display: block;
+    width: 1.05rem;
+    height: 1.05rem;
+    background: currentColor;
+    mask: url("/search.svg") center / contain no-repeat;
+    -webkit-mask: url("/search.svg") center / contain no-repeat;
+  }
+
+  .site-footer {
+    display: grid;
+    grid-template-columns: 72px minmax(260px, 1fr) minmax(280px, 0.8fr);
+    grid-template-areas:
+      "emblem summary legal"
+      "emblem nav legal";
+    gap: 0.85rem 2.4rem;
+    align-items: center;
+    padding: 2.1rem 3.2vw;
+    background: #101820;
+    min-height: 132px;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .footer-emblem {
+    grid-area: emblem;
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    opacity: 0.82;
+  }
+
+  .site-footer p {
+    grid-area: summary;
+    max-width: 520px;
+    margin: 0;
+    font-family: "Crimson Text", serif;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .site-footer nav {
+    grid-area: nav;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.2rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .site-footer .legal {
+    grid-area: legal;
+    justify-self: end;
+    max-width: 480px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.66);
+  }
+
+  .interior-shell {
+    padding: 3rem 3.2vw 4rem;
+  }
+
+  .page-hero {
+    max-width: 820px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eyebrow,
+  .rail-kicker {
+    margin: 0 0 1.1rem;
+    color: var(--command);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .interior-shell h1 {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1.85rem, 3vw, 3.1rem);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .dek {
+    max-width: 680px;
+    margin: 1rem 0 0;
+    font-family: "Crimson Text", serif;
+    font-size: clamp(1.2rem, 1.45vw, 1.45rem);
+    line-height: 1.34;
+  }
+
+  .content-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 780px) minmax(260px, 340px);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .main-content {
+    min-width: 0;
+  }
+
+  .prose-block + .prose-block,
+  .prose-block + .section-note,
+  .section-note + .prose-block,
+  .section-grid + .prose-block,
+  .mission-grid + .prose-block,
+  .ship-grid + .prose-block,
+  .crew-grid + .prose-block,
+  .logs-grid + .prose-block,
+  .archive-grid + .prose-block {
+    margin-top: 2rem;
+  }
+
+  .prose-block p,
+  .rail-card p,
+  .metadata-card dd,
+  .related-card a {
+    font-family: "Crimson Text", serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .prose-block p,
+  .rail-card p {
+    margin: 0;
+  }
+
+  .prose-block p + p {
+    margin-top: 1rem;
+  }
+
+  .prose-block h2,
+  .rail-card h2 {
+    margin: 0 0 0.8rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-note {
+    margin-top: 2rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--paper-deep);
+    border-left: 4px solid var(--command);
+  }
+
+  .context-rail {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .rail-card {
+    padding: 1rem;
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+  }
+
+  .metadata-card dl {
+    margin: 0;
+  }
+
+  .metadata-card div {
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .metadata-card div:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .metadata-card dt {
+    margin-bottom: 0.28rem;
+    color: var(--command);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .metadata-card dd {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .related-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .related-card li + li {
+    border-top: 1px solid var(--line);
+  }
+
+  .related-card a {
+    display: block;
+    padding: 0.72rem 0;
+    font-size: 1rem;
+  }
+
+  .section-grid,
+  .mission-grid,
+  .ship-grid,
+  .crew-grid,
+  .logs-grid,
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .section-card,
+  .mission-card,
+  .ship-card,
+  .crew-card,
+  .logs-card,
+  .archive-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--operations);
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .section-card:hover,
+  .mission-card:hover,
+  .ship-card:hover,
+  .crew-card:hover,
+  .logs-card:hover,
+  .archive-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.42);
+  }
+
+  .section-grid > :nth-child(3n + 1),
+  .mission-grid > :nth-child(3n + 1),
+  .ship-grid > :nth-child(3n + 1),
+  .crew-grid > :nth-child(3n + 1),
+  .logs-grid > :nth-child(3n + 1),
+  .archive-grid > :nth-child(3n + 1) {
+    border-left-color: var(--command);
+  }
+
+  .section-grid > :nth-child(3n + 2),
+  .mission-grid > :nth-child(3n + 2),
+  .ship-grid > :nth-child(3n + 2),
+  .crew-grid > :nth-child(3n + 2),
+  .logs-grid > :nth-child(3n + 2),
+  .archive-grid > :nth-child(3n + 2) {
+    border-left-color: var(--operations);
+  }
+
+  .section-grid > :nth-child(3n),
+  .mission-grid > :nth-child(3n),
+  .ship-grid > :nth-child(3n),
+  .crew-grid > :nth-child(3n),
+  .logs-grid > :nth-child(3n),
+  .archive-grid > :nth-child(3n) {
+    border-left-color: var(--sciences);
+  }
+
+  .card-label {
+    min-height: 2.2em !important;
+    margin: 0 0 1.25rem !important;
+    color: var(--operations);
+    font-family: "Inter", sans-serif !important;
+    font-size: 0.62rem !important;
+    font-weight: 700 !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    white-space: pre-line !important;
+  }
+
+  .section-grid > :nth-child(3n + 1) .card-label,
+  .mission-grid > :nth-child(3n + 1) .card-label,
+  .ship-grid > :nth-child(3n + 1) .card-label,
+  .crew-grid > :nth-child(3n + 1) .card-label,
+  .logs-grid > :nth-child(3n + 1) .card-label,
+  .archive-grid > :nth-child(3n + 1) .card-label {
+    color: var(--command);
+  }
+
+  .section-grid > :nth-child(3n + 2) .card-label,
+  .mission-grid > :nth-child(3n + 2) .card-label,
+  .ship-grid > :nth-child(3n + 2) .card-label,
+  .crew-grid > :nth-child(3n + 2) .card-label,
+  .logs-grid > :nth-child(3n + 2) .card-label,
+  .archive-grid > :nth-child(3n + 2) .card-label {
+    color: var(--operations);
+  }
+
+  .section-grid > :nth-child(3n) .card-label,
+  .mission-grid > :nth-child(3n) .card-label,
+  .ship-grid > :nth-child(3n) .card-label,
+  .crew-grid > :nth-child(3n) .card-label,
+  .logs-grid > :nth-child(3n) .card-label,
+  .archive-grid > :nth-child(3n) .card-label {
+    color: var(--sciences);
+  }
+
+  .section-card h2,
+  .mission-card h2,
+  .ship-card h2,
+  .crew-card h2,
+  .logs-card h2,
+  .archive-card h2 {
+    margin: 0 0 0.8rem !important;
+    color: var(--ink) !important;
+    font-family: "Inter", sans-serif !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+  }
+
+  .section-card p:not(.card-label),
+  .mission-card p:not(.card-label),
+  .ship-card p:not(.card-label),
+  .crew-card p:not(.card-label),
+  .logs-card p:not(.card-label),
+  .archive-card p:not(.card-label) {
+    margin: 0 !important;
+    color: #191714 !important;
+    font-family: "Crimson Text", serif !important;
+    font-size: 1.02rem !important;
+    line-height: 1.36 !important;
+  }
+
+  .card-action {
+    margin-top: auto;
+    padding-top: 1.1rem;
+    color: var(--operations);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .section-grid > :nth-child(3n + 1) .card-action,
+  .mission-grid > :nth-child(3n + 1) .card-action,
+  .ship-grid > :nth-child(3n + 1) .card-action,
+  .crew-grid > :nth-child(3n + 1) .card-action,
+  .logs-grid > :nth-child(3n + 1) .card-action,
+  .archive-grid > :nth-child(3n + 1) .card-action {
+    color: var(--command) !important;
+  }
+
+  .section-grid > :nth-child(3n + 2) .card-action,
+  .mission-grid > :nth-child(3n + 2) .card-action,
+  .ship-grid > :nth-child(3n + 2) .card-action,
+  .crew-grid > :nth-child(3n + 2) .card-action,
+  .logs-grid > :nth-child(3n + 2) .card-action,
+  .archive-grid > :nth-child(3n + 2) .card-action {
+    color: var(--operations) !important;
+  }
+
+  .section-grid > :nth-child(3n) .card-action,
+  .mission-grid > :nth-child(3n) .card-action,
+  .ship-grid > :nth-child(3n) .card-action,
+  .crew-grid > :nth-child(3n) .card-action,
+  .logs-grid > :nth-child(3n) .card-action,
+  .archive-grid > :nth-child(3n) .card-action {
+    color: var(--sciences) !important;
+  }
+
+  @media (max-width: 1180px) {
+    .site-header {
+      position: relative;
+      z-index: 4;
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .main-nav {
+      flex-wrap: wrap;
+      justify-content: start;
+    }
+
+    .site-footer {
+      grid-template-columns: 56px 1fr;
+      grid-template-areas:
+        "emblem summary"
+        "emblem nav"
+        "legal legal";
+    }
+
+    .site-footer .legal {
+      justify-self: start;
+      max-width: 720px;
+    }
+
+    .content-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .section-grid,
+    .mission-grid,
+    .ship-grid,
+    .crew-grid,
+    .logs-grid,
+    .archive-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .page-shell {
+      padding-left: 0;
+    }
+
+    .side-rail {
+      display: none;
+    }
+
+    .site-header {
+      min-height: auto;
+      padding: 1.4rem 1rem 1rem;
+    }
+
+    .brand-name {
+      font-size: 1.35rem;
+    }
+
+    .registry {
+      font-size: 0.85rem;
+    }
+
+    .main-nav {
+      gap: 0.9rem 1.1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+    }
+
+    .main-nav a,
+    .search-link {
+      padding-bottom: 0.45rem;
+    }
+
+    .interior-shell {
+      padding: 2.4rem 1rem 3rem;
+    }
+
+    .interior-shell h1 {
+      font-size: clamp(1.65rem, 9vw, 2.55rem);
+      line-height: 1.12;
+    }
+
+    .site-footer {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "emblem"
+        "summary"
+        "nav"
+        "legal";
+      padding: 1.6rem 1rem;
+    }
+
+    .site-footer .legal {
+      justify-self: start;
+    }
+  }
+</style>

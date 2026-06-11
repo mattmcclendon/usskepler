@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const missionCards = [
+  {
+    label: "FOUNDATIONAL\nDOCUMENT",
+    title: "Frontier Initiative",
+    body:
+      "The Federation program that frames Kepler’s civic support mandate and explains why presence matters after Frontier Day.",
+    href: "/archive/frontier-initiative",
+  },
+  {
+    label: "MISSION\nDOCTRINE",
+    title: "USS Kepler Doctrine",
+    body:
+      "The operating principles that define support, listening, local agency, and institutional accountability aboard Kepler.",
+    href: "/archive/kepler-doctrine",
+  },
+  {
+    label: "CIVIC\nFRAMEWORK",
+    title: "Settlement Continuum",
+    body:
+      "A working model for understanding the different needs of core worlds, member worlds, settlements, and frontier communities.",
+    href: "/archive/settlement-continuum",
+  },
+];
+
+const railItems = [
+  ["Section", "Mission"],
+  ["Focus", "Frontier Initiative"],
+  ["Vessel", "USS Kepler NCC-83639"],
+  ["Function", "Civic Support"],
+  ["Archive Status", "Active"],
+];
+---
+
+<Layout title="Mission" current="mission">
+  <main class="interior-shell">
+    <section class="page-hero" aria-labelledby="page-title">
+      <p class="eyebrow">Section Overview</p>
+      <h1 id="page-title">Mission</h1>
+      <p class="dek">
+        The Frontier Initiative and USS Kepler’s civic support mandate.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block">
+          <h2>Purpose</h2>
+          <p>
+            USS Kepler serves as a Frontier Initiative platform: a Sagan-class
+            starship assigned to strengthen the relationship between Federation
+            institutions and the member worlds, settlements, and frontier
+            communities those institutions are meant to support.
+          </p>
+        </section>
+
+        <section class="mission-grid" aria-label="Mission principles">
+          {missionCards.map((card) => (
+            <a class="mission-card" href={card.href}>
+              <p class="card-label">{card.label}</p>
+              <h2>{card.title}</h2>
+              <p>{card.body}</p>
+              <span class="card-action">Open Record</span>
+            </a>
+          ))}
+        </section>
+
+        <section class="prose-block">
+          <h2>How to Use This Section</h2>
+          <p>
+            This page serves as the entry point for Kepler’s mission framework.
+            The deeper records linked above explain the doctrine, historical
+            context, and civic assumptions behind the ship’s work.
+          </p>
+        </section>
+
+        <section class="prose-block section-note">
+          <h2>Core Premise</h2>
+          <p>
+            The frontier is not only a place beyond the map. It is wherever
+            distance begins to erode participation, trust, or belonging.
+          </p>
+        </section>
+      </article>
+
+      <aside class="context-rail" aria-label="Mission metadata">
+        <section class="rail-card signature-card">
+          <p class="rail-kicker">Mission Record</p>
+          <h2>USS Kepler</h2>
+          <p>
+            Mission is the orientation layer for USS Kepler: what the ship is
+            trying to do, why the Frontier Initiative exists, and how the archive
+            organizes the doctrine behind that work.
+          </p>
+        </section>
+
+        <section class="rail-card metadata-card">
+          <h2>Archive Details</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section class="rail-card related-card">
+          <h2>Related Records</h2>
+          <ul>
+            <li><a href="/ship">Ship Profile</a></li>
+            <li><a href="/crew">Crew Directory</a></li>
+            <li><a href="/logs">Operational Logs</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>

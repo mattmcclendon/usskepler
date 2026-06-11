@@ -1,0 +1,109 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const shipCards = [
+  {
+    label: "VESSEL\nPROFILE",
+    title: "USS Kepler",
+    body: "Overview of the ship, mission assignment, and operational role within the Frontier Initiative.",
+    href: "/archive/uss-kepler",
+  },
+  {
+    label: "SAGAN\nCLASS",
+    title: "Class History",
+    body: "Background on the Sagan-class and the post-Dominion War philosophy that shaped its design.",
+    href: "/archive/sagan-class",
+  },
+  {
+    label: "SERVICE\nDOCTRINE",
+    title: "Distributed Presence",
+    body: "Why Starfleet shifted toward regional support, resilience, and dispersed operations after Frontier Day.",
+    href: "/archive/distributed-presence",
+  },
+];
+
+const railItems = [
+  ["Section", "Ship"],
+  ["Registry", "NCC-83639"],
+  ["Class", "Sagan-class"],
+  ["Assignment", "Frontier Initiative"],
+  ["Status", "Active"],
+];
+---
+
+<Layout title="Ship" current="ship">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Section Overview</p>
+      <h1>Ship</h1>
+      <p class="dek">
+        The vessel, systems, and operational philosophy of USS Kepler.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block">
+          <h2>Overview</h2>
+          <p>
+            USS Kepler is a Sagan-class starship assigned to the Frontier Initiative.
+            Designed during a period of reflection and reconstruction, the class
+            emphasizes scientific capability, operational flexibility, and sustained
+            support for Federation communities.
+          </p>
+        </section>
+
+        <section class="ship-grid">
+          {shipCards.map((card) => (
+            <a class="ship-card" href={card.href}>
+              <p class="card-label">{card.label}</p>
+              <h2>{card.title}</h2>
+              <p>{card.body}</p>
+              <span class="card-action">Open Record</span>
+            </a>
+          ))}
+        </section>
+
+        <section class="prose-block section-note">
+          <h2>Design Premise</h2>
+          <p>
+            Kepler is not a ship built to stand at the center of events. It is built
+            to ensure the Federation remains present between them.
+          </p>
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card">
+          <p class="rail-kicker">Ship Record</p>
+          <h2>USS Kepler</h2>
+          <p>
+            The Ship section documents the vessel itself, its class lineage,
+            mission profile, and operational history.
+          </p>
+        </section>
+
+        <section class="rail-card metadata-card">
+          <h2>Archive Details</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section class="rail-card related-card">
+          <h2>Related Records</h2>
+          <ul>
+            <li><a href="/mission">Mission Framework</a></li>
+            <li><a href="/crew">Crew Directory</a></li>
+            <li><a href="/logs">Operational Logs</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>
