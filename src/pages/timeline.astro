@@ -1,0 +1,389 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const eras = [
+  {
+    label: "Historical Context",
+    description:
+      "Foundational events that shaped the Federation before the Frontier Initiative era.",
+    events: [
+      {
+        date: "2063-APR-05",
+        title: "First Contact",
+        description:
+          "Zefram Cochrane's warp flight results in open contact between Humans and Vulcans. The event becomes a foundational moment in Federation history and is later commemorated as First Contact Day.",
+      },
+      {
+        date: "2161-AUG-12",
+        title: "United Federation of Planets Founded",
+        description:
+          "Earth, Vulcan, Andoria, and Tellar establish the United Federation of Planets, creating shared civic institutions across member worlds.",
+      },
+      {
+        date: "2387",
+        title: "Romulan Supernova",
+        description:
+          "The destruction of the Romulan homeworld destabilizes the Beta Quadrant and exposes significant limits in Federation evacuation capacity and interstellar crisis response.",
+      },
+      {
+        date: "2399",
+        title: "Synthetic Ban Lifted",
+        description:
+          "Federation policy regarding synthetic life is formally reversed, beginning a broader reassessment of post-Mars security doctrine and institutional trust.",
+      },
+    ],
+  },
+  {
+    label: "Post-Frontier Day Reconstruction",
+    description:
+      "The period immediately following the Frontier Day Crisis, when Starfleet began reassessing centralization, resilience, and fleet operations.",
+    events: [
+      {
+        date: "2401-APR-05",
+        title: "Frontier Day Crisis",
+        description:
+          "A coordinated Borg infiltration compromises Starfleet systems and results in severe losses across multiple vessels and installations.",
+      },
+      {
+        date: "2401-APR-18",
+        title: "Strategic Assessment Ordered",
+        description:
+          "Admiral Kathryn Janeway secures authorization for a comprehensive review of Federation resilience, regional support capacity, and settlement development programs.",
+      },
+      {
+        date: "2401-JUN-22",
+        title: "Frontier Initiative Working Group Established",
+        description:
+          "Starfleet Command convenes a multidisciplinary planning group under the direction of Commodore Tuvok.",
+      },
+      {
+        date: "2401-SEP-03",
+        title: "Keel Laid: USS Kepler",
+        description:
+          "Construction begins on USS Kepler, NCC-83639, at Deneb IV Fleet Yards. The vessel is configured for extended Frontier Initiative operations.",
+      },
+      {
+        date: "2401-OCT-13",
+        title: "Commanding Officer Assigned",
+        description:
+          "The future commanding officer of USS Kepler receives assignment orders and prepares to oversee final fitting and shakedown preparations.",
+        href: "/logs/commanding-officer/78782-306",
+        linkLabel: "Captain's Log 78782.306",
+      },
+    ],
+  },
+  {
+    label: "Framework Development",
+    description:
+      "Planning documents, operational frameworks, and personnel decisions that prepared Kepler for active service.",
+    events: [
+      {
+        date: "2402-JUL-19",
+        title: "Settlement Continuum Adopted",
+        description:
+          "The Federation Settlement Development Office publishes a standardized framework for evaluating community capability, resilience, and regional integration.",
+        href: "/archive/settlement-continuum",
+        linkLabel: "The Settlement Continuum",
+      },
+      {
+        date: "2402-AUG-04",
+        title: "Primary Systems Integration Complete",
+        description:
+          "USS Kepler enters final systems integration at Deneb IV Fleet Yards. Propulsion, power distribution, mission-adaptive fabrication systems, and support facilities proceed to certification testing.",
+      },
+      {
+        date: "2402-OCT-21",
+        title: "Senior Staff Selection Board Concludes",
+        description:
+          "Starfleet Command approves key command and departmental assignments for USS Kepler. Final personnel assignments continue through the following operational cycle.",
+      },
+    ],
+  },
+  {
+    label: "Frontier Initiative Era",
+    description:
+      "The formal transition from planning to operational deployment.",
+    events: [
+      {
+        date: "2403-JUN-10",
+        title: "State of the Federation Published",
+        description:
+          "The Historical Analysis Division releases a post-Frontier Day assessment of Federation cohesion, decentralization, institutional trust, and long-term renewal.",
+        href: "/archive/state-of-the-federation-2403",
+        linkLabel: "State of the Federation, 2403",
+      },
+      {
+        date: "2403-JUN-23",
+        title: "Frontier Initiative Directive Issued",
+        description:
+          "Commodore Tuvok publishes the operational framework governing Frontier Initiative deployments, settlement support priorities, and distributed capability development.",
+        href: "/archive/the-frontier-initiative",
+        linkLabel: "The Frontier Initiative",
+      },
+      {
+        date: "2403-JUL-03",
+        title: "Kepler Doctrine Filed",
+        description:
+          "Admiral Jean-Luc Picard files the operating doctrine later associated with USS Kepler and its Frontier Initiative deployment model.",
+        href: "/archive/doctrine",
+        linkLabel: "The Kepler Doctrine",
+      },
+      {
+        date: "2403-JUL-15",
+        title: "USS Kepler Commissioned",
+        description:
+          "USS Kepler formally enters Starfleet service as NCC-83639. The vessel is assigned to Frontier Initiative operations under Starfleet Command.",
+      },
+      {
+        date: "2403-JUL-28",
+        title: "Initial Operational Deployment",
+        description:
+          "USS Kepler departs the Deneb Sector for initial Frontier Initiative deployment. Mission priorities include settlement resilience assessment, regional infrastructure support, and long-duration civic partnership operations.",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Timeline | USS Kepler">
+  <main class="timeline-shell">
+    <section class="timeline-hero" aria-labelledby="timeline-title">
+      <p class="eyebrow">Archive Chronology</p>
+      <h1 id="timeline-title">Timeline</h1>
+      <p>
+        Selected events related to USS Kepler, the Frontier Initiative, and the
+        Federation Renaissance.
+      </p>
+    </section>
+
+    <section class="timeline-map" aria-label="USS Kepler timeline">
+      {eras.map((era) => (
+        <section class="timeline-era" aria-labelledby={`era-${era.label.toLowerCase().replaceAll(" ", "-")}`}>
+          <div class="era-marker">
+            <h2 id={`era-${era.label.toLowerCase().replaceAll(" ", "-")}`}>{era.label}</h2>
+            <p>{era.description}</p>
+          </div>
+
+          <div class="era-events">
+            {era.events.map((event) => (
+              <article class="timeline-event">
+                <time>{event.date}</time>
+                <div class="event-card">
+                  <h3>{event.title}</h3>
+                  <p>{event.description}</p>
+                  {event.href && (
+                    <a href={event.href} class="event-link">
+                      {event.linkLabel ?? "Related Record"}
+                      <span aria-hidden="true">›</span>
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .timeline-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(2.25rem, 5vw, 4.75rem) clamp(1rem, 3vw, 2.5rem) 5rem;
+  }
+
+  .timeline-hero {
+    max-width: 760px;
+    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--operations);
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .timeline-hero h1 {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .timeline-hero p:not(.eyebrow) {
+    max-width: 680px;
+    margin: 1.1rem 0 0;
+    color: #24211d;
+    font-family: "Crimson Text", serif;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    line-height: 1.45;
+  }
+
+  .timeline-map {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .timeline-era {
+    display: grid;
+    grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .era-marker {
+    position: sticky;
+    top: 1.5rem;
+    padding-top: 0.25rem;
+  }
+
+  .era-marker h2 {
+    margin: 0;
+    color: var(--ink);
+    font-family: "Inter", sans-serif;
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .era-marker p {
+    margin: 0.85rem 0 0;
+    color: var(--muted);
+    font-family: "Crimson Text", serif;
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  .era-events {
+    position: relative;
+    display: grid;
+    gap: 1.15rem;
+    padding-left: 1.5rem;
+  }
+
+  .era-events::before {
+    position: absolute;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    left: 0.22rem;
+    width: 1px;
+    content: "";
+    background: rgba(17, 17, 17, 0.14);
+  }
+
+  .timeline-event {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(108px, 132px) minmax(0, 1fr);
+    gap: clamp(1rem, 3vw, 1.75rem);
+    align-items: start;
+  }
+
+  .timeline-event::before {
+    position: absolute;
+    top: 0.55rem;
+    left: -1.42rem;
+    width: 0.58rem;
+    height: 0.58rem;
+    content: "";
+    background: var(--paper);
+    border: 2px solid var(--command);
+    border-radius: 999px;
+  }
+
+  .timeline-event time {
+    padding-top: 0.18rem;
+    color: var(--command);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .event-card {
+    padding: 1.05rem 1.15rem 1.1rem;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(17, 17, 17, 0.12);
+  }
+
+  .event-card h3 {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .event-card p {
+    margin: 0.65rem 0 0;
+    color: #28241f;
+    font-family: "Crimson Text", serif;
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+
+  .event-link {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    margin-top: 0.85rem;
+    color: var(--command);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .event-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  @media (max-width: 860px) {
+    .timeline-era {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .era-marker {
+      position: static;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .timeline-shell {
+      padding-inline: 1rem;
+    }
+
+    .era-events {
+      padding-left: 1.1rem;
+    }
+
+    .timeline-event {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+
+    .timeline-event::before {
+      left: -1.1rem;
+    }
+  }
+</style>
