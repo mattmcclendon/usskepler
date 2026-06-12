@@ -145,14 +145,15 @@ const eras = [
 ];
 ---
 
-<Layout title="Timeline | USS Kepler">
+<Layout title="Timeline | USS Kepler Archive">
   <main class="timeline-shell">
     <section class="timeline-hero" aria-labelledby="timeline-title">
-      <p class="eyebrow">Archive Chronology</p>
+      <p class="eyebrow">Memory Alpha Cultural & Scientific Archive</p>
       <h1 id="timeline-title">Timeline</h1>
       <p>
-        Selected events related to USS Kepler, the Frontier Initiative, and the
-        Federation Renaissance.
+        A chronological record of the historical conditions, planning decisions,
+        and operational milestones that shaped USS Kepler and the Frontier
+        Initiative.
       </p>
     </section>
 
@@ -189,47 +190,52 @@ const eras = [
 
 <style>
   .timeline-shell {
-    max-width: 1180px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: clamp(2.25rem, 5vw, 4.75rem) clamp(1rem, 3vw, 2.5rem) 5rem;
+    padding: clamp(2.5rem, 5vw, 5rem) clamp(1rem, 3vw, 2.75rem) 5.5rem;
   }
 
   .timeline-hero {
-    max-width: 760px;
-    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+    position: relative;
+    max-width: 840px;
+    margin-bottom: clamp(2.75rem, 6vw, 4.75rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(1.5rem, 4vw, 2.25rem);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.14);
   }
 
   .eyebrow {
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.85rem;
     color: var(--operations);
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
   .timeline-hero h1 {
     margin: 0;
+    color: var(--ink);
     font-family: "Inter", sans-serif;
-    font-size: clamp(2.4rem, 6vw, 5rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
+    font-size: clamp(2.8rem, 7vw, 5.75rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
   }
 
   .timeline-hero p:not(.eyebrow) {
-    max-width: 680px;
-    margin: 1.1rem 0 0;
+    max-width: 720px;
+    margin: 1.15rem 0 0;
     color: #24211d;
     font-family: "Crimson Text", serif;
-    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    font-size: clamp(1.22rem, 2vw, 1.5rem);
     line-height: 1.45;
   }
 
   .timeline-map {
     display: grid;
-    gap: clamp(2.5rem, 6vw, 4rem);
+    gap: clamp(2.75rem, 6vw, 4.5rem);
   }
 
   .timeline-era {
@@ -242,17 +248,18 @@ const eras = [
   .era-marker {
     position: sticky;
     top: 1.5rem;
-    padding-top: 0.25rem;
+    padding: 0.25rem 0 1.25rem;
+    border-top: 3px solid var(--operations);
   }
 
   .era-marker h2 {
-    margin: 0;
+    margin: 0.85rem 0 0;
     color: var(--ink);
-    font-family: "Inter", sans-serif;
-    font-size: 0.86rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
-    line-height: 1.2;
+    letter-spacing: 0.13em;
+    line-height: 1.35;
     text-transform: uppercase;
   }
 
@@ -278,7 +285,7 @@ const eras = [
     left: 0.22rem;
     width: 1px;
     content: "";
-    background: rgba(17, 17, 17, 0.14);
+    background: linear-gradient(180deg, rgba(167, 19, 19, 0.45), rgba(43, 83, 167, 0.18));
   }
 
   .timeline-event {
@@ -292,13 +299,14 @@ const eras = [
   .timeline-event::before {
     position: absolute;
     top: 0.55rem;
-    left: -1.42rem;
-    width: 0.58rem;
-    height: 0.58rem;
+    left: -1.48rem;
+    width: 0.66rem;
+    height: 0.66rem;
     content: "";
     background: var(--paper);
     border: 2px solid var(--command);
     border-radius: 999px;
+    box-shadow: 0 0 0 4px rgba(167, 19, 19, 0.08);
   }
 
   .timeline-event time {
@@ -313,17 +321,20 @@ const eras = [
   }
 
   .event-card {
-    padding: 1.05rem 1.15rem 1.1rem;
-    background: rgba(255, 255, 255, 0.35);
-    border: 1px solid rgba(17, 17, 17, 0.12);
+    position: relative;
+    padding: 1.1rem 1.2rem 1.15rem;
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(17, 17, 17, 0.14);
+    box-shadow: inset 3px 0 0 rgba(214, 164, 68, 0.72);
   }
 
   .event-card h3 {
     margin: 0;
+    color: var(--ink);
     font-family: "Inter", sans-serif;
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
+    font-size: 0.92rem;
+    font-weight: 850;
+    letter-spacing: 0.055em;
     line-height: 1.25;
     text-transform: uppercase;
   }
@@ -363,7 +374,8 @@ const eras = [
 
     .era-marker {
       position: static;
-      padding-bottom: 0.25rem;
+      padding-bottom: 0.85rem;
+      border-top: 3px solid var(--operations);
       border-bottom: 1px solid rgba(17, 17, 17, 0.12);
     }
   }
