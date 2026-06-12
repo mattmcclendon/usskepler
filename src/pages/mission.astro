@@ -1,98 +1,46 @@
 ---
 import Layout from "../layouts/layout.astro";
 
-const missionCards = [
-  {
-    label: "FOUNDATIONAL\nDOCUMENT",
-    title: "Frontier Initiative",
-    body:
-      "The Federation program that frames Kepler’s civic support mandate and explains why presence matters after Frontier Day.",
-    href: "/archive/frontier-initiative",
-  },
-  {
-    label: "MISSION\nDOCTRINE",
-    title: "USS Kepler Doctrine",
-    body:
-      "The operating principles that define support, listening, local agency, and institutional accountability aboard Kepler.",
-    href: "/archive/kepler-doctrine",
-  },
-  {
-    label: "CIVIC\nFRAMEWORK",
-    title: "Settlement Continuum",
-    body:
-      "A working model for understanding the different needs of core worlds, member worlds, settlements, and frontier communities.",
-    href: "/archive/settlement-continuum",
-  },
+const timeline = [
+  // existing timeline data array content here
 ];
 
 const railItems = [
-  ["Section", "Mission"],
-  ["Focus", "Frontier Initiative"],
-  ["Vessel", "USS Kepler NCC-83639"],
-  ["Function", "Civic Support"],
+  ["Section", "Timeline"],
+  ["Focus", "Archive Chronology"],
+  ["Scope", "Federation / Frontier Initiative / USS Kepler"],
+  ["Format", "Chronological Record"],
   ["Archive Status", "Active"],
 ];
 ---
 
-<Layout title="Mission" current="mission">
+<Layout title="Timeline" current="archive">
   <main class="interior-shell">
     <section class="page-hero" aria-labelledby="page-title">
-      <p class="eyebrow">Section Overview</p>
-      <h1 id="page-title">Mission</h1>
+      <p class="eyebrow">Archive Chronology</p>
+      <h1 id="page-title">Timeline</h1>
       <p class="dek">
-        The Frontier Initiative and USS Kepler’s civic support mandate.
+        A chronological record of the historical conditions, planning decisions,
+        and operational milestones that shaped USS Kepler and the Frontier
+        Initiative.
       </p>
     </section>
 
     <div class="content-layout">
       <article class="main-content">
-        <section class="prose-block">
-          <h2>Purpose</h2>
-          <p>
-            USS Kepler serves as a Frontier Initiative platform: a Sagan-class
-            starship assigned to strengthen the relationship between Federation
-            institutions and the member worlds, settlements, and frontier
-            communities those institutions are meant to support.
-          </p>
-        </section>
 
-        <section class="mission-grid" aria-label="Mission principles">
-          {missionCards.map((card) => (
-            <a class="mission-card" href={card.href}>
-              <p class="card-label">{card.label}</p>
-              <h2>{card.title}</h2>
-              <p>{card.body}</p>
-              <span class="card-action">Open Record</span>
-            </a>
-          ))}
-        </section>
+      <!-- existing timeline content here -->
 
-        <section class="prose-block">
-          <h2>How to Use This Section</h2>
-          <p>
-            This page serves as the entry point for Kepler’s mission framework.
-            The deeper records linked above explain the doctrine, historical
-            context, and civic assumptions behind the ship’s work.
-          </p>
-        </section>
-
-        <section class="prose-block section-note">
-          <h2>Core Premise</h2>
-          <p>
-            The frontier is not only a place beyond the map. It is wherever
-            distance begins to erode participation, trust, or belonging.
-          </p>
-        </section>
       </article>
 
-      <aside class="context-rail" aria-label="Mission metadata">
+      <aside class="context-rail" aria-label="Timeline metadata">
         <section class="rail-card signature-card">
-          <p class="rail-kicker">Mission Record</p>
+          <p class="rail-kicker">Chronology Record</p>
           <h2>USS Kepler</h2>
           <p>
-            Mission is the orientation layer for USS Kepler: what the ship is
-            trying to do, why the Frontier Initiative exists, and how the archive
-            organizes the doctrine behind that work.
+            Timeline is the archive’s chronological layer: the historical record
+            that connects Federation context, Frontier Initiative planning, and
+            Kepler’s operational mandate.
           </p>
         </section>
 
@@ -111,12 +59,64 @@ const railItems = [
         <section class="rail-card related-card">
           <h2>Related Records</h2>
           <ul>
-            <li><a href="/ship">Ship Profile</a></li>
-            <li><a href="/crew">Crew Directory</a></li>
-            <li><a href="/logs">Operational Logs</a></li>
+            <li><a href="/mission">Mission Overview</a></li>
+            <li><a href="/archive/frontier-initiative">Frontier Initiative</a></li>
+            <li><a href="/archive/kepler-doctrine">USS Kepler Doctrine</a></li>
           </ul>
         </section>
       </aside>
     </div>
   </main>
 </Layout>
+
+<style>
+/* Deleted .timeline-shell, .timeline-hero, .timeline-hero h1, .timeline-hero p:not(.eyebrow) CSS rules */
+
+/* Deleted .eyebrow rule if it existed in timeline.astro */
+
+/* Updated .timeline-map rule */
+.timeline-map {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+/* .timeline-era remains unchanged */
+.timeline-era {
+  display: grid;
+  grid-template-columns: minmax(150px, 240px) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Updated .era-events::before rule */
+.era-events::before {
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 0.35rem;
+  width: 1px;
+  content: "";
+  background: linear-gradient(180deg, rgba(167, 19, 19, 0.45), rgba(43, 83, 167, 0.18));
+}
+
+/* Updated .timeline-event::before rule */
+.timeline-event::before {
+  position: absolute;
+  top: 0.55rem;
+  left: -1.15rem;
+  width: 0.66rem;
+  height: 0.66rem;
+  box-sizing: border-box;
+  content: "";
+  background: var(--paper);
+  border: 2px solid var(--command);
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px rgba(167, 19, 19, 0.08);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 620px) {
+  .timeline-event::before {
+    left: -0.75rem;
+  }
+}
+</style>
