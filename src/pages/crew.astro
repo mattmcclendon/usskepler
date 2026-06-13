@@ -1,33 +1,267 @@
 ---
 import Layout from "../layouts/layout.astro";
 
-const crewCards = [
+const seniorStaff = [
   {
-    label: "COMMAND\nSTAFF",
-    title: "Senior Officers",
-    body: "Command, operations, sciences, medical, and engineering leadership assigned to USS Kepler.",
-    href: "/archive/command-staff",
+    name: "Matthew McClendon",
+    position: "Commanding Officer",
+    rank: "Fleet Captain",
+    pips: "● ● ● ●",
+    pipTypes: ["solid", "solid", "solid", "solid"],
+    pipBar: true,
+    division: "Command",
+    divisionColor: "Red",
+    species: "Human",
+    city: "Concordia Station",
+    homeworld: "Concordia",
+    age: 52,
+    serviceYears: 31,
+    gender: "Male",
+    group: "Command Staff",
   },
   {
-    label: "DEPARTMENT\nSTRUCTURE",
-    title: "Ship Departments",
-    body: "How Kepler organizes command, sciences, operations, engineering, medical, civic affairs, and cultural affairs.",
-    href: "/archive/departments",
+    name: "Katherine Ward",
+    position: "Executive Officer",
+    rank: "Commander",
+    pips: "● ● ●",
+    pipTypes: ["solid", "solid", "solid"],
+    division: "Command",
+    divisionColor: "Red",
+    species: "Human",
+    city: "New Athens",
+    homeworld: "Alpha Centauri IV",
+    age: 48,
+    serviceYears: 26,
+    gender: "Female",
+    group: "Command Staff",
   },
   {
-    label: "PERSONNEL\nRECORDS",
-    title: "Crew Directory",
-    body: "An indexed roster of officers, specialists, civilian advisors, and field personnel serving aboard Kepler.",
-    href: "/archive/crew-directory",
+    name: "Talia Venn",
+    position: "Chief Medical Officer",
+    rank: "Commander",
+    pips: "● ● ●",
+    pipTypes: ["solid", "solid", "solid"],
+    division: "Sciences",
+    divisionColor: "Blue",
+    species: "Trill",
+    city: "Mak'ala",
+    homeworld: "Trill",
+    age: 47,
+    serviceYears: 24,
+    gender: "Female",
+    group: "Senior Department Heads",
+  },
+  {
+    name: "Brokkar",
+    position: "Chief Engineer",
+    rank: "Commander",
+    pips: "● ● ●",
+    pipTypes: ["solid", "solid", "solid"],
+    division: "Operations",
+    divisionColor: "Gold",
+    species: "Tellarite",
+    city: "Hathan District",
+    homeworld: "Tellar Prime",
+    age: 55,
+    serviceYears: 33,
+    gender: "Male",
+    group: "Senior Department Heads",
+  },
+  {
+    name: "T'Varen",
+    position: "Chief Science Officer",
+    rank: "Commander",
+    pips: "● ● ●",
+    pipTypes: ["solid", "solid", "solid"],
+    division: "Sciences",
+    divisionColor: "Blue",
+    species: "Vulcan",
+    city: "Shi'Kahr",
+    homeworld: "Vulcan",
+    age: 83,
+    serviceYears: 58,
+    gender: "Male",
+    group: "Senior Department Heads",
+  },
+  {
+    name: "R'shara",
+    position: "Chief Communications Officer",
+    rank: "Lt. Commander",
+    pips: "● ● ◉",
+    pipTypes: ["solid", "solid", "hollow"],
+    division: "Command",
+    divisionColor: "Red",
+    species: "Caitian",
+    city: "Rr'kesh",
+    homeworld: "Cait",
+    age: 43,
+    serviceYears: 18,
+    gender: "Female",
+    group: "Mission Leadership Council",
+  },
+  {
+    name: "Eleanor Grant",
+    position: "Diplomatic Affairs Officer",
+    rank: "Lt. Commander",
+    pips: "● ● ◉",
+    pipTypes: ["solid", "solid", "hollow"],
+    division: "Command",
+    divisionColor: "Red",
+    species: "Human",
+    city: "Seattle",
+    homeworld: "Earth",
+    age: 58,
+    serviceYears: 34,
+    gender: "Female",
+    group: "Mission Leadership Council",
+  },
+  {
+    name: "Naomi Voss",
+    position: "Senior Xenoanthropologist",
+    rank: "Lt. Commander",
+    pips: "● ● ◉",
+    pipTypes: ["solid", "solid", "hollow"],
+    division: "Sciences",
+    divisionColor: "Blue",
+    species: "Human",
+    city: "Lake Armstrong",
+    homeworld: "Luna",
+    age: 46,
+    serviceYears: 21,
+    gender: "Female",
+    group: "Mission Leadership Council",
+  },
+  {
+    name: "Evelyn Shaw",
+    position: "Chief Security Officer",
+    rank: "Lt. Commander",
+    pips: "● ● ◉",
+    pipTypes: ["solid", "solid", "hollow"],
+    division: "Operations",
+    divisionColor: "Gold",
+    species: "Human",
+    city: "Cambridge",
+    homeworld: "Earth",
+    age: 38,
+    serviceYears: 15,
+    gender: "Female",
+    group: "Mission Leadership Council",
+  },
+  {
+    name: "Mira Renn",
+    position: "Ship's Counselor",
+    rank: "Lt. Commander",
+    pips: "● ● ◉",
+    pipTypes: ["solid", "solid", "hollow"],
+    division: "Sciences",
+    divisionColor: "Blue",
+    species: "Betazoid",
+    city: "Dalaria",
+    homeworld: "Betazed",
+    age: 45,
+    serviceYears: 20,
+    gender: "Female",
+    group: "Mission Leadership Council",
+  },
+  {
+    name: "Owen Clarke",
+    position: "Director, Education & Cultural Exchange",
+    rank: "Lt. Commander",
+    pips: "● ● ◉",
+    pipTypes: ["solid", "solid", "hollow"],
+    division: "Sciences",
+    divisionColor: "Blue",
+    species: "Human",
+    city: "Portland",
+    homeworld: "Earth",
+    age: 42,
+    serviceYears: 19,
+    gender: "Male",
+    group: "Mission Leadership Council",
+  },
+  {
+    name: "Nerys Talan",
+    position: "Operations Manager",
+    rank: "Lieutenant",
+    pips: "● ●",
+    pipTypes: ["solid", "solid"],
+    division: "Operations",
+    divisionColor: "Gold",
+    species: "Bajoran",
+    city: "Hathon",
+    homeworld: "Bajor",
+    age: 41,
+    serviceYears: 17,
+    gender: "Female",
+    group: "Operational Specialists",
+  },
+  {
+    name: "Koren",
+    position: "Flight Operations Officer",
+    rank: "Lieutenant",
+    pips: "● ●",
+    pipTypes: ["solid", "solid"],
+    division: "Command",
+    divisionColor: "Red",
+    species: "Efrosian",
+    city: "Tarsik",
+    homeworld: "Efros Delta",
+    age: 36,
+    serviceYears: 13,
+    gender: "Male",
+    group: "Operational Specialists",
+  },
+  {
+    name: "Vela Zhin",
+    position: "Federation Arboretum Curator",
+    rank: "Lieutenant",
+    pips: "● ●",
+    pipTypes: ["solid", "solid"],
+    division: "Sciences",
+    divisionColor: "Blue",
+    species: "Bolian",
+    city: "Zalor",
+    homeworld: "Bolarus IX",
+    age: 61,
+    serviceYears: 36,
+    gender: "Female",
+    group: "Operational Specialists",
+  },
+  {
+    name: "Samuel Mercer",
+    position: "Ship's Archivist",
+    rank: "Lt. J.G.",
+    pips: "● ◉",
+    pipTypes: ["solid", "hollow"],
+    division: "Operations",
+    divisionColor: "Gold",
+    species: "Human",
+    city: "Savannah",
+    homeworld: "Earth",
+    age: 27,
+    serviceYears: 4,
+    gender: "Male",
+    group: "Operational Specialists",
   },
 ];
 
+const groups = [
+  "Command Staff",
+  "Senior Department Heads",
+  "Mission Leadership Council",
+  "Operational Specialists",
+];
+
 const railItems = [
-  ["Section", "Crew"],
-  ["Vessel", "USS Kepler NCC-83639"],
-  ["Primary Departments", "Command / Sciences / Operations"],
-  ["Civilian Liaison", "Frontier Initiative"],
-  ["Archive Status", "Pending Roster"],
+  ["Senior Staff", "15"],
+  ["Total Complement", "537"],
+  ["Starfleet Personnel", "500"],
+  ["Officers", "164"],
+  ["Enlisted", "336"],
+  ["Civilian Specialists", "10"],
+  ["Dependents", "27"],
+  ["Children", "15"],
+  ["Status", "Commissioning Phase"],
 ];
 ---
 
@@ -37,42 +271,84 @@ const railItems = [
       <p class="eyebrow">Section Overview</p>
       <h1>Crew</h1>
       <p class="dek">
-        The officers, specialists, and civilian partners assigned to USS Kepler.
+        The senior officers, specialists, and mission leaders assigned to USS Kepler.
       </p>
     </section>
 
     <div class="content-layout">
       <article class="main-content">
         <section class="prose-block">
-          <h2>Overview</h2>
+          <h2>Senior Staff</h2>
           <p>
-            Kepler’s crew reflects the ship’s unusual assignment. Alongside the
-            standard command, sciences, operations, engineering, and medical
-            departments, the vessel carries specialists in civic systems,
-            cultural affairs, infrastructure coordination, and Federation
-            institutional access.
+            Kepler’s senior staff reflects the ship’s Frontier Initiative mandate:
+            command, medicine, sciences, communications, diplomacy, education,
+            operations, and institutional memory working as one mission team.
           </p>
         </section>
 
-        <section class="crew-grid">
-          {crewCards.map((card) => (
-            <a class="crew-card" href={card.href}>
-              <p class="card-label">{card.label}</p>
-              <h2>{card.title}</h2>
-              <p>{card.body}</p>
-              <span class="card-action">Open Record</span>
-            </a>
-          ))}
-        </section>
+        {groups.map((group) => (
+          <section class="staff-section" aria-labelledby={group.toLowerCase().replaceAll(" ", "-")}>
+            <div class="section-heading">
+              <p class="section-kicker">Senior Staff</p>
+              <h2 id={group.toLowerCase().replaceAll(" ", "-")}>{group}</h2>
+            </div>
 
-        <section class="prose-block section-note">
-          <h2>Personnel Premise</h2>
-          <p>
-            Kepler is not only crewed for exploration or defense. It is crewed
-            for continuity: the patient work of helping worlds understand,
-            access, and shape the Federation they belong to.
-          </p>
-        </section>
+            <div class="staff-grid">
+              {seniorStaff
+                .filter((officer) => officer.group === group)
+                .map((officer) => (
+                  <article class={`staff-card division-${officer.divisionColor.toLowerCase()}`}>
+                    <div class="staff-card-bar" aria-hidden="true"></div>
+                    <div class="staff-card-header">
+                      <div class="identity-block">
+                        <div class="rank-line">
+                          <div class={`pips ${officer.pipBar ? "pips-with-bar" : ""}`} aria-label={`${officer.rank} rank pips`}>
+                            <div class="pip-row">
+                              {officer.pipTypes.map((pipType) => (
+                                <svg class="pip" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                  <circle class="pip-outer" cx="12" cy="12" r="9" />
+                                  {pipType === "hollow" && <circle class="pip-inner" cx="12" cy="12" r="5.2" />}
+                                </svg>
+                              ))}
+                            </div>
+                            {officer.pipBar && <span class="pip-bar" aria-hidden="true"></span>}
+                          </div>
+                          <span class="rank-separator" aria-hidden="true">|</span>
+                          <p class="rank">{officer.rank}</p>
+                        </div>
+                        <div class="name-line">
+                          <h3>{officer.name}</h3>
+                          <p class="position">{officer.position}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <dl class="staff-meta">
+                      <div>
+                        <dt>Division</dt>
+                        <dd>{officer.division}</dd>
+                      </div>
+                      <div>
+                        <dt>Service Yrs</dt>
+                        <dd>{officer.serviceYears}</dd>
+                      </div>
+                      <div>
+                        <dt>Age</dt>
+                        <dd>{officer.age}</dd>
+                      </div>
+                      <div>
+                        <dt>Species</dt>
+                        <dd>{officer.species}</dd>
+                      </div>
+                      <div class="homeworld-meta">
+                        <dt>Homeworld</dt>
+                        <dd>{officer.city}, {officer.homeworld}</dd>
+                      </div>
+                    </dl>
+                  </article>
+                ))}
+            </div>
+          </section>
+        ))}
       </article>
 
       <aside class="context-rail">
@@ -80,8 +356,8 @@ const railItems = [
           <p class="rail-kicker">Crew Record</p>
           <h2>USS Kepler</h2>
           <p>
-            The Crew section documents the people and departments responsible for
-            carrying out Kepler’s Frontier Initiative mandate.
+            The Crew section documents the officers and specialists responsible
+            for carrying out Kepler’s Frontier Initiative assignment.
           </p>
         </section>
 
@@ -102,10 +378,226 @@ const railItems = [
           <ul>
             <li><a href="/mission">Mission Framework</a></li>
             <li><a href="/ship">Ship Profile</a></li>
-            <li><a href="/logs">Operational Logs</a></li>
+            <li><a href="/timeline">Timeline</a></li>
           </ul>
         </section>
       </aside>
     </div>
   </main>
 </Layout>
+
+<style>
+  .staff-section {
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .section-heading {
+    margin-bottom: 1rem;
+  }
+
+  .section-kicker {
+    margin: 0 0 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-text, #6f6a63);
+  }
+
+  .section-heading h2 {
+    margin: 0;
+  }
+
+  .staff-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .staff-card {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(1.2rem, 2.5vw, 1.65rem) clamp(1.25rem, 3vw, 1.9rem);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0.85rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .staff-card-bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.3rem;
+    background: #777;
+  }
+
+  .division-red .staff-card-bar {
+    background: #a71313;
+  }
+
+  .division-gold .staff-card-bar {
+    background: #d6a444;
+  }
+
+  .division-blue .staff-card-bar {
+    background: #2b53a7;
+  }
+
+  .staff-card-header {
+    min-width: 0;
+  }
+
+  .identity-block {
+    max-width: 100%;
+  }
+
+  .rank-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.38rem;
+    align-items: center;
+    margin-bottom: 0.7rem;
+  }
+
+  .rank-separator {
+    color: rgba(0, 0, 0, 0.26);
+    font-weight: 700;
+    margin: 0 0.18rem;
+  }
+
+  .rank {
+    margin: 0;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--muted-text, #6f6a63);
+  }
+
+  .pips {
+    display: inline-grid;
+    gap: 0.16rem;
+    align-items: center;
+    margin: 0;
+  }
+
+  .pip-row {
+    display: inline-flex;
+    gap: 0.22rem;
+    align-items: center;
+  }
+
+  .pip-bar {
+    display: block;
+    width: 100%;
+    height: 0.16rem;
+    border-radius: 999px;
+    background: #292521;
+  }
+
+  .pip {
+    display: block;
+    width: 0.68rem;
+    height: 0.68rem;
+    flex: 0 0 auto;
+  }
+
+  .pip-outer {
+    fill: #292521;
+  }
+
+  .pip-inner {
+    fill: rgba(255, 255, 255, 0.86);
+  }
+
+  .name-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.72rem;
+    align-items: baseline;
+    margin-bottom: 0.78rem;
+  }
+
+  .staff-card h3 {
+    margin: 0;
+    font-size: clamp(1.18rem, 1.55vw, 1.42rem);
+    font-weight: 820;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .position {
+    margin: 0;
+    color: var(--body-text, #292521);
+    font-size: clamp(0.78rem, 0.95vw, 0.9rem);
+    font-weight: 760;
+  }
+
+  .staff-meta {
+    display: grid;
+    grid-template-columns: 7rem 6rem 4rem minmax(6rem, 7.5rem) minmax(17rem, 1fr);
+    gap: 0.65rem 1.35rem;
+    align-items: start;
+    margin: 0;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .staff-meta div {
+    display: grid;
+    gap: 0.25rem;
+    align-items: start;
+  }
+
+  .staff-meta dt {
+    font-size: 0.54rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--muted-text, #6f6a63);
+  }
+
+  .staff-meta dd {
+    margin: 0;
+    line-height: 1.22;
+    font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+    color: rgba(0, 0, 0, 0.82);
+  }
+
+  .homeworld-meta {
+    min-width: 0;
+  }
+
+  .homeworld-meta dd {
+    overflow-wrap: normal;
+    white-space: nowrap;
+    text-overflow: clip;
+  }
+
+  @media (max-width: 900px) {
+    .staff-meta {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .homeworld-meta {
+      grid-column: 1 / -1;
+    }
+
+    .homeworld-meta dd {
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .staff-meta {
+      grid-template-columns: 1fr;
+    }
+
+    .homeworld-meta {
+      grid-column: auto;
+    }
+  }
+</style>

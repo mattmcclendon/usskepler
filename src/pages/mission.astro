@@ -1,46 +1,101 @@
 ---
 import Layout from "../layouts/layout.astro";
 
-const timeline = [
-  // existing timeline data array content here
+const missionCards = [
+  {
+    label: "FRONTIER\nINITIATIVE",
+    title: "Mission Framework",
+    body: "Kepler serves as a Frontier Initiative vessel assigned to strengthen participation, trust, and institutional connection across Federation member worlds.",
+    href: "/archive/frontier-initiative",
+  },
+  {
+    label: "NO MEMBER\nWORLD FORGOTTEN",
+    title: "Operational Mandate",
+    body: "The ship’s work begins where distance starts to erode belonging: schools, clinics, civic institutions, local infrastructure, and public life.",
+    href: "/archive/kepler-doctrine",
+  },
+  {
+    label: "MEMBER WORLD\nENGAGEMENT",
+    title: "Field Assignments",
+    body: "Kepler conducts long-duration assessments, knowledge exchanges, cultural programs, and practical support missions in partnership with local communities.",
+    href: "/missions",
+  },
+];
+
+const principles = [
+  "Presence before prescription",
+  "Exchange before intervention",
+  "Continuity before ceremony",
+  "Local knowledge before institutional assumption",
 ];
 
 const railItems = [
-  ["Section", "Timeline"],
-  ["Focus", "Archive Chronology"],
-  ["Scope", "Federation / Frontier Initiative / USS Kepler"],
-  ["Format", "Chronological Record"],
+  ["Section", "Mission"],
+  ["Vessel", "USS Kepler NCC-83639"],
+  ["Assignment", "Frontier Initiative"],
+  ["Command Principle", "No Member World Forgotten"],
   ["Archive Status", "Active"],
 ];
 ---
 
-<Layout title="Timeline" current="archive">
+<Layout title="Mission" current="mission">
   <main class="interior-shell">
     <section class="page-hero" aria-labelledby="page-title">
-      <p class="eyebrow">Archive Chronology</p>
-      <h1 id="page-title">Timeline</h1>
+      <p class="eyebrow">Section Overview</p>
+      <h1 id="page-title">Mission</h1>
       <p class="dek">
-        A chronological record of the historical conditions, planning decisions,
-        and operational milestones that shaped USS Kepler and the Frontier
-        Initiative.
+        USS Kepler exists to make Federation membership tangible for worlds at
+        the edge of distance, attention, and institutional memory.
       </p>
     </section>
 
     <div class="content-layout">
       <article class="main-content">
+        <section class="prose-block">
+          <h2>Overview</h2>
+          <p>
+            Kepler is not assigned to conquest, patrol, or symbolic diplomacy.
+            Its mandate is continuity: the patient work of helping member worlds
+            experience the Federation as a living relationship rather than a
+            distant institution.
+          </p>
+          <p>
+            The ship brings Starfleet expertise, civilian specialists, cultural
+            exchange programs, medical knowledge, educational partnerships, and
+            practical infrastructure support to communities whose connection to
+            the Federation may be real on paper but fragile in daily life.
+          </p>
+        </section>
 
-      <!-- existing timeline content here -->
+        <section class="mission-grid" aria-label="Mission records">
+          {missionCards.map((card) => (
+            <a class="mission-card" href={card.href}>
+              <p class="card-label">{card.label}</p>
+              <h2>{card.title}</h2>
+              <p>{card.body}</p>
+              <span class="card-action">Open Record</span>
+            </a>
+          ))}
+        </section>
 
+        <section class="prose-block section-note">
+          <h2>Mission Principles</h2>
+          <ul class="principle-list">
+            {principles.map((principle) => (
+              <li>{principle}</li>
+            ))}
+          </ul>
+        </section>
       </article>
 
-      <aside class="context-rail" aria-label="Timeline metadata">
+      <aside class="context-rail" aria-label="Mission metadata">
         <section class="rail-card signature-card">
-          <p class="rail-kicker">Chronology Record</p>
+          <p class="rail-kicker">Mission Record</p>
           <h2>USS Kepler</h2>
           <p>
-            Timeline is the archive’s chronological layer: the historical record
-            that connects Federation context, Frontier Initiative planning, and
-            Kepler’s operational mandate.
+            The Mission section defines Kepler’s purpose within the Frontier
+            Initiative and explains why the ship’s work begins after first
+            contact, after admission, and after the speeches have ended.
           </p>
         </section>
 
@@ -59,9 +114,9 @@ const railItems = [
         <section class="rail-card related-card">
           <h2>Related Records</h2>
           <ul>
-            <li><a href="/mission">Mission Overview</a></li>
             <li><a href="/archive/frontier-initiative">Frontier Initiative</a></li>
             <li><a href="/archive/kepler-doctrine">USS Kepler Doctrine</a></li>
+            <li><a href="/crew">Senior Staff</a></li>
           </ul>
         </section>
       </aside>
@@ -70,53 +125,65 @@ const railItems = [
 </Layout>
 
 <style>
-/* Deleted .timeline-shell, .timeline-hero, .timeline-hero h1, .timeline-hero p:not(.eyebrow) CSS rules */
-
-/* Deleted .eyebrow rule if it existed in timeline.astro */
-
-/* Updated .timeline-map rule */
-.timeline-map {
-  display: grid;
-  gap: clamp(2.25rem, 5vw, 3.75rem);
-}
-
-/* .timeline-era remains unchanged */
-.timeline-era {
-  display: grid;
-  grid-template-columns: minmax(150px, 240px) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 3.5rem);
-}
-
-/* Updated .era-events::before rule */
-.era-events::before {
-  position: absolute;
-  top: 0.4rem;
-  bottom: 0.4rem;
-  left: 0.35rem;
-  width: 1px;
-  content: "";
-  background: linear-gradient(180deg, rgba(167, 19, 19, 0.45), rgba(43, 83, 167, 0.18));
-}
-
-/* Updated .timeline-event::before rule */
-.timeline-event::before {
-  position: absolute;
-  top: 0.55rem;
-  left: -1.15rem;
-  width: 0.66rem;
-  height: 0.66rem;
-  box-sizing: border-box;
-  content: "";
-  background: var(--paper);
-  border: 2px solid var(--command);
-  border-radius: 999px;
-  box-shadow: 0 0 0 4px rgba(167, 19, 19, 0.08);
-  transform: translateX(-50%);
-}
-
-@media (max-width: 620px) {
-  .timeline-event::before {
-    left: -0.75rem;
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: clamp(2rem, 4vw, 3rem);
   }
-}
+
+  .mission-card {
+    display: flex;
+    min-height: 17rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 0.85rem;
+    background: rgba(255, 255, 255, 0.62);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .mission-card:hover,
+  .mission-card:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .card-label {
+    margin: 0 0 1.25rem;
+    white-space: pre-line;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: var(--muted-text, #6f6a63);
+  }
+
+  .mission-card h2 {
+    margin: 0 0 0.75rem;
+  }
+
+  .mission-card p:not(.card-label) {
+    margin: 0;
+  }
+
+  .card-action {
+    margin-top: 1.5rem;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .section-note {
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .principle-list {
+    display: grid;
+    gap: 0.7rem;
+    padding-left: 1.2rem;
+  }
 </style>
