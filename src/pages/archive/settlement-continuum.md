@@ -6,10 +6,17 @@ subtitle: A framework for understanding community development, resilience, and i
 recordType: Development Framework
 stardate: 79546.803
 federationDate: 2402-JUL-19
-author: T'Vel (Rear Admiral)
+author: Rios, Maya
 department: Federation Settlement Development Office
 heroImage:
 heroAlt:
+relatedRecords:
+  - title: Distributed Presence
+    href: /archive/distributed-presence
+  - title: The Frontier Initiative
+    href: /archive/the-frontier-initiative
+  - title: USS Kepler
+    href: /archive/uss-kepler
 ---
 
 ## Introduction
@@ -19,6 +26,8 @@ The Federation contains thousands of inhabited communities distributed across a 
 While public discussion often distinguishes between "core worlds" and "frontier settlements," such distinctions frequently obscure more than they reveal.
 
 The purpose of the Settlement Continuum is to provide a common framework for understanding how communities develop, how institutional needs evolve over time, and how the Federation may most effectively support that development.
+
+Historically, Federation institutions have described communities using political, economic, or administrative classifications that often fail to capture operational realities. A newly established member world may possess fewer capabilities than an independent settlement that has operated successfully for decades. The Settlement Continuum was developed to provide a common framework focused on functional capability rather than formal status.
 
 The Continuum is not a measure of political importance.
 
@@ -76,6 +85,8 @@ Scientific expertise, industrial output, transportation infrastructure, educatio
 
 The community functions as a regional node within a larger network.
 
+At this stage, the community begins transitioning from a recipient of support to a provider of support. Its success contributes directly to the resilience and development of neighboring settlements.
+
 ## Stage V: Strategic Hub
 
 The community possesses substantial economic, scientific, industrial, cultural, or administrative influence.
@@ -105,6 +116,7 @@ The purpose is to understand the capabilities a community possesses and the capa
 ## Relationship to the Frontier Initiative
 
 The Frontier Initiative utilizes the Settlement Continuum as a planning framework.
+The framework operates in conjunction with the principles outlined in Distributed Presence, providing a common vocabulary for understanding community capability across Federation space.
 
 Mission assignments, infrastructure investments, educational exchanges, and regional support programs are evaluated according to the developmental needs of the communities involved.
 

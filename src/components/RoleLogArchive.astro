@@ -1,0 +1,195 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const {
+  role,
+  title = "Logs",
+  description = "Personal and operational records"
+} = Astro.props;
+
+const logModules = import.meta.glob("../pages/logs/**/*.md", { eager: true });
+
+const divisionColors = {
+  Command: "command",
+  Medical: "science",
+  Science: "science",
+  Sciences: "science",
+  Engineering: "operations",
+  Operations: "operations",
+  Security: "security",
+};
+
+const formatLogType = (frontmatter) => {
+  const label =
+    frontmatter.logType ??
+    frontmatter.pubTitle ??
+    frontmatter.title ??
+    "Log";
+
+  return String(label).replace(/\s+\d{5}[-.]\d{3}$/, "");
+};
+
+const logEntries = Object.entries(logModules)
+  .filter(([path]) => {
+    if (!role) return true;
+    return path.includes(`/logs/${role}/`);
+  })
+  .map(([path, module]) => {
+    const frontmatter = module.frontmatter ?? {};
+    const division = frontmatter.division ?? frontmatter.department ?? "Command";
+
+    return {
+      division,
+      logType: formatLogType(frontmatter),
+      stardate: String(frontmatter.stardate ?? "00000.000"),
+      author: frontmatter.author ?? "Unknown Author",
+      excerpt:
+        frontmatter.excerpt ??
+        frontmatter.description ??
+        "Open record for full log entry.",
+      href: path.replace("../pages/logs", "/logs").replace(/\.md$/, ""),
+      color: divisionColors[division] ?? "command",
+    };
+  })
+  .sort((a, b) => Number(b.stardate) - Number(a.stardate));
+
+const railItems = [
+  ["Total Logs", String(logEntries.length)],
+  ["Latest Stardate", logEntries[0]?.stardate ?? "—"],
+];
+---
+
+<Layout title={title} current="logs">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Log Archive</p>
+      <h1>{title}</h1>
+      <p class="dek">{description}</p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="logs-feed">
+          {logEntries.map((log) => (
+            <a class={`log-card ${log.color}`} href={log.href}>
+              <div class="log-card-inner">
+                <p class="log-type">{log.logType}</p>
+                <p class="log-excerpt">{log.excerpt}</p>
+                <p class="log-stardate">Stardate {log.stardate}</p>
+                <div class="log-footer">
+                  <span>{log.author}</span>
+                  <span>Read Log →</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card metadata-card">
+          <h2>Archive Details</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>
+<style>
+.logs-feed {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.log-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #fdfcf8;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.log-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.7);
+}
+
+.log-card.command {
+  border-left: 6px solid var(--command-color, #b11f24);
+}
+
+.log-card.operations {
+  border-left: 6px solid var(--operations-color, #d6a444);
+}
+
+.log-card.science {
+  border-left: 6px solid var(--science-color, #6d547d);
+}
+
+.log-card.security {
+  border-left: 6px solid var(--security-color, #4a6f8f);
+}
+
+.log-card-inner {
+  padding: 1.35rem 1.5rem 1.25rem;
+}
+
+.log-type {
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: "Inter", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.82;
+}
+
+.log-excerpt {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(1.05rem, 1.15vw, 1.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.log-stardate {
+  margin: 0.85rem 0 1.05rem;
+  font-size: 0.95rem;
+  opacity: 0.68;
+}
+
+.log-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(17,17,17,0.08);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.log-footer span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.log-footer span:last-child {
+  white-space: nowrap;
+}
+</style>

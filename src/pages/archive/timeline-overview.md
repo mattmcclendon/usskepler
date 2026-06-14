@@ -4,12 +4,19 @@ title: timeline-overview
 pubTitle: Timeline Overview
 subtitle: Selected events related to USS Kepler, the Frontier Initiative, and the Federation Renaissance
 recordType: Chronology
-author: Memory Alpha Cultural & Scientific Archive
-department: Historical Analysis Division
+author: Tran, Linh
+department: Federation Archives
 stardate: 80790.000
 federationDate: 2403-JUL-20
 heroImage:
 heroAlt:
+relatedRecords:
+  - title: State of the Federation, 2403
+    href: /archive/state-of-the-federation-2403
+  - title: The Renaissance Three
+    href: /archive/sagan-class
+  - title: The Frontier Initiative
+    href: /archive/the-frontier-initiative
 ---
 
 ## Historical Context
@@ -54,11 +61,19 @@ A coordinated Borg infiltration of Starfleet systems compromises fleet command a
 
 Admiral Kathryn Janeway secures authorization for a comprehensive review of Federation resilience, regional support capacity, and settlement development programs.
 
+### 2401-MAY-12
+
+**Renaissance Three Assessment Completed**
+
+Starfleet concludes evaluation of the Sagan, Stargazer, and Hathaway modernization programs. Findings validate distributed systems architecture, Borg-derived subsystem integration, and long-duration independent operations.
+
+[Related Record: The Renaissance Three](/archive/sagan-class)
+
 ### 2401-JUN-22
 
 **Frontier Initiative Working Group Established**
 
-Starfleet Command convenes a multidisciplinary planning group under the direction of Commodore Tuvok. The group is tasked with developing recommendations for distributed capability, local resilience, and long-duration support operations across Federation space.
+Starfleet Command convenes a multidisciplinary planning group under the direction of Rear Admiral Samuel Okoye. The group is tasked with developing recommendations for distributed capability, local resilience, and long-duration support operations across Federation space.
 
 ### 2401-SEP-03
 
@@ -73,6 +88,14 @@ Construction begins on USS Kepler, NCC-83639, at Deneb IV Fleet Yards. The vesse
 The future commanding officer of USS Kepler receives assignment orders and prepares to travel to the Deneb Sector to oversee final fitting and shakedown preparations.
 
 [Related Record: Captain's Log 78782.306](/logs/commanding-officer/78782-306)
+
+### 2402-MAR-14
+
+**Distributed Presence Doctrine Drafted**
+
+The Office of Interstellar Affairs completes the first formal draft of the Distributed Presence doctrine, establishing the conceptual foundation for future Frontier Initiative operations.
+
+[Related Record: Distributed Presence](/archive/distributed-presence)
 
 ---
 
@@ -114,13 +137,13 @@ The Historical Analysis Division releases a post-Frontier Day assessment of Fede
 
 **Frontier Initiative Directive Issued**
 
-Commodore Tuvok publishes the operational framework governing Frontier Initiative deployments, settlement support priorities, and distributed capability development.
+Rear Admiral Samuel Okoye publishes the operational framework governing Frontier Initiative deployments, settlement support priorities, and distributed capability development.
 
 [Related Record: The Frontier Initiative](/archive/the-frontier-initiative)
 
 ### 2403-JUL-03
 
-**Kepler Doctrine Filed**
+**Kepler Operational Doctrine Filed**
 
 Admiral Jean-Luc Picard files the operating doctrine later associated with USS Kepler and its Frontier Initiative deployment model.
 

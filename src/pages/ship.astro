@@ -5,27 +5,30 @@ const shipCards = [
   {
     label: "VESSEL\nPROFILE",
     title: "USS Kepler",
-    body: "Overview of the ship, mission assignment, and operational role within the Frontier Initiative.",
+    body: "Mission history, command structure, deployment record, and the role of Kepler within the Frontier Initiative.",
     href: "/archive/uss-kepler",
   },
   {
     label: "SAGAN\nCLASS",
-    title: "Class History",
-    body: "Background on the Sagan-class and the post-Dominion War philosophy that shaped its design.",
+    title: "Renaissance Three",
+    body: "The post-Frontier Day design philosophy that produced the Sagan, Stargazer, and Hathaway classes.",
     href: "/archive/sagan-class",
   },
   {
     label: "SERVICE\nDOCTRINE",
     title: "Distributed Presence",
-    body: "Why Starfleet shifted toward regional support, resilience, and dispersed operations after Frontier Day.",
+    body: "Why Starfleet shifted toward resilience, regional support, and sustained engagement across Federation space.",
     href: "/archive/distributed-presence",
   },
 ];
 
 const railItems = [
-  ["Section", "Ship"],
   ["Registry", "NCC-83639"],
-  ["Class", "Sagan-class"],
+  ["Class", "Sagan-class Cruiser"],
+  ["Commissioned", "2403"],
+  ["Length", "540.7 meters"],
+  ["Decks", "16"],
+  ["Crew", "500"],
   ["Assignment", "Frontier Initiative"],
   ["Status", "Active"],
 ];
@@ -37,19 +40,82 @@ const railItems = [
       <p class="eyebrow">Section Overview</p>
       <h1>Ship</h1>
       <p class="dek">
-        The vessel, systems, and operational philosophy of USS Kepler.
+        A Sagan-class cruiser assigned to the Frontier Initiative, dedicated to strengthening the connections that bind the Federation together.
       </p>
     </section>
 
     <div class="content-layout">
       <article class="main-content">
         <section class="prose-block">
-          <h2>Overview</h2>
+          <h2>USS Kepler</h2>
           <p>
-            USS Kepler is a Sagan-class starship assigned to the Frontier Initiative.
-            Designed during a period of reflection and reconstruction, the class
-            emphasizes scientific capability, operational flexibility, and sustained
-            support for Federation communities.
+            Commissioned in 2403, USS Kepler is a Sagan-class cruiser assigned to the
+            Frontier Initiative. While fully capable of traditional exploration,
+            scientific, and diplomatic operations, the vessel's primary mission is the
+            maintenance of Federation cohesion across frontier regions, developing
+            member worlds, and isolated communities.
+          </p>
+          <p>
+            Kepler functions as a mobile platform for scientists, engineers,
+            educators, medical specialists, cultural experts, and Starfleet officers
+            working together to ensure that no member world is forgotten.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Why the Sagan Class?</h2>
+          <p>
+            The Sagan class emerged during a period of reflection within Starfleet.
+            Its four-nacelle architecture, extensive internal volume, emergency
+            accommodation capacity, and mission flexibility made it uniquely suited
+            for long-duration regional assignments far from major fleet support.
+          </p>
+          <p>
+            Rather than serving as a vessel of conquest or deterrence, Kepler was
+            selected because its design aligns with the Frontier Initiative's focus on
+            resilience, service, adaptability, and sustained presence.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Variable Mission Craft Facility</h2>
+          <p>
+            Among the vessel's most distinctive systems is the Variable Mission Craft
+            Facility (VMCF), an advanced fabrication and logistics platform capable of
+            producing mission-specific shuttlecraft and support vehicles.
+          </p>
+          <p>
+            Known informally by the crew as the "Shuttle Printer," the VMCF allows
+            Kepler to construct specialized craft tailored to local conditions rather
+            than relying exclusively on a fixed inventory. Survey platforms, medical
+            evacuation vehicles, engineering support craft, and environmental response
+            shuttles can all be produced as mission requirements evolve.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Technical Specifications</h2>
+          <div class="spec-grid">
+            <div><strong>Length</strong><span>540.7 meters</span></div>
+            <div><strong>Beam</strong><span>195 meters</span></div>
+            <div><strong>Height</strong><span>90 meters</span></div>
+            <div><strong>Decks</strong><span>16</span></div>
+            <div><strong>Crew Complement</strong><span>500</span></div>
+            <div><strong>Emergency Capacity</strong><span>3,000</span></div>
+            <div><strong>Cruise Warp</strong><span>8.0</span></div>
+            <div><strong>Sustainable Warp</strong><span>9.5</span></div>
+            <div><strong>Maximum Warp</strong><span>9.9</span></div>
+            <div><strong>Shuttlecraft</strong><span>20 Shuttles, 6 Runabouts</span></div>
+          </div>
+        </section>
+
+        <section class="prose-block">
+          <h2>Master Systems Display</h2>
+          <img class="msd-image" src="/kepler-msd.png" alt="USS Kepler Master Systems Display" />
+          <p>
+            The Master Systems Display provides a deck-by-deck overview of the vessel,
+            including propulsion systems, major facilities, structural components, and
+            mission-critical infrastructure.
           </p>
         </section>
 
@@ -65,10 +131,11 @@ const railItems = [
         </section>
 
         <section class="prose-block section-note">
-          <h2>Design Premise</h2>
+          <h2>The Kepler Difference</h2>
           <p>
-            Kepler is not a ship built to stand at the center of events. It is built
-            to ensure the Federation remains present between them.
+            Most Starfleet vessels are designed to explore new worlds. Kepler exists
+            to strengthen the relationships between worlds already connected by the
+            Federation. Its mission is not expansion. Its mission is belonging.
           </p>
         </section>
       </article>
@@ -78,8 +145,7 @@ const railItems = [
           <p class="rail-kicker">Ship Record</p>
           <h2>USS Kepler</h2>
           <p>
-            The Ship section documents the vessel itself, its class lineage,
-            mission profile, and operational history.
+            The Ship section documents the vessel, its technical systems, mission adaptations, class lineage, and operational role within the Frontier Initiative.
           </p>
         </section>
 
@@ -101,9 +167,41 @@ const railItems = [
             <li><a href="/mission">Mission Framework</a></li>
             <li><a href="/crew">Crew Directory</a></li>
             <li><a href="/logs">Operational Logs</a></li>
+            <li><a href="/frontier">Frontier Initiative</a></li>
           </ul>
         </section>
       </aside>
     </div>
   </main>
+
+  <style>
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .spec-grid div {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .spec-grid strong {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  .msd-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  </style>
 </Layout>

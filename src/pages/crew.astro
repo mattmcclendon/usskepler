@@ -4,6 +4,7 @@ import Layout from "../layouts/layout.astro";
 const seniorStaff = [
   {
     name: "Matthew McClendon",
+    logPath: "/logs/commanding-officer",
     position: "Commanding Officer",
     rank: "Fleet Captain",
     pips: "● ● ● ●",
@@ -21,6 +22,7 @@ const seniorStaff = [
   },
   {
     name: "Katherine Ward",
+    logPath: "/logs/executive-officer",
     position: "Executive Officer",
     rank: "Commander",
     pips: "● ● ●",
@@ -37,6 +39,7 @@ const seniorStaff = [
   },
   {
     name: "Talia Venn",
+    logPath: "/logs/chief-medical-officer",
     position: "Chief Medical Officer",
     rank: "Commander",
     pips: "● ● ●",
@@ -53,6 +56,7 @@ const seniorStaff = [
   },
   {
     name: "Brokkar",
+    logPath: "/logs/chief-engineer",
     position: "Chief Engineer",
     rank: "Commander",
     pips: "● ● ●",
@@ -69,6 +73,7 @@ const seniorStaff = [
   },
   {
     name: "T'Varen",
+    logPath: "/logs/chief-science-officer",
     position: "Chief Science Officer",
     rank: "Commander",
     pips: "● ● ●",
@@ -85,6 +90,7 @@ const seniorStaff = [
   },
   {
     name: "R'shara",
+    logPath: "/logs/chief-communications-officer",
     position: "Chief Communications Officer",
     rank: "Lt. Commander",
     pips: "● ● ◉",
@@ -101,6 +107,7 @@ const seniorStaff = [
   },
   {
     name: "Eleanor Grant",
+    logPath: "/logs/diplomatic-affairs-officer",
     position: "Diplomatic Affairs Officer",
     rank: "Lt. Commander",
     pips: "● ● ◉",
@@ -117,6 +124,7 @@ const seniorStaff = [
   },
   {
     name: "Naomi Voss",
+    logPath: "/logs/senior-xenoanthropologist",
     position: "Senior Xenoanthropologist",
     rank: "Lt. Commander",
     pips: "● ● ◉",
@@ -133,6 +141,7 @@ const seniorStaff = [
   },
   {
     name: "Evelyn Shaw",
+    logPath: "/logs/chief-security-and-tactical-officer",
     position: "Chief Security & Tactical Officer",
     rank: "Lt. Commander",
     pips: "● ● ◉",
@@ -148,7 +157,8 @@ const seniorStaff = [
     group: "Mission Leadership Council",
   },
   {
-    name: "Mira Renn",
+    name: "Adrian Renn",
+    logPath: "/logs/ships-counselor",
     position: "Ship's Counselor",
     rank: "Lt. Commander",
     pips: "● ● ◉",
@@ -160,11 +170,12 @@ const seniorStaff = [
     homeworld: "Betazed",
     age: 45,
     serviceYears: 20,
-    gender: "Female",
+    gender: "Male",
     group: "Mission Leadership Council",
   },
   {
     name: "Owen Clarke",
+    logPath: "/logs/director-education-and-cultural-exchange",
     position: "Director, Education & Cultural Exchange",
     rank: "Lt. Commander",
     pips: "● ● ◉",
@@ -181,6 +192,7 @@ const seniorStaff = [
   },
   {
     name: "Nerys Talan",
+    logPath: "/logs/operations-manager",
     position: "Operations Manager",
     rank: "Lieutenant",
     pips: "● ●",
@@ -197,6 +209,7 @@ const seniorStaff = [
   },
   {
     name: "Koren",
+    logPath: "/logs/flight-operations-officer",
     position: "Flight Operations Officer",
     rank: "Lieutenant",
     pips: "● ●",
@@ -213,6 +226,7 @@ const seniorStaff = [
   },
   {
     name: "Vela Zhin",
+    logPath: "/logs/federation-arboretum-curator",
     position: "Federation Arboretum Curator",
     rank: "Lieutenant",
     pips: "● ●",
@@ -229,6 +243,7 @@ const seniorStaff = [
   },
   {
     name: "Samuel Mercer",
+    logPath: "/logs/ships-archivist",
     position: "Ship's Archivist",
     rank: "Lt. J.G.",
     pips: "● ◉",
@@ -244,7 +259,8 @@ const seniorStaff = [
     group: "Operational Specialists",
   },
   {
-    name: "T'Leya",
+    name: "Lyra",
+    logPath: "/logs/captains-yeoman",
     position: "Captain's Yeoman",
     rank: "Ensign",
     pips: "●",
@@ -337,6 +353,9 @@ const railItems = [
                           <p class="position">{officer.position}</p>
                         </div>
                       </div>
+                      <a class="view-log" href={officer.logPath} aria-label={`View logs for ${officer.name}`}>
+                        View Log <span aria-hidden="true">→</span>
+                      </a>
                     </div>
                     <dl class="staff-meta">
                       <div>
@@ -462,10 +481,33 @@ const railItems = [
 
   .staff-card-header {
     min-width: 0;
+    padding-right: 6.25rem;
   }
 
   .identity-block {
     max-width: 100%;
+  }
+
+  .staff-card .view-log {
+    position: absolute;
+    top: clamp(1.2rem, 2.5vw, 1.65rem);
+    right: clamp(1.25rem, 3vw, 1.9rem);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.64rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted-text, #6f6a63);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .staff-card .view-log:hover {
+    color: var(--body-text, #292521);
   }
 
   .rank-line {
@@ -608,6 +650,16 @@ const railItems = [
   }
 
   @media (max-width: 560px) {
+    .staff-card-header {
+      padding-right: 0;
+    }
+
+    .staff-card .view-log {
+      position: static;
+      margin: 0 0 0.85rem;
+      font-size: 0.68rem;
+    }
+
     .staff-meta {
       grid-template-columns: 1fr;
     }

@@ -6,10 +6,17 @@ subtitle: A strategic framework for distributed capability, settlement resilienc
 recordType: Strategic Directive
 stardate: 80388.300
 federationDate: 2403-MAY-03
-author: Tuvok (Commodore)
-department: Frontier Initiative Planning Office
+author: Okoye, Samuel (Rear Admiral)
+department: Office of Interstellar Affairs
 heroImage:
 heroAlt:
+relatedRecords:
+  - title: Distributed Presence
+    href: /archive/distributed-presence
+  - title: USS Kepler
+    href: /archive/uss-kepler
+  - title: Settlement Continuum
+    href: /archive/settlement-continuum
 ---
 
 Following the Frontier Day Crisis, Admiral Kathryn Janeway secured authorization for a comprehensive review of Federation resilience, settlement support, and long-term institutional capability.
@@ -29,6 +36,8 @@ They are insufficient as a sole measure of long-term institutional health.
 The events of the late twenty-fourth and early twenty-fifth centuries demonstrated that exploration alone cannot guarantee cohesion. A society spanning hundreds of worlds requires more than shared ideals. It requires shared capability.
 
 The Frontier Initiative was established to strengthen that capability through the deliberate distribution of knowledge, infrastructure, and operational capacity.
+
+The initiative serves as the primary operational expression of the principles later formalized under the doctrine of Distributed Presence.
 
 ---
 
@@ -66,6 +75,8 @@ They also increase vulnerability.
 
 Resilience must therefore be distributed.
 
+Capability concentrated in a small number of systems may be efficient during periods of stability, but the events surrounding Frontier Day demonstrated the risks created when critical functions become overly centralized.
+
 Communities should possess the tools, infrastructure, knowledge, and authority necessary to address challenges locally whenever possible.
 
 The purpose of the Frontier Initiative is not to weaken the Federation.
@@ -89,6 +100,8 @@ Reducing dependence upon a small number of major population centers by expanding
 ### Institutional Presence
 
 Ensuring that frontier communities experience the Federation as an active partner rather than a distant authority.
+
+This objective is directly informed by the doctrine of Distributed Presence and recognizes that meaningful membership requires more than formal affiliation. It requires visible, reliable, and ongoing engagement.
 
 ### Knowledge Exchange
 
@@ -116,6 +129,8 @@ The work of maintaining relationships across distance is equally essential.
 
 Starfleet vessels assigned to Frontier Initiative operations serve as connectors between institutions, communities, and regions.
 
+The Settlement Continuum provides a common framework for understanding the developmental needs of the communities these vessels support.
+
 Their responsibility is not merely to respond to crises.
 
 Their responsibility is to help create the conditions under which fewer crises occur.
@@ -124,7 +139,7 @@ Their responsibility is to help create the conditions under which fewer crises o
 
 ## The Sagan-Class Program
 
-The Sagan-class represents the first generation of starships designed specifically around the operational requirements of the Frontier Initiative.
+Building upon lessons learned through the Renaissance Three programs, the Sagan-class represents the first generation of starships designed specifically around the operational requirements of the Frontier Initiative.
 
 These vessels combine scientific capability, engineering capacity, fabrication systems, and long-duration deployment readiness within a single platform.
 

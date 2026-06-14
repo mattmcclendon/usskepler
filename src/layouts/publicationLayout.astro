@@ -13,6 +13,10 @@ interface Props {
   department?: string;
   heroImage?: string;
   heroAlt?: string;
+  relatedRecords?: Array<{
+    title: string;
+    href: string;
+  }>;
 }
 
 const frontmatter = Astro.props.frontmatter ?? Astro.props;
@@ -30,6 +34,8 @@ const {
   heroImage,
   heroAlt,
 } = frontmatter;
+
+const relatedRecords = (frontmatter.relatedRecords ?? Astro.props.relatedRecords ?? []).slice(0, 3);
 
 const displayTitle = pubTitle ?? title;
 const displayHeroAlt = heroAlt ?? displayTitle;
@@ -122,6 +128,19 @@ const displayDate = federationDate ?? archiveDate;
             <a href="/about-the-project">About the Project</a>
           </nav>
         </section>
+
+        {Array.isArray(relatedRecords) && relatedRecords.length > 0 && (
+          <section class="rail-card publication-related-card">
+            <p class="rail-kicker primary">Related Records</p>
+            <ul>
+              {relatedRecords.map((record) => (
+                <li>
+                  <a href={record.href}>{record.title}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </aside>
     </div>
   </main>
@@ -212,6 +231,39 @@ const displayDate = federationDate ?? archiveDate;
     border: 1px solid var(--line);
   }
 
+  .publication-content :global(p:has(img)) {
+    margin: 2rem 0 0.65rem;
+    max-width: 100%;
+  }
+
+  .publication-content :global(p > img) {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 0.35rem;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(17, 17, 17, 0.09);
+    border-radius: 2px;
+    object-fit: contain;
+  }
+
+  .publication-content :global(p:has(img) + p > em:only-child) {
+    margin-bottom: 0.4rem;
+  }
+
+  .publication-content :global(p > em:only-child) {
+    display: block;
+    max-width: 100%;
+    margin: 0.55rem 0 2rem;
+    padding-left: 0.15rem;
+    color: var(--muted);
+    font-family: "Crimson Text", serif;
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
   .publication-layout {
     display: grid;
     grid-template-columns: minmax(0, 760px) minmax(300px, 360px);
@@ -221,6 +273,7 @@ const displayDate = federationDate ?? archiveDate;
 
   .publication-content {
     min-width: 0;
+    overflow: hidden;
   }
 
   .publication-content :global(h2) {
@@ -268,7 +321,7 @@ const displayDate = federationDate ?? archiveDate;
 
   .report-closing {
     max-width: 680px;
-    margin-top: 3.25rem;
+    margin-top: 1.5rem;
     padding: 1rem 1.15rem;
     border: 1px solid rgba(17, 17, 17, 0.1);
     background: rgba(255, 255, 255, 0.42);
@@ -276,6 +329,10 @@ const displayDate = federationDate ?? archiveDate;
 
   .report-closing .report-meta {
     max-width: none;
+  }
+
+  .publication-content > hr:last-of-type {
+    display: none;
   }
 
   .record-navigation {
@@ -291,10 +348,57 @@ const displayDate = federationDate ?? archiveDate;
   }
 
   .publication-about-card {
-    position: sticky;
-    top: 1.5rem;
     padding: 1.75rem;
     background: rgba(255, 255, 255, 0.22);
+  }
+
+  .publication-related-card {
+    padding: 1.35rem 1.5rem;
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  .publication-related-card .rail-kicker {
+    margin-bottom: 1rem;
+    color: inherit;
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .publication-related-card ul {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .publication-related-card li {
+    margin: 0;
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    font-family: "Crimson Text", serif;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .publication-related-card li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .publication-related-card a {
+    color: var(--command);
+    text-decoration: none;
+  }
+
+  .publication-related-card a:hover {
+    color: #7f0f0f;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.14em;
   }
 
   .publication-about-card .rail-kicker {
@@ -373,8 +477,8 @@ const displayDate = federationDate ?? archiveDate;
     .publication-layout {
       grid-template-columns: 1fr;
     }
-    .publication-about-card {
-      position: static;
+    .publication-content {
+      overflow: visible;
     }
   }
 </style>

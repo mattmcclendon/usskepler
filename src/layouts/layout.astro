@@ -178,9 +178,19 @@ const navItems = [
     --ink: #111111;
     --muted: #6d665c;
     --space: #080d12;
-    --command: #a71313;
-    --operations: #d6a444;
-    --sciences: #2b53a7;
+    --command-color: #a71313;
+    --operations-color: #d6a444;
+    --science-color: #2b53a7;
+    --engineering-color: #b86a34;
+    --medical-color: #2f7d7a;
+    --security-color: #7b1e1e;
+    --diplomatic-color: #7a5aa6;
+    --education-color: #5f7f57;
+
+    /* legacy aliases */
+    --command: var(--command-color);
+    --operations: var(--operations-color);
+    --sciences: var(--science-color);
     --line: rgba(17, 17, 17, 0.16);
   }
 
@@ -251,8 +261,8 @@ const navItems = [
 
   .brand-name {
     display: block;
-    font-size: clamp(1.6rem, 2.2vw, 2.4rem);
-    font-weight: 500;
+    font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+    font-weight: 600;
     letter-spacing: 0.07em;
     white-space: nowrap;
   }
@@ -443,6 +453,7 @@ const navItems = [
 
   .main-content {
     min-width: 0;
+    padding-top: 0.45rem;
   }
 
   .prose-block + .prose-block,
@@ -454,7 +465,7 @@ const navItems = [
   .crew-grid + .prose-block,
   .logs-grid + .prose-block,
   .archive-grid + .prose-block {
-    margin-top: 2rem;
+    margin-top: 2.4rem;
   }
 
   .prose-block p,

@@ -6,10 +6,17 @@ subtitle: The operating philosophy of USS Kepler and the Frontier Initiative
 recordType: Foundational Doctrine
 stardate: 80782.420
 federationDate: 10 June 2403
-author: Picard, Jean-Luc (Admiral)
-department: Starfleet Command
+author: Okoye, Samuel (Rear Admiral)
+department: Office of Interstellar Affairs
 heroImage:
 heroAlt:
+relatedRecords:
+  - title: Distributed Presence
+    href: /archive/distributed-presence
+  - title: The Frontier Initiative
+    href: /archive/the-frontier-initiative
+  - title: Settlement Continuum
+    href: /archive/settlement-continuum
 ---
 
 ## Background
@@ -88,7 +95,7 @@ Named for the astronomer Johannes Kepler, the doctrine guiding USS Kepler and re
 
 A successful mission strengthens the ability of others to shape their own future.
 
-Throughout my career, I have observed that institutions are often tempted to measure success by the problems they solve.
+Institutions are often tempted to measure success by the problems they solve.
 
 A wiser measure is the capability they leave behind.
 
@@ -164,6 +171,6 @@ The ultimate goal of a Kepler mission is not to become indispensable.
 
 The ultimate goal is to become unnecessary.
 
-If we have performed our duty well, a community will possess greater freedom of action, greater confidence in its own capabilities, and greater authority over its own future than it did before we arrived.
+When implemented successfully, a community will possess greater freedom of action, greater confidence in its own capabilities, and greater authority over its own future than it did before Starfleet arrived.
 
 When a community no longer requires Kepler's presence to pursue its future, the mission is complete.
