@@ -231,12 +231,12 @@ const displayDate = federationDate ?? archiveDate;
     border: 1px solid var(--line);
   }
 
-  .publication-content :global(p:has(img)) {
+  .publication-content :global(p:has(img:not(.log-marginalia))) {
     margin: 2rem 0 0.65rem;
     max-width: 100%;
   }
 
-  .publication-content :global(p > img) {
+  .publication-content :global(p > img:not(.log-marginalia)) {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -249,14 +249,18 @@ const displayDate = federationDate ?? archiveDate;
     object-fit: contain;
   }
 
+  .publication-content :global(p:has(.log-marginalia)) {
+    margin: 0;
+    max-width: 100%;
+  }
+
   .publication-content :global(.log-marginalia) {
     box-sizing: border-box;
-    float: right;
     display: block;
-    width: min(320px, 38vw);
-    max-width: 42%;
+    width: min(360px, 72vw);
+    max-width: 100%;
     height: auto;
-    margin: 0.2rem 0 1.35rem 2rem;
+    margin: 2rem auto 1.75rem;
     padding: 0;
     background: transparent;
     border: 0;
@@ -265,8 +269,9 @@ const displayDate = federationDate ?? archiveDate;
     object-fit: contain;
   }
 
-  .publication-content :global(.log-marginalia + p) {
-    margin-top: 0;
+  .publication-content :global(.log-marginalia + p),
+  .publication-content :global(p:has(.log-marginalia) + p) {
+    margin-top: 1rem;
   }
 
   .publication-content :global(p:has(img) + p > em:only-child) {
@@ -500,17 +505,11 @@ const displayDate = federationDate ?? archiveDate;
     .publication-content {
       overflow: visible;
     }
-    .publication-content :global(.log-marginalia) {
-      width: min(280px, 44vw);
-      max-width: 44%;
-    }
   }
 
   @media (max-width: 720px) {
     .publication-content :global(.log-marginalia) {
-      float: none;
-      width: min(260px, 72vw);
-      max-width: 100%;
+      width: min(280px, 78vw);
       margin: 1.5rem auto;
     }
   }
