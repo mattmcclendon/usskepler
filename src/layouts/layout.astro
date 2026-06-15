@@ -565,7 +565,7 @@ const navItems = [
   }
 
   .related-card li + li {
-    border-top: 1px solid var(--line);
+    margin-top: 0.35rem;
   }
 
   .related-card a {
@@ -573,24 +573,41 @@ const navItems = [
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.72rem 0;
+    margin: 0 -0.55rem;
+    padding: 0.78rem 0.7rem;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.16);
     font-size: 1rem;
+    text-decoration: none;
+    transition: background 160ms ease, color 160ms ease;
   }
 
   .related-card a::after {
-    content: "›";
+    content: "→";
     color: var(--command);
     font-family: "Orbitron", sans-serif;
-    font-size: 1rem;
+    font-size: 0.82rem;
     font-weight: 700;
     line-height: 1;
     opacity: 1;
     transition: transform 160ms ease, color 160ms ease;
   }
 
+  .related-card a:hover,
+  .related-card a:focus-visible {
+    background: rgba(255, 255, 255, 0.42);
+    color: var(--command);
+    outline: 2px solid transparent;
+  }
+
+  .related-card a:focus-visible {
+    outline-color: var(--command);
+    outline-offset: 2px;
+  }
+
   .related-card a:hover::after,
   .related-card a:focus-visible::after {
-    color: var(--operations);
+    color: var(--command);
     transform: translateX(2px);
   }
 
@@ -643,32 +660,6 @@ const navItems = [
     background: rgba(255, 255, 255, 0.42);
   }
 
-  .section-grid > :nth-child(3n + 1),
-  .mission-grid > :nth-child(3n + 1),
-  .ship-grid > :nth-child(3n + 1),
-  .crew-grid > :nth-child(3n + 1),
-  .logs-grid > :nth-child(3n + 1),
-  .archive-grid > :nth-child(3n + 1) {
-    border-left-color: var(--command);
-  }
-
-  .section-grid > :nth-child(3n + 2),
-  .mission-grid > :nth-child(3n + 2),
-  .ship-grid > :nth-child(3n + 2),
-  .crew-grid > :nth-child(3n + 2),
-  .logs-grid > :nth-child(3n + 2),
-  .archive-grid > :nth-child(3n + 2) {
-    border-left-color: var(--operations);
-  }
-
-  .section-grid > :nth-child(3n),
-  .mission-grid > :nth-child(3n),
-  .ship-grid > :nth-child(3n),
-  .crew-grid > :nth-child(3n),
-  .logs-grid > :nth-child(3n),
-  .archive-grid > :nth-child(3n) {
-    border-left-color: var(--sciences);
-  }
 
   .section-card.command,
   .mission-card.command,
@@ -710,31 +701,47 @@ const navItems = [
     white-space: pre-line !important;
   }
 
-  .section-grid > :nth-child(3n + 1) .card-label,
-  .mission-grid > :nth-child(3n + 1) .card-label,
-  .ship-grid > :nth-child(3n + 1) .card-label,
-  .crew-grid > :nth-child(3n + 1) .card-label,
-  .logs-grid > :nth-child(3n + 1) .card-label,
-  .archive-grid > :nth-child(3n + 1) .card-label {
-    color: var(--command);
+
+
+  .section-card h2,
+  .mission-card h2,
+  .ship-card h2,
+  .crew-card h2,
+  .logs-card h2,
+  .archive-card h2 {
+    margin: 0 0 0.85rem !important;
+    color: var(--ink) !important;
+    font-family: "Crimson Text", serif !important;
+    font-size: clamp(1.28rem, 1.75vw, 1.66rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
   }
 
-  .section-grid > :nth-child(3n + 2) .card-label,
-  .mission-grid > :nth-child(3n + 2) .card-label,
-  .ship-grid > :nth-child(3n + 2) .card-label,
-  .crew-grid > :nth-child(3n + 2) .card-label,
-  .logs-grid > :nth-child(3n + 2) .card-label,
-  .archive-grid > :nth-child(3n + 2) .card-label {
+
+  .section-card p:not(.card-label),
+  .mission-card p:not(.card-label),
+  .ship-card p:not(.card-label),
+  .crew-card p:not(.card-label),
+  .logs-card p:not(.card-label),
+  .archive-card p:not(.card-label) {
+    margin: 0 !important;
+    color: #191714 !important;
+    font-family: "Crimson Text", serif !important;
+    font-size: 1.02rem !important;
+    line-height: 1.36 !important;
+  }
+
+  .card-action {
+    margin-top: auto;
+    padding-top: 1.1rem;
     color: var(--operations);
-  }
-
-  .section-grid > :nth-child(3n) .card-label,
-  .mission-grid > :nth-child(3n) .card-label,
-  .ship-grid > :nth-child(3n) .card-label,
-  .crew-grid > :nth-child(3n) .card-label,
-  .logs-grid > :nth-child(3n) .card-label,
-  .archive-grid > :nth-child(3n) .card-label {
-    color: var(--sciences);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
 
   .section-card.command .card-label,
@@ -782,73 +789,22 @@ const navItems = [
     color: var(--sciences) !important;
   }
 
-  .section-card h2,
-  .mission-card h2,
-  .ship-card h2,
-  .crew-card h2,
-  .logs-card h2,
-  .archive-card h2 {
-    margin: 0 0 0.85rem !important;
-    color: var(--ink) !important;
-    font-family: "Crimson Text", serif !important;
-    font-size: clamp(1.28rem, 1.75vw, 1.66rem) !important;
-    font-weight: 600 !important;
-    line-height: 1.05 !important;
-    letter-spacing: 0 !important;
-    text-transform: none !important;
-  }
-
-
-  .section-card p:not(.card-label),
-  .mission-card p:not(.card-label),
-  .ship-card p:not(.card-label),
-  .crew-card p:not(.card-label),
-  .logs-card p:not(.card-label),
-  .archive-card p:not(.card-label) {
-    margin: 0 !important;
-    color: #191714 !important;
-    font-family: "Crimson Text", serif !important;
-    font-size: 1.02rem !important;
-    line-height: 1.36 !important;
-  }
-
-  .card-action {
-    margin-top: auto;
-    padding-top: 1.1rem;
-    color: var(--operations);
-    font-family: "Orbitron", sans-serif;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .section-grid > :nth-child(3n + 1) .card-action,
-  .mission-grid > :nth-child(3n + 1) .card-action,
-  .ship-grid > :nth-child(3n + 1) .card-action,
-  .crew-grid > :nth-child(3n + 1) .card-action,
-  .logs-grid > :nth-child(3n + 1) .card-action,
-  .archive-grid > :nth-child(3n + 1) .card-action {
-    color: var(--command) !important;
-  }
-
-  .section-grid > :nth-child(3n + 2) .card-action,
-  .mission-grid > :nth-child(3n + 2) .card-action,
-  .ship-grid > :nth-child(3n + 2) .card-action,
-  .crew-grid > :nth-child(3n + 2) .card-action,
-  .logs-grid > :nth-child(3n + 2) .card-action,
-  .archive-grid > :nth-child(3n + 2) .card-action {
+  .section-card:not(.command):not(.operations):not(.sciences) .card-label,
+  .section-card:not(.command):not(.operations):not(.sciences) .card-action,
+  .mission-card:not(.command):not(.operations):not(.sciences) .card-label,
+  .mission-card:not(.command):not(.operations):not(.sciences) .card-action,
+  .ship-card:not(.command):not(.operations):not(.sciences) .card-label,
+  .ship-card:not(.command):not(.operations):not(.sciences) .card-action,
+  .crew-card:not(.command):not(.operations):not(.sciences) .card-label,
+  .crew-card:not(.command):not(.operations):not(.sciences) .card-action,
+  .logs-card:not(.command):not(.operations):not(.sciences) .card-label,
+  .logs-card:not(.command):not(.operations):not(.sciences) .card-action,
+  .archive-card:not(.command):not(.operations):not(.sciences) .card-label,
+  .archive-card:not(.command):not(.operations):not(.sciences) .card-action {
     color: var(--operations) !important;
   }
 
-  .section-grid > :nth-child(3n) .card-action,
-  .mission-grid > :nth-child(3n) .card-action,
-  .ship-grid > :nth-child(3n) .card-action,
-  .crew-grid > :nth-child(3n) .card-action,
-  .logs-grid > :nth-child(3n) .card-action,
-  .archive-grid > :nth-child(3n) .card-action {
-    color: var(--sciences) !important;
-  }
+
 
   @media (max-width: 1180px) {
     .site-header {
@@ -957,4 +913,3 @@ const navItems = [
       justify-self: start;
     }
   }
-</style>

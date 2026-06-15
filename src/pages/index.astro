@@ -114,7 +114,6 @@ const quickAccess = [
                   <li>
                     <a href={href}>
                       <span>{item}</span>
-                      <span aria-hidden="true">›</span>
                     </a>
                   </li>
                 ))}
@@ -391,26 +390,58 @@ const quickAccess = [
 
 
   .quick-access ul {
+    display: grid;
+    gap: 0.35rem;
     margin: 0.8rem 0 0;
     padding: 0;
     list-style: none;
-    border: 1px solid var(--line);
   }
 
   .quick-access li + li {
-    border-top: 1px solid var(--line);
+    margin-top: 0;
   }
 
   .quick-access a {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    align-items: center;
     min-height: 42px;
-    padding: 0.62rem 0.75rem;
-    color: #25221d;
+    padding: 0.78rem 0.7rem;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.16);
     font-family: "Crimson Text", serif;
     font-size: 1.02rem;
+    text-decoration: none;
+    transition: background 160ms ease, color 160ms ease;
+  }
+
+  .quick-access a::after {
+    content: "→";
+    color: var(--command);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 160ms ease, color 160ms ease;
+  }
+
+  .quick-access a:hover,
+  .quick-access a:focus-visible {
+    background: rgba(255, 255, 255, 0.42);
+    color: var(--command);
+    outline: 2px solid transparent;
+  }
+
+  .quick-access a:focus-visible {
+    outline-color: var(--command);
+    outline-offset: 2px;
+  }
+
+  .quick-access a:hover::after,
+  .quick-access a:focus-visible::after {
+    color: var(--command);
+    transform: translateX(2px);
   }
 
 
