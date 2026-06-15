@@ -5,7 +5,7 @@ const railItems = [
   ["Page Type", "Legal / Disclaimer"],
   ["Project Type", "Independent Fan Project"],
   ["Commercial Status", "Non-commercial"],
-  ["Continuity", "Unofficial"],
+  ["Canon Status", "Unofficial"],
   ["Last Updated", "2026"],
 ];
 ---
@@ -13,7 +13,7 @@ const railItems = [
 <Layout title="Disclaimer">
   <main class="interior-shell">
     <section class="page-hero">
-      <p class="eyebrow">Project Information</p>
+      <p class="eyebrow">Site Policy</p>
       <h1>Disclaimer</h1>
       <p class="dek">
         USS Kepler is an independent, non-commercial Star Trek fan project and is not affiliated with, endorsed by, or sponsored by Paramount or any official Star Trek rights holder.
@@ -64,17 +64,8 @@ const railItems = [
       </article>
 
       <aside class="context-rail">
-        <section class="rail-card">
-          <p class="rail-kicker">Legal Record</p>
-          <h2>Disclaimer</h2>
-          <p>
-            This page clarifies the unofficial and non-commercial nature of the
-            USS Kepler project.
-          </p>
-        </section>
-
         <section class="rail-card metadata-card">
-          <h2>Page Details</h2>
+          <h2>Disclaimer Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>

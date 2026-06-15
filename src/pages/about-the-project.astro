@@ -3,8 +3,8 @@ import Layout from "../layouts/layout.astro";
 
 const railItems = [
   ["Registry", "NCC-83639"],
-  ["Class", "Sagan-class"],
-  ["Commissioned", "2403"],
+  ["Class", "Sagan-class Explorer"],
+  ["Launched", "2403"],
   ["Assignment", "Frontier Initiative"],
   ["Archive Status", "Active"],
 ];
@@ -13,10 +13,10 @@ const railItems = [
 <Layout title="About the Project">
   <main class="interior-shell">
     <section class="page-hero">
-      <p class="eyebrow">Project Information</p>
+      <p class="eyebrow">Project Overview</p>
       <h1>About the Project</h1>
       <p class="dek">
-        USS Kepler is an independent Star Trek fan archive exploring service,
+        USS Kepler is an independent Star Trek fan project exploring service,
         citizenship, belonging, and the institutions that connect worlds.
       </p>
     </section>
@@ -93,17 +93,8 @@ const railItems = [
       </article>
 
       <aside class="context-rail">
-        <section class="rail-card">
-          <p class="rail-kicker">Project Premise</p>
-          <h2>USS Kepler</h2>
-          <p>
-            The frontier is wherever distance begins to erode participation,
-            trust, or belonging.
-          </p>
-        </section>
-
         <section class="rail-card metadata-card">
-          <h2>Archive Reference</h2>
+          <h2>Project Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>
@@ -112,6 +103,16 @@ const railItems = [
               </div>
             ))}
           </dl>
+        </section>
+        <section class="rail-card related-card">
+          <h2>Related Records</h2>
+          <ul>
+            <li><a href="/mission">Mission</a></li>
+            <li><a href="/ship">USS Kepler</a></li>
+            <li><a href="/crew">Crew</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/disclaimer">Disclaimer</a></li>
+          </ul>
         </section>
       </aside>
     </div>

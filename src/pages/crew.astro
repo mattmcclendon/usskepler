@@ -300,10 +300,10 @@ const railItems = [
 <Layout title="Crew" current="crew">
   <main class="interior-shell">
     <section class="page-hero">
-      <p class="eyebrow">Section Overview</p>
+      <p class="eyebrow">Crew Manifest</p>
       <h1>Crew</h1>
       <p class="dek">
-        The senior officers, specialists, and mission leaders assigned to USS Kepler.
+        The officers, specialists, educators, diplomats, physicians, scientists, and mission leaders assigned to USS Kepler.
       </p>
     </section>
 
@@ -387,17 +387,8 @@ const railItems = [
       </article>
 
       <aside class="context-rail">
-        <section class="rail-card">
-          <p class="rail-kicker">Crew Record</p>
-          <h2>USS Kepler</h2>
-          <p>
-            The Crew section documents the officers and specialists responsible
-            for carrying out Kepler’s Frontier Initiative assignment.
-          </p>
-        </section>
-
         <section class="rail-card metadata-card">
-          <h2>Archive Details</h2>
+          <h2>Personnel Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>
@@ -411,8 +402,9 @@ const railItems = [
         <section class="rail-card related-card">
           <h2>Related Records</h2>
           <ul>
-            <li><a href="/mission">Mission Framework</a></li>
-            <li><a href="/ship">Ship Profile</a></li>
+            <li><a href="/mission">Mission</a></li>
+            <li><a href="/ship">USS Kepler</a></li>
+            <li><a href="/logs/commanding-officer">Senior Staff Logs</a></li>
             <li><a href="/timeline">Timeline</a></li>
           </ul>
         </section>

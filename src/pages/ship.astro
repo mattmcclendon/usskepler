@@ -3,30 +3,33 @@ import Layout from "../layouts/layout.astro";
 
 const shipCards = [
   {
-    label: "VESSEL\nPROFILE",
-    title: "USS Kepler",
-    body: "Mission history, command structure, deployment record, and the role of Kepler within the Frontier Initiative.",
+    label: "VESSEL\nRECORD",
+    title: "Vessel Profile",
+    body: "Registry, lineage, command structure, deployment record, and Kepler's role within Frontier Squadron One.",
+    accent: "operations",
     href: "/archive/uss-kepler",
   },
   {
-    label: "SAGAN\nCLASS",
-    title: "Renaissance Three",
-    body: "The post-Frontier Day design philosophy that produced the Sagan, Stargazer, and Hathaway classes.",
-    href: "/archive/sagan-class",
+    label: "MISSION\nFRAMEWORK",
+    title: "Frontier Initiative",
+    body: "The Federation program that defines Kepler's long-term mission of support, presence, and civic trust.",
+    accent: "command",
+    href: "/mission",
   },
   {
-    label: "SERVICE\nDOCTRINE",
-    title: "Distributed Presence",
-    body: "Why Starfleet shifted toward resilience, regional support, and sustained engagement across Federation space.",
-    href: "/archive/distributed-presence",
+    label: "CREW\nMANIFEST",
+    title: "Senior Staff",
+    body: "The officers, specialists, and families giving shape to Kepler's shipboard life and field work.",
+    accent: "sciences",
+    href: "/crew",
   },
 ];
 
 const railItems = [
   ["Registry", "NCC-83639"],
-  ["Class", "Sagan-class Cruiser"],
-  ["Commissioned", "2403"],
-  ["Length", "540.7 meters"],
+  ["Class", "Sagan-class Explorer"],
+  ["Keel Laid", "76121.461 (2399-Feb-14)"],
+  ["Launched", "80505.708 (2403-Jul-4)"],
   ["Decks", "16"],
   ["Crew", "500"],
   ["Assignment", "Frontier Initiative"],
@@ -37,10 +40,10 @@ const railItems = [
 <Layout title="Ship" current="ship">
   <main class="interior-shell">
     <section class="page-hero">
-      <p class="eyebrow">Section Overview</p>
+      <p class="eyebrow">Ship Profile</p>
       <h1>Ship</h1>
       <p class="dek">
-        A Sagan-class cruiser assigned to the Frontier Initiative, dedicated to strengthening the connections that bind the Federation together.
+        The Sagan-class explorer assigned to carry the Frontier Initiative into practice.
       </p>
     </section>
 
@@ -49,7 +52,7 @@ const railItems = [
         <section class="prose-block">
           <h2>USS Kepler</h2>
           <p>
-            Commissioned in 2403, USS Kepler is a Sagan-class cruiser assigned to the
+            Launched in 2403, USS Kepler is a Sagan-class explorer assigned to the
             Frontier Initiative. While fully capable of traditional exploration,
             scientific, and diplomatic operations, the vessel's primary mission is the
             maintenance of Federation cohesion across frontier regions, developing
@@ -63,7 +66,7 @@ const railItems = [
         </section>
 
         <section class="prose-block">
-          <h2>Why the Sagan Class?</h2>
+          <h2>Why the Sagan Class</h2>
           <p>
             The Sagan class emerged during a period of reflection within Starfleet.
             Its four-nacelle architecture, extensive internal volume, emergency
@@ -121,7 +124,7 @@ const railItems = [
 
         <section class="ship-grid">
           {shipCards.map((card) => (
-            <a class="ship-card" href={card.href}>
+            <a class={`ship-card ${card.accent}`} href={card.href}>
               <p class="card-label">{card.label}</p>
               <h2>{card.title}</h2>
               <p>{card.body}</p>
@@ -141,16 +144,8 @@ const railItems = [
       </article>
 
       <aside class="context-rail">
-        <section class="rail-card">
-          <p class="rail-kicker">Ship Record</p>
-          <h2>USS Kepler</h2>
-          <p>
-            The Ship section documents the vessel, its technical systems, mission adaptations, class lineage, and operational role within the Frontier Initiative.
-          </p>
-        </section>
-
         <section class="rail-card metadata-card">
-          <h2>Archive Details</h2>
+          <h2>Vessel Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>
@@ -164,10 +159,11 @@ const railItems = [
         <section class="rail-card related-card">
           <h2>Related Records</h2>
           <ul>
-            <li><a href="/mission">Mission Framework</a></li>
-            <li><a href="/crew">Crew Directory</a></li>
-            <li><a href="/logs">Operational Logs</a></li>
-            <li><a href="/frontier">Frontier Initiative</a></li>
+            <li><a href="/mission">Mission</a></li>
+            <li><a href="/archive/uss-kepler">Vessel Profile</a></li>
+            <li><a href="/crew">Crew</a></li>
+            <li><a href="/logs/commanding-officer">Commanding Officer Logs</a></li>
+            <li><a href="/archive">Archive</a></li>
           </ul>
         </section>
       </aside>

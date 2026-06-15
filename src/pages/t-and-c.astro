@@ -5,7 +5,7 @@ const railItems = [
   ["Page Type", "Terms & Conditions"],
   ["Project Type", "Independent Fan Project"],
   ["Commercial Status", "Non-commercial"],
-  ["Use", "Personal / Informational"],
+  ["Permitted Use", "Personal / Informational"],
   ["Last Updated", "2026"],
 ];
 ---
@@ -13,10 +13,10 @@ const railItems = [
 <Layout title="Terms & Conditions">
   <main class="interior-shell">
     <section class="page-hero">
-      <p class="eyebrow">Project Information</p>
+      <p class="eyebrow">Site Policy</p>
       <h1>Terms & Conditions</h1>
       <p class="dek">
-        Basic terms for accessing and using USS Kepler as an independent, non-commercial Star Trek fan archive.
+        Basic terms governing use of USS Kepler as an independent, non-commercial Star Trek fan project.
       </p>
     </section>
 
@@ -74,16 +74,8 @@ const railItems = [
       </article>
 
       <aside class="context-rail">
-        <section class="rail-card">
-          <p class="rail-kicker">Legal Record</p>
-          <h2>Terms</h2>
-          <p>
-            This page describes basic site-use expectations for visitors to USS Kepler.
-          </p>
-        </section>
-
         <section class="rail-card metadata-card">
-          <h2>Page Details</h2>
+          <h2>Terms Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>

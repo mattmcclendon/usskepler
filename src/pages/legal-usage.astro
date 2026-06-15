@@ -4,7 +4,7 @@ import Layout from "../layouts/layout.astro";
 const railItems = [
   ["Page Type", "Legal Usage"],
   ["Project Type", "Independent Fan Project"],
-  ["Original Work", "USS Kepler Materials"],
+  ["Original Work", "USS Kepler Content"],
   ["External IP", "Star Trek"],
   ["Last Updated", "2026"],
 ];
@@ -13,10 +13,10 @@ const railItems = [
 <Layout title="Legal Usage">
   <main class="interior-shell">
     <section class="page-hero">
-      <p class="eyebrow">Project Information</p>
+      <p class="eyebrow">Site Policy</p>
       <h1>Legal Usage</h1>
       <p class="dek">
-        Guidance for citing, linking to, quoting, and referencing original USS Kepler materials.
+        Guidance for citing, linking to, quoting, and referencing original USS Kepler materials and project content.
       </p>
     </section>
 
@@ -73,17 +73,9 @@ const railItems = [
       </article>
 
       <aside class="context-rail">
-        <section class="rail-card">
-          <p class="rail-kicker">Legal Record</p>
-          <h2>Usage</h2>
-          <p>
-            This page explains how original USS Kepler materials may be cited,
-            referenced, and shared.
-          </p>
-        </section>
 
         <section class="rail-card metadata-card">
-          <h2>Page Details</h2>
+          <h2>Usage Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>

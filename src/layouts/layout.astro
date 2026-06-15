@@ -50,7 +50,6 @@ const navItems = [
               <span class="brand-name">USS KEPLER</span>
               <span class="registry">NCC-83639</span>
             </span>
-            <span class="affiliation">Memory Alpha Cultural & Scientific Archive</span>
           </a>
         </div>
 
@@ -80,13 +79,14 @@ const navItems = [
           class="footer-emblem"
         />
         <p>
-          USS Kepler is maintained as an independent, non-commercial Star Trek fan project.
+          Maintained by the UFP Office of Cultural & Scientific Archives, Memory Alpha.
         </p>
         <nav aria-label="Footer navigation">
           <a href="/about-the-project">About the Project</a>
           <a href="/disclaimer">Disclaimer</a>
           <a href="/t-and-c">Terms & Conditions</a>
           <a href="/legal-usage">Legal Usage</a>
+          <a href="/privacy-policy">Privacy Policy</a>
         </nav>
         <p class="legal">
           Star Trek and all related names, characters, designs, marks, and
@@ -101,18 +101,18 @@ const navItems = [
       const stardateEpochYear = 2323;
       const displayYear = 2403;
       const monthNames = [
-        "JAN",
-        "FEB",
-        "MAR",
-        "APR",
-        "MAY",
-        "JUN",
-        "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC",
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
       ];
 
       function pad(value) {
@@ -255,13 +255,13 @@ const navItems = [
 
   .brand-line {
     display: inline-flex;
-    align-items: baseline;
+    align-items: flex-start;
     gap: 1rem;
   }
 
   .brand-name {
     display: block;
-    font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+    font-size: clamp(2.05rem, 2.74vw, 2.96rem);
     font-weight: 600;
     letter-spacing: 0.07em;
     white-space: nowrap;
@@ -269,28 +269,21 @@ const navItems = [
 
   .registry {
     display: block;
-    font-size: clamp(0.8rem, 1.10vw, 1.10rem);
+    padding-top: 0.18em;
+    font-size: clamp(0.96rem, 1.32vw, 1.32rem);
     font-weight: 500;
     letter-spacing: 0.07em;
     white-space: nowrap;
   }
 
-  .affiliation {
-    display: block;
-    margin-top: 5px;
-    font-family: "Crimson Text", serif;
-    font-size: clamp(0.88rem, 1.05vw, 1.05rem);
-    font-style: italic;
-    letter-spacing: 0.14em;
-    white-space: nowrap;
-  }
 
   .main-nav {
     display: flex;
     gap: clamp(1.2rem, 3vw, 3.2rem);
     justify-content: end;
     align-items: center;
-    padding-bottom: 0.15rem;
+    align-self: end;
+    padding-bottom: 0.3rem;
     font-family: "Orbitron", sans-serif;
     font-size: 0.86rem;
     letter-spacing: 0.18em;
@@ -355,7 +348,7 @@ const navItems = [
 
   .site-footer {
     display: grid;
-    grid-template-columns: 72px minmax(260px, 1fr) minmax(280px, 0.8fr);
+    grid-template-columns: 72px minmax(240px, 0.95fr) minmax(320px, 0.85fr);
     grid-template-areas:
       "emblem summary legal"
       "emblem nav legal";
@@ -378,7 +371,7 @@ const navItems = [
 
   .site-footer p {
     grid-area: summary;
-    max-width: 520px;
+    max-width: 680px;
     margin: 0;
     font-family: "Crimson Text", serif;
     font-size: 0.95rem;
@@ -388,19 +381,24 @@ const navItems = [
   .site-footer nav {
     grid-area: nav;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.2rem;
+    flex-wrap: nowrap;
+    gap: 0.75rem 1rem;
     font-family: "Orbitron", sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+  }
+
+  .site-footer nav a {
+    white-space: nowrap;
   }
 
   .site-footer .legal {
     grid-area: legal;
     justify-self: end;
-    max-width: 480px;
-    font-size: 0.82rem;
+    max-width: 460px;
+    font-size: 0.855rem;
+    line-height: 1.45;
     color: rgba(255, 255, 255, 0.66);
   }
 
@@ -451,6 +449,11 @@ const navItems = [
     align-items: start;
   }
 
+
+
+
+
+
   .main-content {
     min-width: 0;
     padding-top: 0.45rem;
@@ -459,12 +462,24 @@ const navItems = [
   .prose-block + .prose-block,
   .prose-block + .section-note,
   .section-note + .prose-block,
+  .prose-block + .section-grid,
+  .prose-block + .mission-grid,
+  .prose-block + .ship-grid,
+  .prose-block + .crew-grid,
+  .prose-block + .logs-grid,
+  .prose-block + .archive-grid,
   .section-grid + .prose-block,
   .mission-grid + .prose-block,
   .ship-grid + .prose-block,
   .crew-grid + .prose-block,
   .logs-grid + .prose-block,
-  .archive-grid + .prose-block {
+  .archive-grid + .prose-block,
+  .section-grid + .section-note,
+  .mission-grid + .section-note,
+  .ship-grid + .section-note,
+  .crew-grid + .section-note,
+  .logs-grid + .section-note,
+  .archive-grid + .section-note {
     margin-top: 2.4rem;
   }
 
@@ -571,6 +586,15 @@ const navItems = [
     margin-top: 2rem;
   }
 
+  .section-grid.two-column,
+  .mission-grid.two-column,
+  .ship-grid.two-column,
+  .crew-grid.two-column,
+  .logs-grid.two-column,
+  .archive-grid.two-column {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+
   .section-card,
   .mission-card,
   .ship-card,
@@ -581,6 +605,8 @@ const navItems = [
     flex-direction: column;
     min-height: 250px;
     padding: 1rem;
+    color: inherit;
+    text-decoration: none;
     background: rgba(255, 255, 255, 0.28);
     border: 1px solid var(--line);
     border-left: 3px solid var(--operations);
@@ -624,15 +650,42 @@ const navItems = [
     border-left-color: var(--sciences);
   }
 
+  .section-card.command,
+  .mission-card.command,
+  .ship-card.command,
+  .crew-card.command,
+  .logs-card.command,
+  .archive-card.command {
+    border-left-color: var(--command) !important;
+  }
+
+  .section-card.operations,
+  .mission-card.operations,
+  .ship-card.operations,
+  .crew-card.operations,
+  .logs-card.operations,
+  .archive-card.operations {
+    border-left-color: var(--operations) !important;
+  }
+
+  .section-card.sciences,
+  .mission-card.sciences,
+  .ship-card.sciences,
+  .crew-card.sciences,
+  .logs-card.sciences,
+  .archive-card.sciences {
+    border-left-color: var(--sciences) !important;
+  }
+
   .card-label {
     min-height: 2.2em !important;
     margin: 0 0 1.25rem !important;
     color: var(--operations);
-    font-family: "Inter", sans-serif !important;
+    font-family: "Orbitron", sans-serif !important;
     font-size: 0.62rem !important;
     font-weight: 700 !important;
-    line-height: 1.08 !important;
-    letter-spacing: 0.08em !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
     white-space: pre-line !important;
   }
@@ -664,21 +717,67 @@ const navItems = [
     color: var(--sciences);
   }
 
+  .section-card.command .card-label,
+  .section-card.command .card-action,
+  .mission-card.command .card-label,
+  .mission-card.command .card-action,
+  .ship-card.command .card-label,
+  .ship-card.command .card-action,
+  .crew-card.command .card-label,
+  .crew-card.command .card-action,
+  .logs-card.command .card-label,
+  .logs-card.command .card-action,
+  .archive-card.command .card-label,
+  .archive-card.command .card-action {
+    color: var(--command) !important;
+  }
+
+  .section-card.operations .card-label,
+  .section-card.operations .card-action,
+  .mission-card.operations .card-label,
+  .mission-card.operations .card-action,
+  .ship-card.operations .card-label,
+  .ship-card.operations .card-action,
+  .crew-card.operations .card-label,
+  .crew-card.operations .card-action,
+  .logs-card.operations .card-label,
+  .logs-card.operations .card-action,
+  .archive-card.operations .card-label,
+  .archive-card.operations .card-action {
+    color: var(--operations) !important;
+  }
+
+  .section-card.sciences .card-label,
+  .section-card.sciences .card-action,
+  .mission-card.sciences .card-label,
+  .mission-card.sciences .card-action,
+  .ship-card.sciences .card-label,
+  .ship-card.sciences .card-action,
+  .crew-card.sciences .card-label,
+  .crew-card.sciences .card-action,
+  .logs-card.sciences .card-label,
+  .logs-card.sciences .card-action,
+  .archive-card.sciences .card-label,
+  .archive-card.sciences .card-action {
+    color: var(--sciences) !important;
+  }
+
   .section-card h2,
   .mission-card h2,
   .ship-card h2,
   .crew-card h2,
   .logs-card h2,
   .archive-card h2 {
-    margin: 0 0 0.8rem !important;
+    margin: 0 0 0.85rem !important;
     color: var(--ink) !important;
-    font-family: "Inter", sans-serif !important;
-    font-size: 0.78rem !important;
-    font-weight: 700 !important;
-    line-height: 1.18 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
+    font-family: "Crimson Text", serif !important;
+    font-size: clamp(1.28rem, 1.75vw, 1.66rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
   }
+
 
   .section-card p:not(.card-label),
   .mission-card p:not(.card-label),
@@ -756,6 +855,9 @@ const navItems = [
       justify-self: start;
       max-width: 720px;
     }
+    .site-footer nav {
+      flex-wrap: wrap;
+    }
 
     .content-layout {
       grid-template-columns: 1fr;
@@ -767,6 +869,14 @@ const navItems = [
     .crew-grid,
     .logs-grid,
     .archive-grid {
+      grid-template-columns: 1fr;
+    }
+    .section-grid.two-column,
+    .mission-grid.two-column,
+    .ship-grid.two-column,
+    .crew-grid.two-column,
+    .logs-grid.two-column,
+    .archive-grid.two-column {
       grid-template-columns: 1fr;
     }
   }
@@ -786,11 +896,11 @@ const navItems = [
     }
 
     .brand-name {
-      font-size: 1.35rem;
+      font-size: 1.62rem;
     }
 
     .registry {
-      font-size: 0.85rem;
+      font-size: 1.02rem;
     }
 
     .main-nav {

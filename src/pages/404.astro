@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout title="Record Not Found">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Archive Access</p>
+      <h1>Record Not Found</h1>
+      <p class="dek">
+        The requested record could not be located in the USS Kepler archive.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block missing-record">
+          <h2>Search Pattern Inconclusive</h2>
+          <p>
+            The archive may have moved, renamed, or not yet published this record.
+            Return to a primary section below or browse the full archive.
+          </p>
+        </section>
+
+        <section class="section-grid two-column" aria-label="Suggested destinations">
+          <a class="section-card command" href="/mission">
+            <p class="card-label">MISSION\nFRAMEWORK</p>
+            <h2>Mission</h2>
+            <p>Start with the Frontier Initiative and Kepler's mission of support.</p>
+            <span class="card-action">Open Record</span>
+          </a>
+
+          <a class="section-card operations" href="/ship">
+            <p class="card-label">SHIP\nPROFILE</p>
+            <h2>USS Kepler</h2>
+            <p>Explore the vessel, its lineage, systems, and operational role.</p>
+            <span class="card-action">Open Record</span>
+          </a>
+
+          <a class="section-card sciences" href="/crew">
+            <p class="card-label">CREW\nMANIFEST</p>
+            <h2>Crew</h2>
+            <p>Meet the officers and specialists assigned to USS Kepler.</p>
+            <span class="card-action">Open Record</span>
+          </a>
+
+          <a class="section-card operations" href="/archive">
+            <p class="card-label">ARCHIVE\nINDEX</p>
+            <h2>Archive</h2>
+            <p>Browse vessel records, doctrine papers, logs, and supporting materials.</p>
+            <span class="card-action">Open Record</span>
+          </a>
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card metadata-card">
+          <h2>Access Summary</h2>
+          <dl>
+            <div>
+              <dt>Status</dt>
+              <dd>Unavailable</dd>
+            </div>
+            <div>
+              <dt>Archive Result</dt>
+              <dd>No matching record</dd>
+            </div>
+            <div>
+              <dt>Recommended Action</dt>
+              <dd>Return to index</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="rail-card related-card">
+          <h2>Primary Sections</h2>
+          <ul>
+            <li><a href="/mission">Mission</a></li>
+            <li><a href="/ship">Ship</a></li>
+            <li><a href="/crew">Crew</a></li>
+            <li><a href="/logs/commanding-officer">Logs</a></li>
+            <li><a href="/archive">Archive</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .missing-record {
+    max-width: 66ch;
+  }
+</style>

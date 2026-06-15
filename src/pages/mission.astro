@@ -3,22 +3,32 @@ import Layout from "../layouts/layout.astro";
 
 const missionCards = [
   {
-    label: "FRONTIER\nINITIATIVE",
-    title: "Mission Framework",
-    body: "Kepler serves as a Frontier Initiative vessel assigned to strengthen participation, trust, and institutional connection across Federation member worlds.",
-    href: "/archive/frontier-initiative",
+    label: "MISSION\nFRAMEWORK",
+    title: "The Frontier Initiative",
+    body: "A Federation program built around sustained presence, civic support, and long-term trust rather than brief inspection or symbolic contact.",
+    accent: "command",
+    href: "/archive/the-frontier-initiative",
   },
   {
-    label: "NO MEMBER\nWORLD FORGOTTEN",
-    title: "Operational Mandate",
-    body: "The ship’s work begins where distance starts to erode belonging: schools, clinics, civic institutions, local infrastructure, and public life.",
-    href: "/archive/kepler-doctrine",
+    label: "VESSEL\nASSIGNMENT",
+    title: "USS Kepler",
+    body: "The Sagan-class vessel assigned to carry the Initiative into practice through diplomacy, science, education, medicine, and infrastructure support.",
+    accent: "operations",
+    href: "/ship",
   },
   {
-    label: "MEMBER WORLD\nENGAGEMENT",
-    title: "Field Assignments",
-    body: "Kepler conducts long-duration assessments, knowledge exchanges, cultural programs, and practical support missions in partnership with local communities.",
-    href: "/missions",
+    label: "CREW\nMANIFEST",
+    title: "The People Behind the Mission",
+    body: "Command officers, specialists, families, and civilian partners whose work turns Federation membership into daily reality.",
+    accent: "sciences",
+    href: "/crew",
+  },
+  {
+    label: "FIELD\nRECORDS",
+    title: "Senior Staff Logs",
+    body: "Personal records from command and senior staff documenting Kepler's assembly, commissioning, and evolving shipboard life.",
+    accent: "operations",
+    href: "/logs/commanding-officer",
   },
 ];
 
@@ -26,14 +36,17 @@ const principles = [
   "Presence before prescription",
   "Exchange before intervention",
   "Continuity before ceremony",
+  "Capability before dependency",
   "Local knowledge before institutional assumption",
+  "No member world forgotten",
 ];
 
 const railItems = [
   ["Section", "Mission"],
-  ["Vessel", "USS Kepler NCC-83639"],
-  ["Assignment", "Frontier Initiative"],
-  ["Command Principle", "No Member World Forgotten"],
+  ["Program", "Frontier Initiative"],
+  ["Primary Vessel", "USS Kepler NCC-83639"],
+  ["Initiative Group", "Frontier Squadron One"],
+  ["Operational Mandate", "No member world forgotten"],
   ["Archive Status", "Active"],
 ];
 ---
@@ -41,35 +54,50 @@ const railItems = [
 <Layout title="Mission" current="mission">
   <main class="interior-shell">
     <section class="page-hero" aria-labelledby="page-title">
-      <p class="eyebrow">Section Overview</p>
+      <p class="eyebrow">Frontier Initiative</p>
       <h1 id="page-title">Mission</h1>
       <p class="dek">
-        USS Kepler exists to make Federation membership tangible for worlds at
+        USS Kepler exists to make Federation membership tangible for communities at
         the edge of distance, attention, and institutional memory.
       </p>
     </section>
 
     <div class="content-layout">
       <article class="main-content">
-        <section class="prose-block">
+        <section class="prose-block mission-overview">
           <h2>Overview</h2>
           <p>
-            Kepler is not assigned to conquest, patrol, or symbolic diplomacy.
-            Its mandate is continuity: the patient work of helping member worlds
-            experience the Federation as a living relationship rather than a
-            distant institution.
+            The Frontier Initiative is not a campaign of expansion. It is a commitment
+            to remain present after the speeches, after admission, after first contact,
+            and after a world has technically become part of the Federation.
           </p>
           <p>
-            The ship brings Starfleet expertise, civilian specialists, cultural
-            exchange programs, medical knowledge, educational partnerships, and
-            practical infrastructure support to communities whose connection to
-            the Federation may be real on paper but fragile in daily life.
+            USS Kepler is assigned to the work that begins when distance starts to
+            erode belonging: schools, clinics, civic institutions, local infrastructure,
+            cultural memory, public life, and the daily systems that allow a community
+            to experience membership as something more than an entry in a charter.
+          </p>
+          <p>
+            The mission is practical by design. Kepler carries diplomats,
+            xenoanthropologists, engineers, physicians, educators, archivists, and
+            scientists because the problems facing frontier communities are rarely one
+            discipline wide.
           </p>
         </section>
 
-        <section class="mission-grid" aria-label="Mission records">
+        <section class="mission-statement" aria-labelledby="mission-statement-title">
+          <p class="statement-kicker">Operational Mandate</p>
+          <h2 id="mission-statement-title">No member world forgotten.</h2>
+          <p>
+            Kepler measures success through sustained presence, trust, capability, and
+            the quiet evidence that a community no longer has to ask whether the
+            Federation remembers it exists.
+          </p>
+        </section>
+
+        <section class="mission-grid two-column" aria-label="Mission starting points">
           {missionCards.map((card) => (
-            <a class="mission-card" href={card.href}>
+            <a class={`mission-card ${card.accent}`} href={card.href}>
               <p class="card-label">{card.label}</p>
               <h2>{card.title}</h2>
               <p>{card.body}</p>
@@ -80,6 +108,11 @@ const railItems = [
 
         <section class="prose-block section-note">
           <h2>Mission Principles</h2>
+          <p>
+            These principles guide Kepler's field work and distinguish the Frontier
+            Initiative from patrol, inspection, relief deployment, or traditional
+            exploration.
+          </p>
           <ul class="principle-list">
             {principles.map((principle) => (
               <li>{principle}</li>
@@ -90,17 +123,16 @@ const railItems = [
 
       <aside class="context-rail" aria-label="Mission metadata">
         <section class="rail-card signature-card">
-          <p class="rail-kicker">Mission Record</p>
-          <h2>USS Kepler</h2>
+          <h2>Frontier Initiative</h2>
           <p>
-            The Mission section defines Kepler’s purpose within the Frontier
-            Initiative and explains why the ship’s work begins after first
-            contact, after admission, and after the speeches have ended.
+            The Mission section defines why Kepler exists, who it serves, and how the
+            ship translates Federation ideals into practical support for frontier
+            communities.
           </p>
         </section>
 
         <section class="rail-card metadata-card">
-          <h2>Archive Details</h2>
+          <h2>Mission Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>
@@ -114,9 +146,11 @@ const railItems = [
         <section class="rail-card related-card">
           <h2>Related Records</h2>
           <ul>
-            <li><a href="/archive/frontier-initiative">Frontier Initiative</a></li>
-            <li><a href="/archive/kepler-doctrine">USS Kepler Doctrine</a></li>
+            <li><a href="/archive/the-frontier-initiative">Frontier Initiative Record</a></li>
+            <li><a href="/archive/doctrine">Vessel Doctrine</a></li>
+            <li><a href="/ship">USS Kepler</a></li>
             <li><a href="/crew">Senior Staff</a></li>
+            <li><a href="/logs/commanding-officer">Commanding Officer Logs</a></li>
           </ul>
         </section>
       </aside>
@@ -125,65 +159,58 @@ const railItems = [
 </Layout>
 
 <style>
-  .mission-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-    margin-top: clamp(2rem, 4vw, 3rem);
+  .mission-overview {
+    max-width: 66ch;
   }
 
-  .mission-card {
-    display: flex;
-    min-height: 17rem;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1.2rem;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 0.85rem;
-    background: rgba(255, 255, 255, 0.62);
-    color: inherit;
-    text-decoration: none;
+  .prose-block h2,
+  .rail-card h2 {
+    margin-bottom: 1rem;
   }
 
-  .mission-card:hover,
-  .mission-card:focus-visible {
-    transform: translateY(-2px);
+  .mission-statement {
+    margin: clamp(2rem, 4vw, 3rem) 0;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    border-left: 4px solid var(--command, #a91f2f);
+    background: rgba(255, 255, 255, 0.42);
   }
 
-  .card-label {
-    margin: 0 0 1.25rem;
-    white-space: pre-line;
-    font-size: 0.72rem;
+  .statement-kicker {
+    margin: 0 0 0.75rem;
+    color: var(--command, #a91f2f);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.18em;
-    line-height: 1.35;
     text-transform: uppercase;
-    color: var(--muted-text, #6f6a63);
   }
 
-  .mission-card h2 {
-    margin: 0 0 0.75rem;
+  .mission-statement h2 {
+    margin: 0 0 0.85rem;
+    font-size: clamp(1.9rem, 3vw, 3rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.08;
   }
 
-  .mission-card p:not(.card-label) {
+  .mission-statement p:last-child {
+    max-width: 58ch;
     margin: 0;
-  }
-
-  .card-action {
-    margin-top: 1.5rem;
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .section-note {
-    margin-top: clamp(2rem, 4vw, 3rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.55;
   }
 
   .principle-list {
     display: grid;
-    gap: 0.7rem;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 0.7rem 1rem;
     padding-left: 1.2rem;
+  }
+
+  @media (max-width: 760px) {
+    .principle-list {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

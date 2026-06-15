@@ -196,13 +196,12 @@ const displayDate = federationDate ?? archiveDate;
   .publication-type {
     margin: 0 0 0.75rem;
     color: var(--operations);
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1;
+    letter-spacing: 0.14em;
+    line-height: 1.25;
     text-transform: uppercase;
-    opacity: 1;
   }
 
   .publication-shell h1 {
@@ -304,10 +303,10 @@ const displayDate = federationDate ?? archiveDate;
   .publication-content :global(h2) {
     margin-top: 2.5rem;
     padding-bottom: 1.25rem;
-    font-family: "Inter", sans-serif;
-    font-size: 0.95rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
   .publication-content :global(h3) {
@@ -315,10 +314,10 @@ const displayDate = federationDate ?? archiveDate;
     margin-bottom: 0.35rem;
     padding-top: 0.5rem;
     padding-bottom: 0;
-    font-family: "Inter", sans-serif;
-    font-size: 0.95rem;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.12em;
     line-height: 1.3;
     text-transform: uppercase;
   }
@@ -372,103 +371,24 @@ const displayDate = federationDate ?? archiveDate;
     align-content: start;
   }
 
-  .publication-about-card {
-    padding: 1.75rem;
-    background: rgba(255, 255, 255, 0.22);
-  }
+  /* Deleted .publication-about-card rule */
 
-  .publication-related-card {
-    padding: 1.35rem 1.5rem;
-    background: rgba(255, 255, 255, 0.18);
-  }
+  /* Deleted .publication-related-card rule */
 
-  .publication-related-card .rail-kicker {
-    margin-bottom: 1rem;
-    color: inherit;
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  /* Deleted .publication-related-card .rail-kicker rule */
 
-  .publication-related-card ul {
-    display: grid;
-    gap: 0.65rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .publication-related-card li {
-    margin: 0;
-    padding-top: 0.65rem;
-    border-top: 1px solid rgba(17, 17, 17, 0.08);
-    font-family: "Crimson Text", serif;
-    font-size: 1rem;
-    line-height: 1.35;
-  }
-
-  .publication-related-card li:first-child {
-    padding-top: 0;
-    border-top: 0;
-  }
+  /* Deleted .publication-about-card .rail-kicker rule */
 
   .publication-related-card a {
-    color: var(--command);
+    color: inherit;
     text-decoration: none;
   }
 
-  .publication-related-card a:hover {
-    color: #7f0f0f;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.14em;
-  }
+  /* Deleted .publication-related-card a:hover rule */
 
-  .publication-about-card .rail-kicker {
-    margin-bottom: 1rem;
-    color: inherit;
-    font-family: "Inter", sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  /* Deleted .publication-about-card p a rule */
 
-  .publication-about-card p {
-    font-family: "Crimson Text", serif;
-    font-size: 1.02rem;
-    line-height: 1.58;
-  }
-
-  .publication-about-card strong {
-    font-weight: 600;
-  }
-
-  .publication-about-card p a {
-    color: var(--command);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.12em;
-    text-decoration-color: rgba(167, 19, 19, 0.35);
-    transition: color 160ms ease, text-decoration-color 160ms ease;
-  }
-
-  .publication-about-card p a:hover {
-    color: #7f0f0f;
-    text-decoration-color: var(--command);
-  }
-
-  .publication-about-card p + p {
-    margin-top: 0.85rem;
-  }
-
-  .publication-about-card .rail-lede {
-    margin-top: 0;
-    font-size: 1.05rem;
-    line-height: 1.55;
-  }
+  /* Deleted .publication-about-card p a:hover rule */
 
   .rail-links {
     display: flex;
@@ -477,7 +397,7 @@ const displayDate = federationDate ?? archiveDate;
     align-items: center;
     margin-top: 1.6rem;
     padding-top: 1.25rem;
-    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    border-top: 1px solid var(--line);
     color: var(--muted);
     font-family: "Orbitron", sans-serif;
     font-size: 0.68rem;

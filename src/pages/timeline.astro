@@ -3,72 +3,56 @@ import Layout from "../layouts/layout.astro";
 
 const eras = [
   {
-    label: "Historical Context",
+    label: "Frontier Initiative Era",
     description:
-      "Foundational events that shaped the Federation before the Frontier Initiative era.",
+      "The formal transition from planning to operational deployment.",
     events: [
       {
-        date: "2063-APR-05",
-        title: "First Contact",
+        date: "28 Jul 2403",
+        title: "Initial Operational Deployment",
         description:
-          "Zefram Cochrane's warp flight results in open contact between Humans and Vulcans. The event becomes a foundational moment in Federation history and is later commemorated as First Contact Day.",
+          "USS Kepler departs the Deneb Sector for initial Frontier Initiative deployment. Mission priorities include settlement resilience assessment, regional infrastructure support, and long-duration civic partnership operations.",
       },
       {
-        date: "2161-AUG-12",
-        title: "United Federation of Planets Founded",
+        date: "18 Jul 2403",
+        title: "Shakedown Operations Begin",
         description:
-          "Earth, Vulcan, Andoria, and Tellar establish the United Federation of Planets, creating shared civic institutions across member worlds.",
+          "USS Kepler begins post-launch evaluation, systems certification, and crew integration exercises prior to Frontier Initiative deployment.",
+        gap: "gap-short",
       },
       {
-        date: "2387",
-        title: "Romulan Supernova",
+        date: "04 Jul 2403",
+        title: "USS Kepler Launched",
         description:
-          "The destruction of the Romulan homeworld destabilizes the Beta Quadrant and exposes significant limits in Federation evacuation capacity and interstellar crisis response.",
+          "USS Kepler, NCC-83639, is launched from Deneb IV Fleet Yards as the third Starfleet vessel to carry the name Kepler.",
+        gap: "gap-tight",
       },
       {
-        date: "2399",
-        title: "Synthetic Ban Lifted",
+        date: "03 Jul 2403",
+        title: "Doctrine of Support Filed",
         description:
-          "Federation policy regarding synthetic life is formally reversed, beginning a broader reassessment of post-Mars security doctrine and institutional trust.",
-      },
-    ],
-  },
-  {
-    label: "Post-Frontier Day Reconstruction",
-    description:
-      "The period immediately following the Frontier Day Crisis, when Starfleet began reassessing centralization, resilience, and fleet operations.",
-    events: [
-      {
-        date: "2401-APR-05",
-        title: "Frontier Day Crisis",
-        description:
-          "A coordinated Borg infiltration compromises Starfleet systems and results in severe losses across multiple vessels and installations.",
+          "Admiral Jean-Luc Picard files the operating doctrine later associated with USS Kepler and its Frontier Initiative deployment model.",
+        href: "/archive/doctrine",
+        linkLabel: "Doctrine of Support",
+        gap: "gap-tight",
       },
       {
-        date: "2401-APR-18",
-        title: "Strategic Assessment Ordered",
+        date: "23 Jun 2403",
+        title: "Frontier Initiative Directive Issued",
         description:
-          "Admiral Kathryn Janeway secures authorization for a comprehensive review of Federation resilience, regional support capacity, and settlement development programs.",
+          "Commodore Tuvok publishes the operational framework governing Frontier Initiative deployments, settlement support priorities, and distributed capability development.",
+        href: "/archive/the-frontier-initiative",
+        linkLabel: "The Frontier Initiative",
+        gap: "gap-short",
       },
       {
-        date: "2401-JUN-22",
-        title: "Frontier Initiative Working Group Established",
+        date: "10 Jun 2403",
+        title: "State of the Federation Published",
         description:
-          "Starfleet Command convenes a multidisciplinary planning group under the direction of Commodore Tuvok.",
-      },
-      {
-        date: "2401-SEP-03",
-        title: "Keel Laid: USS Kepler",
-        description:
-          "Construction begins on USS Kepler, NCC-83639, at Deneb IV Fleet Yards. The vessel is configured for extended Frontier Initiative operations.",
-      },
-      {
-        date: "2401-OCT-13",
-        title: "Commanding Officer Assigned",
-        description:
-          "The future commanding officer of USS Kepler receives assignment orders and prepares to oversee final fitting and shakedown preparations.",
-        href: "/logs/commanding-officer/78782-306",
-        linkLabel: "Captain's Log 78782.306",
+          "The Historical Analysis Division releases a post-Frontier Day assessment of Federation cohesion, decentralization, institutional trust, and long-term renewal.",
+        href: "/archive/state-of-the-federation-2403",
+        linkLabel: "State of the Federation, 2403",
+        gap: "gap-short",
       },
     ],
   },
@@ -78,67 +62,180 @@ const eras = [
       "Planning documents, operational frameworks, and personnel decisions that prepared Kepler for active service.",
     events: [
       {
-        date: "2402-JUL-19",
+        date: "18 May 2403",
+        title: "Primary Systems Integration Complete",
+        description:
+          "USS Kepler enters final integration and certification testing at Deneb IV Fleet Yards. Mission systems, fabrication facilities, and long-duration support infrastructure are validated for Frontier Initiative operations.",
+      },
+      {
+        date: "14 Feb 2403",
+        title: "Keel Laid: USS Kepler",
+        description:
+          "Construction begins on USS Kepler, NCC-83639, at Deneb IV Fleet Yards. The vessel is configured for extended Frontier Initiative operations.",
+        gap: "gap-long",
+      },
+      {
+        date: "21 Oct 2402",
+        title: "Senior Staff Selection Board Concludes",
+        description:
+          "Starfleet Command approves key command and departmental assignments for USS Kepler. Final personnel assignments continue through the following operational cycle.",
+        gap: "gap-medium",
+      },
+      {
+        date: "19 Jul 2402",
         title: "Settlement Continuum Adopted",
         description:
           "The Federation Settlement Development Office publishes a standardized framework for evaluating community capability, resilience, and regional integration.",
         href: "/archive/settlement-continuum",
         linkLabel: "The Settlement Continuum",
-      },
-      {
-        date: "2402-AUG-04",
-        title: "Primary Systems Integration Complete",
-        description:
-          "USS Kepler enters final systems integration at Deneb IV Fleet Yards. Propulsion, power distribution, mission-adaptive fabrication systems, and support facilities proceed to certification testing.",
-      },
-      {
-        date: "2402-OCT-21",
-        title: "Senior Staff Selection Board Concludes",
-        description:
-          "Starfleet Command approves key command and departmental assignments for USS Kepler. Final personnel assignments continue through the following operational cycle.",
+        gap: "gap-medium",
       },
     ],
   },
   {
-    label: "Frontier Initiative Era",
+    label: "Post-Frontier Day Reconstruction",
     description:
-      "The formal transition from planning to operational deployment.",
+      "The period immediately following the Frontier Day Crisis, when Starfleet began reassessing centralization, resilience, and fleet operations.",
     events: [
       {
-        date: "2403-JUN-10",
-        title: "State of the Federation Published",
+        date: "13 Oct 2401",
+        title: "Commanding Officer Assigned",
         description:
-          "The Historical Analysis Division releases a post-Frontier Day assessment of Federation cohesion, decentralization, institutional trust, and long-term renewal.",
-        href: "/archive/state-of-the-federation-2403",
-        linkLabel: "State of the Federation, 2403",
+          "The future commanding officer of USS Kepler receives assignment orders and prepares to oversee final fitting and shakedown preparations.",
+        href: "/logs/commanding-officer/78782-306",
+        linkLabel: "Captain's Log 78782.306",
       },
       {
-        date: "2403-JUN-23",
-        title: "Frontier Initiative Directive Issued",
+        date: "22 Jun 2401",
+        title: "Frontier Initiative Working Group Established",
         description:
-          "Commodore Tuvok publishes the operational framework governing Frontier Initiative deployments, settlement support priorities, and distributed capability development.",
-        href: "/archive/the-frontier-initiative",
-        linkLabel: "The Frontier Initiative",
+          "Starfleet Command convenes a multidisciplinary planning group under the direction of Commodore Tuvok.",
+        gap: "gap-long",
       },
       {
-        date: "2403-JUL-03",
-        title: "Kepler Doctrine Filed",
+        date: "18 Apr 2401",
+        title: "Strategic Assessment Ordered",
         description:
-          "Admiral Jean-Luc Picard files the operating doctrine later associated with USS Kepler and its Frontier Initiative deployment model.",
-        href: "/archive/doctrine",
-        linkLabel: "The Kepler Doctrine",
+          "Admiral Kathryn Janeway secures authorization for a comprehensive review of Federation resilience, regional support capacity, and settlement development programs.",
+        gap: "gap-medium",
       },
       {
-        date: "2403-JUL-15",
-        title: "USS Kepler Commissioned",
+        date: "12 Apr 2401",
+        title: "Stargazer Anomaly",
         description:
-          "USS Kepler formally enters Starfleet service as NCC-83639. The vessel is assigned to Frontier Initiative operations under Starfleet Command.",
+          "The events surrounding the USS Stargazer and the Jurati-Borg alliance begin reshaping Federation thinking about cooperation, trust, and emerging threats.",
+        gap: "gap-tight",
       },
       {
-        date: "2403-JUL-28",
-        title: "Initial Operational Deployment",
+        date: "05 Apr 2401",
+        title: "Frontier Day Crisis",
         description:
-          "USS Kepler departs the Deneb Sector for initial Frontier Initiative deployment. Mission priorities include settlement resilience assessment, regional infrastructure support, and long-duration civic partnership operations.",
+          "A coordinated Borg infiltration compromises Starfleet systems and results in severe losses across multiple vessels and installations.",
+        gap: "gap-tight",
+      },
+    ],
+  },
+  {
+    label: "Historical Record",
+    description:
+      "Foundational events and institutional crises that shaped the Federation before the Frontier Initiative era.",
+    events: [
+      {
+        date: "2399",
+        title: "Synthetic Ban Lifted",
+        description:
+          "Federation policy regarding synthetic life is formally reversed, beginning a broader reassessment of post-Mars security doctrine and institutional trust.",
+      },
+      {
+        date: "2387",
+        title: "Romulan Supernova",
+        description:
+          "The destruction of the Romulan homeworld destabilizes the Beta Quadrant and exposes significant limits in Federation evacuation capacity and interstellar crisis response.",
+        gap: "gap-long",
+      },
+      {
+        date: "2385",
+        title: "Mars Attack",
+        description:
+          "The attack on Utopia Planitia Fleet Yards destroys the Federation rescue effort and contributes to the later synthetic ban.",
+        gap: "gap-medium",
+      },
+      {
+        date: "2373-2375",
+        title: "Dominion War",
+        description:
+          "The largest conflict in Federation history demonstrates both the strengths and vulnerabilities of interstellar institutions during prolonged crisis.",
+        gap: "gap-long",
+      },
+      {
+        date: "2373",
+        title: "Second Borg Incursion",
+        description:
+          "A second Borg attack on Earth reinforces the long-term strategic and psychological impact of collective threats on Federation institutions.",
+        gap: "gap-tight",
+      },
+      {
+        date: "2367",
+        title: "Wolf 359",
+        description:
+          "The Borg incursion led by Locutus devastates Starfleet and becomes a defining institutional trauma for an entire generation of officers.",
+        gap: "gap-long",
+      },
+      {
+        date: "2344",
+        title: "Narendra III Incident",
+        description:
+          "The sacrifice of USS Enterprise-C while defending a Klingon outpost strengthens Federation-Klingon relations during a fragile period.",
+        gap: "gap-era",
+      },
+      {
+        date: "2293",
+        title: "Khitomer Accords Signed",
+        description:
+          "Federation and Klingon leaders formalize a lasting peace, reshaping Alpha Quadrant politics for generations.",
+        gap: "gap-era",
+      },
+      {
+        date: "2293",
+        title: "Praxis Explodes",
+        description:
+          "The destruction of Praxis triggers political reform within the Klingon Empire and sets the stage for a new era of diplomacy.",
+        gap: "gap-tight",
+      },
+      {
+        date: "2286",
+        title: "Spacedock Opens",
+        description:
+          "Earth Spacedock becomes one of the most recognizable symbols of Federation exploration, diplomacy, and fleet operations.",
+        gap: "gap-medium",
+      },
+      {
+        date: "2256",
+        title: "Federation-Klingon War",
+        description:
+          "The Federation faces a major existential conflict with the Klingon Empire, reinforcing the importance of alliance-building and interstellar cooperation.",
+        gap: "gap-era",
+      },
+      {
+        date: "2161 Aug",
+        title: "United Federation of Planets Founded",
+        description:
+          "Earth, Vulcan, Andoria, and Tellar establish the United Federation of Planets, creating shared civic institutions across member worlds.",
+        gap: "gap-century",
+      },
+      {
+        date: "2156",
+        title: "Earth-Romulan War",
+        description:
+          "The conflict establishes many of the strategic realities that later influence Federation defense, diplomacy, and frontier policy.",
+        gap: "gap-medium",
+      },
+      {
+        date: "2063 Apr",
+        title: "First Contact",
+        description:
+          "Zefram Cochrane's warp flight results in open contact between Humans and Vulcans. The event becomes a foundational moment in Federation history and is later commemorated as First Contact Day.",
+        gap: "gap-century",
       },
     ],
   },
@@ -146,14 +243,12 @@ const eras = [
 ---
 
 <Layout title="Timeline | USS Kepler Archive">
-  <main class="timeline-shell">
-    <section class="timeline-hero" aria-labelledby="timeline-title">
-      <p class="eyebrow">Memory Alpha Cultural & Scientific Archive</p>
+  <main class="interior-shell">
+    <section class="page-hero" aria-labelledby="timeline-title">
+      <p class="eyebrow">Memory Alpha</p>
       <h1 id="timeline-title">Timeline</h1>
-      <p>
-        A chronological record of the historical conditions, planning decisions,
-        and operational milestones that shaped USS Kepler and the Frontier
-        Initiative.
+      <p class="dek">
+        A chronological record of the events, crises, reforms, and operational milestones that ultimately led to the creation and deployment of USS Kepler and the Frontier Initiative.
       </p>
     </section>
 
@@ -167,7 +262,7 @@ const eras = [
 
           <div class="era-events">
             {era.events.map((event) => (
-              <article class="timeline-event">
+              <article class={`timeline-event ${event.gap ?? "gap-standard"}`}>
                 <time>{event.date}</time>
                 <div class="event-card">
                   <h3>{event.title}</h3>
@@ -189,59 +284,24 @@ const eras = [
 </Layout>
 
 <style>
-  .timeline-shell {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: clamp(0.75rem, 2vw, 1.75rem) clamp(1rem, 3vw, 2.75rem) 5.5rem;
+
+  .page-hero {
+    max-width: 1120px;
   }
 
-  .timeline-hero {
-    position: relative;
-    max-width: 840px;
-    margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
-    padding: clamp(0.85rem, 2vw, 1.25rem) 0 clamp(1.1rem, 2.5vw, 1.5rem);
-    border-bottom: 1px solid rgba(17, 17, 17, 0.14);
-  }
-
-  .eyebrow {
-    margin: 0 0 0.85rem;
-    color: var(--operations);
-    font-family: "Orbitron", sans-serif;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .timeline-hero h1 {
-    max-width: 760px;
-    margin: 0;
-    color: var(--ink);
-    font-family: "Inter", sans-serif;
-    font-size: clamp(2.4rem, 5vw, 4.15rem);
-    font-weight: 800;
-    line-height: 0.92;
-    letter-spacing: 0.035em;
-    text-transform: uppercase;
-  }
-
-  .timeline-hero p:not(.eyebrow) {
-    max-width: 720px;
-    margin: 1.15rem 0 0;
-    color: #24211d;
-    font-family: "Crimson Text", serif;
-    font-size: clamp(1.12rem, 1.7vw, 1.36rem);
-    line-height: 1.45;
+  .page-hero .dek {
+    max-width: 920px;
   }
 
   .timeline-map {
     display: grid;
+    max-width: 1120px;
     gap: clamp(2.25rem, 5vw, 3.75rem);
   }
 
   .timeline-era {
     display: grid;
-    grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+    grid-template-columns: minmax(190px, 260px) minmax(0, 1fr);
     gap: clamp(1.5rem, 4vw, 3rem);
     align-items: start;
   }
@@ -275,7 +335,7 @@ const eras = [
   .era-events {
     position: relative;
     display: grid;
-    gap: 1.15rem;
+    gap: 0;
     padding-left: 1.5rem;
   }
 
@@ -295,6 +355,34 @@ const eras = [
     grid-template-columns: minmax(108px, 132px) minmax(0, 1fr);
     gap: clamp(1rem, 3vw, 1.75rem);
     align-items: start;
+  }
+
+  .timeline-event + .timeline-event {
+    margin-top: 1.15rem;
+  }
+
+  .timeline-event.gap-tight {
+    margin-top: 0.9rem;
+  }
+
+  .timeline-event.gap-short {
+    margin-top: 1.35rem;
+  }
+
+  .timeline-event.gap-medium {
+    margin-top: 2rem;
+  }
+
+  .timeline-event.gap-long {
+    margin-top: 2.85rem;
+  }
+
+  .timeline-event.gap-era {
+    margin-top: 4.25rem;
+  }
+
+  .timeline-event.gap-century {
+    margin-top: 5.5rem;
   }
 
   .timeline-event::before {
@@ -320,6 +408,7 @@ const eras = [
     font-weight: 700;
     letter-spacing: 0.1em;
     line-height: 1.35;
+    white-space: nowrap;
     text-transform: uppercase;
   }
 
@@ -384,10 +473,6 @@ const eras = [
   }
 
   @media (max-width: 620px) {
-    .timeline-shell {
-      padding-inline: 1rem;
-    }
-
     .era-events {
       padding-left: 1.1rem;
     }

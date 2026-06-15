@@ -11,9 +11,9 @@ const logModules = import.meta.glob("../pages/logs/**/*.md", { eager: true });
 
 const divisionColors = {
   Command: "command",
-  Medical: "science",
-  Science: "science",
-  Sciences: "science",
+  Medical: "sciences",
+  Science: "sciences",
+  Sciences: "sciences",
   Engineering: "operations",
   Operations: "operations",
   Security: "security",
@@ -88,7 +88,7 @@ const railItems = [
 
       <aside class="context-rail">
         <section class="rail-card metadata-card">
-          <h2>Archive Details</h2>
+          <h2>Log Summary</h2>
           <dl>
             {railItems.map(([term, detail]) => (
               <div>
@@ -110,34 +110,35 @@ const railItems = [
 
 .log-card {
   display: block;
-  text-decoration: none;
   color: inherit;
-  background: #fdfcf8;
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 1rem;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--operations);
   overflow: hidden;
   transition: transform 160ms ease, background 160ms ease;
 }
 
-.log-card:hover {
+.log-card:hover,
+.log-card:focus-visible {
   transform: translateY(-2px);
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .log-card.command {
-  border-left: 6px solid var(--command-color, #b11f24);
+  border-left-color: var(--command);
 }
 
 .log-card.operations {
-  border-left: 6px solid var(--operations-color, #d6a444);
+  border-left-color: var(--operations);
 }
 
-.log-card.science {
-  border-left: 6px solid var(--science-color, #6d547d);
+.log-card.sciences {
+  border-left-color: var(--sciences);
 }
 
 .log-card.security {
-  border-left: 6px solid var(--security-color, #4a6f8f);
+  border-left-color: var(--sciences);
 }
 
 .log-card-inner {
@@ -146,23 +147,42 @@ const railItems = [
 
 .log-type {
   margin: 0 0 1rem;
+  color: var(--operations);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.25;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-family: "Inter", sans-serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-  line-height: 1;
-  opacity: 0.82;
+}
+
+.log-card.command .log-type,
+.log-card.command .log-footer span:last-child {
+  color: var(--command);
+}
+
+.log-card.operations .log-type,
+.log-card.operations .log-footer span:last-child {
+  color: var(--operations);
+}
+
+.log-card.sciences .log-type,
+.log-card.sciences .log-footer span:last-child,
+.log-card.security .log-type,
+.log-card.security .log-footer span:last-child {
+  color: var(--sciences);
 }
 
 .log-excerpt {
   margin: 0;
   overflow: hidden;
+  color: var(--ink);
+  font-family: "Crimson Text", serif;
+  font-size: clamp(1.28rem, 1.75vw, 1.66rem);
+  font-weight: 600;
+  line-height: 1.12;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: clamp(1.05rem, 1.15vw, 1.2rem);
-  font-weight: 800;
-  line-height: 1.15;
 }
 
 .log-stardate {
@@ -177,9 +197,12 @@ const railItems = [
   align-items: center;
   gap: 1rem;
   padding-top: 0.9rem;
-  border-top: 1px solid rgba(17,17,17,0.08);
-  font-size: 0.82rem;
-  font-weight: 800;
+  border-top: 1px solid var(--line);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .log-footer span:first-child {

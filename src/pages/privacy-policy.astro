@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const railItems = [
+  ["Page Type", "Privacy Policy"],
+  ["Project Type", "Independent Fan Project"],
+  ["Accounts", "Not required"],
+  ["Advertising", "None"],
+  ["Personal Data Sales", "None"],
+  ["Last Updated", "2026"],
+];
+---
+
+<Layout title="Privacy Policy">
+  <main class="interior-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Site Policy</p>
+      <h1>Privacy Policy</h1>
+      <p class="dek">
+        How USS Kepler handles visitor information, site analytics, and contact-related data.
+      </p>
+    </section>
+
+    <div class="content-layout">
+      <article class="main-content">
+        <section class="prose-block privacy-overview">
+          <h2>Overview</h2>
+          <p>
+            USS Kepler is an independent, non-commercial Star Trek fan project. The site is designed for public reading and does not require visitors to create accounts, submit profiles, or provide personal information in order to access its content.
+          </p>
+          <p>
+            This policy explains what limited information may be collected through normal website operation and how that information is used.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Information Collected</h2>
+          <p>
+            USS Kepler does not intentionally collect personal information from visitors through registration, membership systems, user comments, or user-generated content features.
+          </p>
+          <p>
+            Standard technical information may be collected automatically by hosting providers, security tools, analytics services, or browser infrastructure. This may include information such as IP address, browser type, device type, referring pages, pages viewed, and approximate time of access.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Analytics</h2>
+          <p>
+            If analytics are used, they are intended to understand general site usage, improve navigation, identify broken links, and make the archive easier to maintain. Analytics are not used to build personal profiles or sell visitor information.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Contact Information</h2>
+          <p>
+            If a visitor voluntarily contacts the project owner by email or another provided channel, any information included in that message may be used to respond to the inquiry. Contact information is not sold, rented, or added to a mailing list without consent.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>External Links</h2>
+          <p>
+            USS Kepler may link to external websites, platforms, references, or services. Those sites operate under their own privacy policies and practices. Visitors should review the policies of any external site they choose to visit.
+          </p>
+        </section>
+
+        <section class="prose-block">
+          <h2>Changes to This Policy</h2>
+          <p>
+            This policy may be updated as the site evolves, especially if new features are added that change how visitor information is handled.
+          </p>
+        </section>
+      </article>
+
+      <aside class="context-rail">
+        <section class="rail-card metadata-card">
+          <h2>Privacy Summary</h2>
+          <dl>
+            {railItems.map(([term, detail]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section class="rail-card related-card">
+          <h2>Related Pages</h2>
+          <ul>
+            <li><a href="/about-the-project">About the Project</a></li>
+            <li><a href="/disclaimer">Disclaimer</a></li>
+            <li><a href="/legal-usage">Legal Usage</a></li>
+            <li><a href="/t-and-c">Terms & Conditions</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .privacy-overview {
+    max-width: 66ch;
+  }
+</style>

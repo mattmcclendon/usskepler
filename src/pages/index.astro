@@ -3,59 +3,55 @@ import Layout from "../layouts/layout.astro";
 
 const featuredDocuments = [
   {
-    type: "STRATEGIC\nDIRECTIVE",
-    title: "The Frontier Initiative",
+    featured: true,
+    type: "FRONTIER\nINITIATIVE",
+    title: "Mission of Support",
     description:
-      "A strategic framework for distributed capability, settlement resilience, and Federation renewal.",
-    stardate: "80452.200",
+      "A long-term Federation commitment to strengthening frontier communities through partnership, capability building, sustained presence, and civic trust.",
     accent: "command",
-    href: "/archive/the-frontier-initiative",
+    href: "/mission",
   },
   {
-    type: "DEVELOPMENT\nFRAMEWORK",
-    title: "The Settlement Continuum",
+    type: "SHIP\nPROFILE",
+    title: "USS Kepler",
     description:
-      "A framework for understanding community development, resilience, and institutional partnership across Federation space.",
-    stardate: "79546.803",
+      "The Sagan-class vessel assigned to carry the Frontier Initiative into practice.",
+    accent: "command",
+    href: "/ship",
+  },
+  {
+    type: "CREW\nMANIFEST",
+    title: "Senior Staff",
+    description:
+      "The officers, specialists, and families giving shape to Kepler's mission.",
     accent: "sciences",
-    href: "/archive/settlement-continuum",
+    href: "/crew",
   },
   {
-    type: "STRATEGIC\nASSESSMENT",
-    title: "State of the Federation, 2403",
+    type: "COMMAND\nLOGS",
+    title: "Captain's Logs",
     description:
-      "An historical assessment of the Federation Renaissance and the post-Frontier Day era.",
-    stardate: "79859.246",
-    accent: "operations",
-    href: "/archive/state-of-the-federation-2403",
-  },
-  {
-    type: "FOUNDATIONAL\nDOCTRINE",
-    title: "The Kepler Doctrine",
-    description:
-      "The operating philosophy of USS Kepler and the Frontier Initiative.",
-    stardate: "80782.420",
-    accent: "operations",
-    href: "/archive/doctrine",
-  },
-  {
-    type: "COMMANDING\nOFFICER LOG",
-    title: "Captain's Log 78782.306",
-    description:
-      "Assignment to USS Kepler and preliminary Frontier Initiative preparations six months after Frontier Day.",
-    stardate: "78782.306",
+      "Personal records from command, senior staff, and the evolving life of the ship.",
     accent: "command",
-    href: "/logs/commanding-officer/78782-306",
+    href: "/logs/commanding-officer",
+  },
+  {
+    type: "ARCHIVE\nRECORDS",
+    title: "Archive",
+    description:
+      "Doctrine, vessel records, mission materials, and supporting documents.",
+    accent: "operations",
+    href: "/archive",
   },
 ];
 
 const quickAccess = [
-  ["Read the Doctrine", "/archive/doctrine"],
-  ["The Frontier Initiative", "/archive/the-frontier-initiative"],
-  ["State of the Federation", "/archive/state-of-the-federation-2403"],
-  ["Commanding Officer Logs", "/logs/commanding-officer/78782-306"],
-  ["Settlement Profiles", "/archive"],
-  ["Timeline", "/timeline"],
+  ["Understand the Mission", "/mission"],
+  ["Explore USS Kepler", "/ship"],
+  ["Meet the Crew", "/crew"],
+  ["Read the Logs", "/logs/commanding-officer"],
+  ["Browse the Archives", "/archive"],
+  ["Follow the Timeline", "/timeline"],
 ];
 ---
 
@@ -84,7 +80,7 @@ const quickAccess = [
             </p>
             <div class="hero-actions">
               <a href="/about-the-project" class="button primary">Explore the Project</a>
-              <a href="/archive/doctrine" class="button secondary">Read the Doctrine</a>
+              <a href="/crew" class="button secondary">Meet the Crew</a>
             </div>
           </div>
         </section>
@@ -92,18 +88,17 @@ const quickAccess = [
         <section class="content-grid" aria-labelledby="featured-title">
           <div class="featured-documents">
             <div class="section-heading">
-              <h2 id="featured-title">Featured Documents</h2>
-              <a href="/archive">View All Documents</a>
+              <h2 id="featured-title">Where to Start</h2>
             </div>
 
             <div class="document-row">
               {featuredDocuments.map((document) => (
-                <a class={`document-card ${document.accent}`} href={document.href}>
+                <a class={`document-card ${document.accent} ${document.featured ? 'featured' : ''}`} href={document.href}>
                   <p class="document-type">{document.type}</p>
                   <h3>{document.title}</h3>
                   <p>{document.description}</p>
                   <div class="document-footer">
-                    <span>{document.stardate}</span>
+                    <span>Learn More</span>
                     <span aria-hidden="true">›</span>
                   </div>
                 </a>
@@ -111,20 +106,7 @@ const quickAccess = [
             </div>
           </div>
 
-          <aside class="archive-panel" aria-labelledby="notice-title">
-            <section class="notice-card">
-              <div class="notice-icon" aria-hidden="true"><span>!</span></div>
-              <div>
-                <h2 id="notice-title">Archive Notice</h2>
-                <p>
-                  This site is an independent Star Trek fan project documenting
-                  the fictional operations, doctrine, and civic mission of USS
-                  Kepler. Materials are presented as an in-universe archive.
-                </p>
-                <a href="/disclaimer">Learn More</a>
-              </div>
-            </section>
-
+          <aside class="archive-panel" aria-labelledby="quick-access-title">
             <section class="quick-access" aria-labelledby="quick-access-title">
               <h2 id="quick-access-title">Quick Access</h2>
               <ul>
@@ -144,190 +126,6 @@ const quickAccess = [
 </Layout>
 
 <style>
-  :global(*) {
-    box-sizing: border-box;
-  }
-
-  :global(html),
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    background: #0b1116;
-    color: #111111;
-  }
-
-  :root {
-    --paper: #f4efe4;
-    --paper-deep: #e5ddce;
-    --ink: #111111;
-    --muted: #6d665c;
-    --space: #080d12;
-    --command: #a71313;
-    --operations: #d6a444;
-    --sciences: #2b53a7;
-    --line: rgba(17, 17, 17, 0.16);
-  }
-
-  body {
-    font-family: "Inter", sans-serif;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .page-shell {
-    position: relative;
-    min-height: 100vh;
-    padding-left: 48px;
-    background: var(--paper);
-  }
-
-  .side-rail {
-    position: fixed;
-    inset: 0 auto 0 0;
-    z-index: 20;
-    width: 48px;
-    background: #101820;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.78);
-  }
-
-
-  .rail-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg);
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    white-space: nowrap;
-  }
-
-
-  .site-header {
-    position: relative;
-    z-index: 4;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: clamp(2rem, 5vw, 5.5rem);
-    align-items: center;
-    min-height: 118px;
-    padding: 2rem 3.2vw 1.25rem;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .brand {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-    font-family: "Orbitron", sans-serif;
-    line-height: 1;
-    color: var(--ink);
-  }
-
-  .brand-line {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 1rem;
-  }
-
-  .brand-name {
-    display: block;
-    font-size: clamp(1.6rem, 2.6vw, 2.6rem);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-  }
-
-  .registry {
-    display: block;
-    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-  }
-
-  .affiliation {
-    display: block;
-    font-family: "Crimson Text", serif;
-    font-size: clamp(0.95rem, 1.15vw, 1.12rem);
-    font-style: italic;
-    letter-spacing: 0.18em;
-    white-space: nowrap; 
-    margin-top: 7px;
-  }
-
-  .main-nav {
-    display: flex;
-    gap: clamp(1.2rem, 3vw, 3.2rem);
-    justify-content: end;
-    align-items: center;
-    padding-bottom: 0.15rem;
-    font-family: "Orbitron", sans-serif;
-    font-size: 0.86rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-
-  .main-nav a {
-    position: relative;
-    padding-bottom: 1.1rem;
-  }
-
-  .search-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.15rem;
-    height: 1.15rem;
-    padding-bottom: 1.1rem;
-  }
-
-  .search-icon {
-    display: block;
-    width: 1.05rem;
-    height: 1.05rem;
-    background: currentColor;
-    mask: url("/search.svg") center / contain no-repeat;
-    -webkit-mask: url("/search.svg") center / contain no-repeat;
-  }
-
-  .main-nav a::after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    pointer-events: none;
-    content: "";
-    background: var(--operations);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 180ms ease;
-  }
-
-  .search-link::after {
-    bottom: -1.1rem;
-  }
-
-  .main-nav a:nth-child(1)::after,
-  .main-nav a:nth-child(4)::after {
-    background: var(--command);
-  }
-
-  .main-nav a:nth-child(2)::after,
-  .main-nav a:nth-child(5)::after {
-    background: var(--sciences);
-  }
-
-  .main-nav a:hover::after {
-    transform: scaleX(1);
-  }
 
   .hero {
     position: relative;
@@ -471,7 +269,7 @@ const quickAccess = [
   .notice-card a {
     color: #6d5522;
     font-family: "Orbitron", sans-serif;
-    font-size: 0.68rem;
+    font-size: 0.64rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -479,7 +277,7 @@ const quickAccess = [
 
   .document-row {
     display: grid;
-    grid-template-columns: repeat(5, minmax(150px, 1fr));
+    grid-template-columns: minmax(280px, 1.45fr) repeat(2, minmax(160px, 1fr));
     gap: 0.72rem;
   }
 
@@ -487,8 +285,10 @@ const quickAccess = [
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 276px;
+    min-height: 156px;
     padding: 1.05rem 1rem 0.95rem;
+    color: inherit;
+    text-decoration: none;
     background: rgba(255, 255, 255, 0.28);
     border: 1px solid var(--line);
     border-left: 3px solid var(--operations);
@@ -501,13 +301,34 @@ const quickAccess = [
     border-left-color: var(--command);
   }
 
+  .document-card.operations {
+    border-left-color: var(--operations);
+  }
+
   .document-card.sciences {
     border-left-color: var(--sciences);
   }
 
+  .document-card.featured {
+    grid-row: span 2;
+    min-height: 324px;
+    background: rgba(255, 255, 255, 0.42);
+  }
+
+  .document-card.featured h3 {
+    font-size: clamp(2rem, 2.6vw, 2.8rem);
+    line-height: 1;
+  }
+
+  .document-card.featured p:not(.document-type) {
+    max-width: 36ch;
+    font-size: 1.1rem;
+    line-height: 1.36;
+  }
+
   .document-type {
     min-height: 2.2em;
-    margin: 0 0 1.25rem;
+    margin: 0 0 0.9rem;
     color: var(--operations);
     font-family: "Orbitron", sans-serif;
     font-size: 0.62rem;
@@ -522,12 +343,16 @@ const quickAccess = [
     color: var(--command);
   }
 
+  .document-card.operations .document-type {
+    color: var(--operations);
+  }
+
   .document-card.sciences .document-type {
     color: var(--sciences);
   }
 
   .document-card h3 {
-    margin: 0 0 0.85rem;
+    margin: 0 0 0.55rem;
     font-family: "Crimson Text", serif;
     font-size: clamp(1.35rem, 1.6vw, 1.7rem);
     line-height: 1.05;
@@ -539,7 +364,7 @@ const quickAccess = [
     color: #1c1a17;
     font-family: "Crimson Text", serif;
     font-size: 1rem;
-    line-height: 1.36;
+    line-height: 1.3;
   }
 
   .document-footer {
@@ -561,55 +386,9 @@ const quickAccess = [
   .archive-panel {
     display: grid;
     align-content: start;
-    gap: 1.25rem;
+    gap: 0;
   }
 
-  .notice-card {
-    display: grid;
-    grid-template-columns: 46px 1fr;
-    gap: 1rem;
-    padding: 1.1rem;
-    background: var(--paper-deep);
-    border: 1px solid var(--line);
-  }
-
-  .notice-icon {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    color: #8f6c21;
-    font-family: "Orbitron", sans-serif;
-    font-weight: 700;
-  }
-
-  .notice-icon::before {
-    position: absolute;
-    inset: 0;
-    content: "";
-    border: 2px solid var(--operations);
-    transform: rotate(45deg);
-  }
-
-  .notice-icon span {
-    position: relative;
-    z-index: 1;
-    display: block;
-    line-height: 1;
-  }
-
-  .notice-card h2 {
-    color: #8b6110;
-  }
-
-  .notice-card p {
-    margin: 0.8rem 0 0.9rem;
-    color: #2b261f;
-    font-family: "Crimson Text", serif;
-    font-size: 1rem;
-    line-height: 1.35;
-  }
 
   .quick-access ul {
     margin: 0.8rem 0 0;
@@ -627,136 +406,29 @@ const quickAccess = [
     justify-content: space-between;
     gap: 1rem;
     align-items: center;
-    min-height: 36px;
-    padding: 0.5rem 0.75rem;
+    min-height: 42px;
+    padding: 0.62rem 0.75rem;
     color: #25221d;
     font-family: "Crimson Text", serif;
-    font-size: 1rem;
+    font-size: 1.02rem;
   }
 
-  .site-footer {
-    display: grid;
-    grid-template-columns: 72px minmax(260px, 1fr) minmax(280px, 0.8fr);
-    grid-template-areas:
-      "emblem summary legal"
-      "emblem nav legal";
-    gap: 0.85rem 2.4rem;
-    align-items: center;
-    padding: 2.1rem 3.2vw;
-    background: #101820;
-    min-height: 132px;
-    color: rgba(255, 255, 255, 0.78);
-  }
-
-  .footer-emblem {
-    grid-area: emblem;
-    display: block;
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    opacity: 0.82;
-  }
-
-  .site-footer p {
-    grid-area: summary;
-    max-width: 520px;
-    margin: 0;
-    font-family: "Crimson Text", serif;
-    font-size: 0.95rem;
-    line-height: 1.35;
-  }
-
-  .site-footer nav {
-    grid-area: nav;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem 1.2rem;
-    font-family: "Orbitron", sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .site-footer .legal {
-    grid-area: legal;
-    justify-self: end;
-    max-width: 480px;
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.66);
-  }
 
   @media (max-width: 1180px) {
-    .site-header {
-      grid-template-columns: 1fr;
-      align-items: start;
-      position: relative;
-      z-index: 4;
-    }
-
-    .main-nav {
-      flex-wrap: wrap;
-    }
-
     .content-grid {
       grid-template-columns: 1fr;
     }
 
     .document-row {
-      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
     }
 
-    .site-footer {
-      grid-template-columns: 56px 1fr;
-      grid-template-areas:
-        "emblem summary"
-        "emblem nav"
-        "legal legal";
-      position: relative;
-      z-index: 3;
-    }
-
-    .site-footer .legal {
-      justify-self: start;
-      max-width: 720px;
+    .document-card.featured {
+      grid-row: auto;
     }
   }
 
   @media (max-width: 720px) {
-    .page-shell {
-      padding-left: 0;
-    }
-
-    .side-rail {
-      display: none;
-    }
-
-    .site-header {
-      min-height: auto;
-      padding: 1.4rem 1rem 1rem;
-    }
-
-
-    .brand-name {
-      font-size: 1.5rem;
-    }
-
-    .registry {
-      font-size: 1.0rem;
-    }
-
-    .main-nav {
-      gap: 0.9rem 1.1rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-    }
-
-    .main-nav a {
-      padding-bottom: 0.45rem;
-    }
-    .search-link {
-      padding-bottom: 0.45rem;
-    }
-
     .hero {
       min-height: 560px;
     }
@@ -776,20 +448,6 @@ const quickAccess = [
 
     .document-row {
       grid-template-columns: 1fr;
-    }
-
-    .site-footer {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "emblem"
-        "summary"
-        "nav"
-        "legal";
-      padding: 1.6rem 1rem;
-    }
-
-    .site-footer .legal {
-      justify-self: start;
     }
   }
 </style>
