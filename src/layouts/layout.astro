@@ -579,18 +579,18 @@ const navItems = [
 
   .related-card a::after {
     content: "›";
-    color: var(--operations);
+    color: var(--command);
     font-family: "Orbitron", sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1;
-    opacity: 0.82;
-    transition: transform 160ms ease, opacity 160ms ease;
+    opacity: 1;
+    transition: transform 160ms ease, color 160ms ease;
   }
 
   .related-card a:hover::after,
   .related-card a:focus-visible::after {
-    opacity: 1;
+    color: var(--operations);
     transform: translateX(2px);
   }
 
