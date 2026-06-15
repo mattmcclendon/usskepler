@@ -569,9 +569,29 @@ const navItems = [
   }
 
   .related-card a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 0.72rem 0;
     font-size: 1rem;
+  }
+
+  .related-card a::after {
+    content: "›";
+    color: var(--operations);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.82;
+    transition: transform 160ms ease, opacity 160ms ease;
+  }
+
+  .related-card a:hover::after,
+  .related-card a:focus-visible::after {
+    opacity: 1;
+    transform: translateX(2px);
   }
 
   .section-grid,
