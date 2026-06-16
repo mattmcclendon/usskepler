@@ -16,7 +16,7 @@ const divisionColors = {
   Sciences: "sciences",
   Engineering: "operations",
   Operations: "operations",
-  Security: "security",
+  Security: "operations",
 };
 
 const formatLogType = (frontmatter) => {
@@ -138,10 +138,6 @@ const railItems = [
   border-left-color: var(--sciences);
 }
 
-.log-card.security {
-  border-left-color: var(--sciences);
-}
-
 .log-card-inner {
   padding: 1.35rem 1.5rem 1.25rem;
 }
@@ -168,9 +164,7 @@ const railItems = [
 }
 
 .log-card.sciences .log-type,
-.log-card.sciences .log-footer span:last-child,
-.log-card.security .log-type,
-.log-card.security .log-footer span:last-child {
+.log-card.sciences .log-footer span:last-child {
   color: var(--sciences);
 }
 

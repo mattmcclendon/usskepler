@@ -83,6 +83,14 @@ const railItems = [
           </p>
         </section>
 
+        <section class="marginalia-image">
+          <img
+            src="/images/shared/kepler-drydock.png"
+            alt="USS Kepler construction drydock"
+            class="marginalia"
+          />
+        </section>
+
         <section class="archive-grid two-column">
           {archiveCards.map((card) => (
             <a class={`archive-card ${card.accent}`} href={card.href}>
@@ -142,6 +150,19 @@ const railItems = [
   .archive-overview {
     max-width: 66ch;
   }
+
+  .marginalia-image {
+    margin: 1.25rem 0 2rem;
+  }
+
+  .marginalia-image img {
+  display: block;
+  width: min(100%, 540px);
+  height: auto;
+  margin-left: auto;
+  }
+
+}
 
   /* Removed .archive-grid rule */
 
