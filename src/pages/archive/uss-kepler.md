@@ -149,4 +149,11 @@ Not merely to chart new horizons.
 
 To better understand the connections between them.
 
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 1rem;">
+  <img
+    src="/images/shared/kepler-formation.png"
+    alt="USS Kepler formation flight"
+    style="width: 100%; max-width: 1000px; height: auto;"
+  />
+</div>
 <br /><br />
