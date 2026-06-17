@@ -83,13 +83,13 @@ No member world forgotten.
 
 **Commanding Officer:** [Fleet Captain Matthew McClendon](/logs/commanding-officer)
 
-**Executive Officer:** [Commander Adrian Reyes](/logs/executive-officer)
+**Executive Officer:** [Commander Katherine Ward](/logs/executive-officer)
 
 **Chief Engineer:** [Commander Brokkar](/logs/chief-engineer)
 
 **Diplomatic Affairs Officer:** [Lieutenant Commander Eleanor Grant](/logs/diplomatic-affairs-officer)
 
-**Chief Medical Officer:** [Commander Owen Harris](/logs/chief-medical-officer)
+**Chief Medical Officer:** [Commander Talia Venn](/logs/chief-medical-officer)
 
 **Senior Xenoanthropologist:** [Lieutenant Commander Naomi Voss](/logs/senior-xenoanthropologist)
 
@@ -127,7 +127,7 @@ Neither component is identified aboard the vessel, and most crew members pass th
 
 **2403-Jul-04**
 
-Commissioned and launched from Deneb IV Fleet Yards.
+Commissioned and launched from Atlas V Fleet Yards in the Deneb Sector.
 
 **2403-Jul-11**
 
