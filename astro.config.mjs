@@ -4,10 +4,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.usskepler.org',
+  site: 'https://usskepler.org',
   integrations: [
     sitemap({
-      filter: (page) => page !== 'https://www.usskepler.org/search/',
+      filter: (page) => page !== 'https://usskepler.org/search/',
     }),
   ],
 });
