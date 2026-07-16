@@ -62,9 +62,15 @@ const quickAccess = [
   <main>
         <section class="hero" aria-labelledby="hero-title">
           <img
-            src="/kepler-hero-image.png"
+            src="/kepler-hero-image-1280.webp"
+            srcset="/kepler-hero-image-640.webp 640w, /kepler-hero-image-1280.webp 1280w, /kepler-hero-image-1920.webp 1920w"
+            sizes="100vw"
+            width="1920"
+            height="1080"
             alt="USS Kepler in orbit above a Federation world"
             class="hero-bg"
+            fetchpriority="high"
+            decoding="async"
           />
           <div class="hero-shade"></div>
 
@@ -330,7 +336,7 @@ const quickAccess = [
   .document-type {
     min-height: 2.2em;
     margin: 0 0 0.9rem;
-    color: var(--operations);
+    color: var(--operations-ink);
     font-family: "Orbitron", sans-serif;
     font-size: 0.62rem;
     font-weight: 700;
@@ -345,7 +351,7 @@ const quickAccess = [
   }
 
   .document-card.operations .document-type {
-    color: var(--operations);
+    color: var(--operations-ink);
   }
 
   .document-card.sciences .document-type {

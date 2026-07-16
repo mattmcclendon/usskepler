@@ -53,7 +53,7 @@ The choice of the Constellation class was deliberate. Although no longer conside
 There was also a symbolic dimension to the decision. Following its recovery, USS Stargazer had originally been considered for preservation within the Fleet Museum. Instead, Starfleet elected to return the vessel to service as part of the modernization initiative. The decision reflected a growing belief that the Federation's future would be built not only through new construction, but through the renewal of proven foundations.
 
 <figure class="archive-float-image">
-  <img src="/kepler-constellation.png" alt="USS Stargazer during the Constellation Refit Initiative" />
+  <img src="/kepler-constellation.webp" alt="USS Stargazer during the Constellation Refit Initiative" loading="lazy" decoding="async" />
   <figcaption>
     USS Stargazer during the early stages of the Constellation Refit Initiative. Originally slated for preservation within the Fleet Museum following its recovery, the vessel instead became one of three experimental platforms selected to evaluate Borg-derived technologies recovered from the Artifact.
   </figcaption>

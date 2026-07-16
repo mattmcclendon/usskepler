@@ -5,6 +5,8 @@ interface Props {
   title: string;
   pubTitle?: string;
   subtitle?: string;
+  excerpt?: string;
+  description?: string;
   recordType?: string;
   stardate?: string;
   archiveDate?: string;
@@ -25,6 +27,8 @@ const {
   title,
   pubTitle,
   subtitle,
+  excerpt,
+  description,
   recordType = "Archive Record",
   stardate,
   archiveDate,
@@ -40,6 +44,11 @@ const relatedRecords = (frontmatter.relatedRecords ?? Astro.props.relatedRecords
 const displayTitle = pubTitle ?? title;
 const displayHeroAlt = heroAlt ?? displayTitle;
 const displayDate = federationDate ?? archiveDate;
+const metaDescription =
+  description ??
+  excerpt ??
+  subtitle ??
+  `${displayTitle}${stardate ? `, Stardate ${stardate}` : ""}, a record from the USS Kepler archive.`;
 const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
 const logsIndex = pathSegments.indexOf("logs");
 const logRoleSlug = logsIndex >= 0 ? pathSegments[logsIndex + 1] : undefined;
@@ -49,7 +58,7 @@ const roleLabel = author ? String(author).replace(/\s*\([^)]*\)\s*$/, "") : "Cre
 
 ---
 
-<Layout title={title}>
+<Layout title={title} description={metaDescription}>
   <main class="interior-shell publication-shell">
     <div class="publication-layout">
       <article class="publication-content">
@@ -64,7 +73,7 @@ const roleLabel = author ? String(author).replace(/\s*\([^)]*\)\s*$/, "") : "Cre
 
           {heroImage && (
             <figure class="publication-hero-image">
-              <img src={heroImage} alt={displayHeroAlt} />
+              <img src={heroImage} alt={displayHeroAlt} loading="lazy" decoding="async" />
             </figure>
           )}
         </section>

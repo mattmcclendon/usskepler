@@ -59,7 +59,7 @@ const railItems = [
 ];
 ---
 
-<Layout title={title} current="logs">
+<Layout title={title} current="logs" description={description}>
   <main class="interior-shell">
     <section class="page-hero">
       <p class="eyebrow">Log Archive</p>
@@ -144,7 +144,7 @@ const railItems = [
 
 .log-type {
   margin: 0 0 0.92rem;
-  color: var(--operations);
+  color: var(--operations-ink);
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
@@ -160,7 +160,7 @@ const railItems = [
 
 .log-card.operations .log-type,
 .log-card.operations .log-footer span:last-child {
-  color: var(--operations);
+  color: var(--operations-ink);
 }
 
 .log-card.sciences .log-type,

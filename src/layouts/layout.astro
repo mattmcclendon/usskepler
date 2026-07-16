@@ -68,7 +68,7 @@ const navItems = [
 
       <header class="site-header" data-pagefind-ignore>
         <div class="brand-block">
-          <a class="brand" href="/" aria-label="USS Kepler home">
+          <a class="brand" href="/" aria-label="USS Kepler NCC-83639 home">
             <span class="brand-line">
               <span class="brand-name">USS KEPLER</span>
               <span class="registry">NCC-83639</span>
@@ -97,9 +97,13 @@ const navItems = [
 
       <footer class="site-footer" data-pagefind-ignore>
         <img
-          src="/ufp-footer.png"
+          src="/ufp-footer-160.webp"
           alt="United Federation of Planets emblem"
           class="footer-emblem"
+          width="160"
+          height="160"
+          loading="lazy"
+          decoding="async"
         />
         <p>
           Maintained by the Office of Cultural & Scientific Archives, Memory Alpha.
@@ -203,6 +207,7 @@ const navItems = [
     --space: #080d12;
     --command-color: #a71313;
     --operations-color: #d6a444;
+    --operations-ink: #75540d;
     --science-color: #2b53a7;
     --engineering-color: #b86a34;
     --medical-color: #2f7d7a;
@@ -714,7 +719,7 @@ const navItems = [
   .card-label {
     min-height: 2.2em !important;
     margin: 0 0 1.25rem !important;
-    color: var(--operations);
+    color: var(--operations-ink);
     font-family: "Orbitron", sans-serif !important;
     font-size: 0.62rem !important;
     font-weight: 700 !important;
@@ -759,7 +764,7 @@ const navItems = [
   .card-action {
     margin-top: auto;
     padding-top: 1.1rem;
-    color: var(--operations);
+    color: var(--operations-ink);
     font-family: "Orbitron", sans-serif;
     font-size: 0.62rem;
     font-weight: 700;
@@ -794,7 +799,7 @@ const navItems = [
   .logs-card.operations .card-action,
   .archive-card.operations .card-label,
   .archive-card.operations .card-action {
-    color: var(--operations) !important;
+    color: var(--operations-ink) !important;
   }
 
   .section-card.sciences .card-label,
@@ -824,7 +829,7 @@ const navItems = [
   .logs-card:not(.command):not(.operations):not(.sciences) .card-action,
   .archive-card:not(.command):not(.operations):not(.sciences) .card-label,
   .archive-card:not(.command):not(.operations):not(.sciences) .card-action {
-    color: var(--operations) !important;
+    color: var(--operations-ink) !important;
   }
 
 
