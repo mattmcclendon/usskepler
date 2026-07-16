@@ -3,16 +3,18 @@ interface Props {
   title?: string;
   current?: "mission" | "ship" | "crew" | "logs" | "archive" | "search";
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "USS Kepler",
   current,
   description = "USS Kepler is an independent Star Trek fan project documenting the fictional operations, doctrine, and civic mission of USS Kepler.",
+  noindex = false,
 } = Astro.props;
 
 const pageTitle = title === "USS Kepler" ? title : `${title} | USS Kepler`;
-const ogImage = "/og-default.jpeg";
+const ogImage = "/og.png";
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
 const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).toString();
 
@@ -30,7 +32,9 @@ const navItems = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="USS Kepler" />
@@ -40,7 +44,7 @@ const navItems = [
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="900" />
-    <meta property="og:image:alt" content="Technical pencil-and-ink illustration of USS Kepler above the title U.S.S. Kepler." />
+    <meta property="og:image:alt" content="Pencil-and-ink illustration of USS Kepler above the words USS Kepler and The Frontier Is Belonging." />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
@@ -58,11 +62,11 @@ const navItems = [
 
   <body>
     <div class="page-shell">
-      <aside class="side-rail" aria-label="Stardate marker">
+      <aside class="side-rail" aria-label="Stardate marker" data-pagefind-ignore>
         <span class="rail-text" id="stardate">STARDATE 80438.356 ・ 2403-JUN-10</span>
       </aside>
 
-      <header class="site-header">
+      <header class="site-header" data-pagefind-ignore>
         <div class="brand-block">
           <a class="brand" href="/" aria-label="USS Kepler home">
             <span class="brand-line">
@@ -91,7 +95,7 @@ const navItems = [
 
       <slot />
 
-      <footer class="site-footer">
+      <footer class="site-footer" data-pagefind-ignore>
         <img
           src="/ufp-footer.png"
           alt="United Federation of Planets emblem"
@@ -900,7 +904,7 @@ const navItems = [
 
     .main-nav {
       gap: 0.9rem 1.1rem;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.16em;
     }
 
@@ -929,6 +933,24 @@ const navItems = [
     }
 
     .site-footer .legal {
+      justify-self: start;
+    }
+
+    .site-footer nav {
+      font-size: 0.72rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .main-nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: 100%;
+      gap: 0.8rem 0.5rem;
+    }
+
+    .main-nav a,
+    .search-link {
       justify-self: start;
     }
   }

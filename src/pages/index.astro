@@ -55,7 +55,10 @@ const quickAccess = [
 ];
 ---
 
-<Layout title="USS Kepler">
+<Layout
+  title="USS Kepler"
+  description="USS Kepler is a living Star Trek fan archive about service, belonging, and the institutions connecting Federation worlds."
+>
   <main>
         <section class="hero" aria-labelledby="hero-title">
           <img
@@ -177,12 +180,11 @@ const quickAccess = [
   h1 {
     margin: 0;
     font-family: "Inter", sans-serif;
-    text-transform: uppercase;
-    max-width: 560px;
-    font-size: clamp(3rem, 4.6vw, 4.75rem);
-    line-height: 1.1;
-    font-weight: 500;
-    letter-spacing: 0.015em;
+    max-width: 520px;
+    font-size: clamp(2.65rem, 4vw, 4.1rem);
+    line-height: 1.04;
+    font-weight: 400;
+    letter-spacing: -0.025em;
   }
 
   h1 span {
@@ -465,6 +467,12 @@ const quickAccess = [
 
     .hero-content {
       padding: 3.2rem 1rem 2.5rem;
+    }
+
+    h1 {
+      max-width: 9ch;
+      font-size: clamp(2.4rem, 12vw, 3.25rem);
+      line-height: 1.02;
     }
 
     .content-grid {

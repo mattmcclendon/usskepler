@@ -2,37 +2,44 @@
 import Layout from "../layouts/layout.astro";
 ---
 
-<Layout title="Search" current="search">
-  <main class="interior-shell">
+<Layout
+  title="Search"
+  current="search"
+  description="Search USS Kepler mission records, personnel files, doctrine, timelines, and shipboard logs."
+  noindex
+>
+  <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
+  <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+
+  <main class="interior-shell" data-pagefind-ignore>
     <section class="page-hero">
       <p class="eyebrow">Archive Access</p>
       <h1>Search</h1>
       <p class="dek">
-        Full archive search is currently under development and will be available in a future update.
+        Search mission records, personnel files, doctrine, timelines, and
+        shipboard logs from across the archive.
       </p>
     </section>
 
-    <section class="coming-soon">
-      <h2>Coming Soon</h2>
-      <p>
-        USS Kepler will eventually include a full-text archive search powered by
-        Pagefind, allowing visitors to search doctrine, mission reports,
-        personnel records, logs, and reference documents.
-      </p>
+    <section class="archive-search" aria-labelledby="search-archive-title">
+      <h2 id="search-archive-title">Archive Search</h2>
+      <pagefind-input placeholder="Search the archive"></pagefind-input>
+      <pagefind-summary></pagefind-summary>
+      <pagefind-results></pagefind-results>
     </section>
   </main>
 </Layout>
 
 <style>
-  .coming-soon {
-    max-width: 66ch;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.28);
+  .archive-search {
+    max-width: 820px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: rgba(255, 255, 255, 0.34);
     border-left: 4px solid var(--operations);
   }
 
-  .coming-soon h2 {
-    margin: 0 0 0.75rem;
+  .archive-search h2 {
+    margin: 0 0 1.25rem;
     color: var(--operations);
     font-family: "Orbitron", sans-serif;
     font-size: 0.72rem;
@@ -41,7 +48,20 @@ import Layout from "../layouts/layout.astro";
     text-transform: uppercase;
   }
 
-  .coming-soon p {
-    margin: 0;
+  pagefind-input,
+  pagefind-summary,
+  pagefind-results {
+    --pagefind-ui-primary: var(--command);
+    --pagefind-ui-text: var(--ink);
+    --pagefind-ui-background: #fffdf7;
+    --pagefind-ui-border: rgba(17, 17, 17, 0.22);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0;
+    --pagefind-ui-font: "Inter", sans-serif;
+  }
+
+  pagefind-summary {
+    display: block;
+    margin-top: 1rem;
   }
 </style>
